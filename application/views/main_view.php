@@ -16,13 +16,25 @@
     </div>
     <div class="row">
         <div class="span4">
-        
+            <a href=""> 
+                <div class="pic">
+                    <img src="images/1.jpg"/>
+                </div>
+            </a>
         </div>
         <div class="span4">
-        
+             <a href=""> 
+                <div class="pic">
+                    <img src="images/1.jpg"/>
+                </div>
+            </a>
         </div>
         <div class="span4">
-        
+             <a href=""> 
+                <div class="pic">
+                    <img src="images/1.jpg"/>
+                </div>
+            </a>
         </div>
     </div>
 </div>	
