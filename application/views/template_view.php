@@ -21,9 +21,22 @@
                             <div class="navbar-inner">
                                 <a class="brand" href="/main">ImprovY</a>
                                 <ul class="nav pull-right">
-                                    <li class="active"><a href="/services">О нас</a></li>
-                                    <li><a href="/contacts">Контакты</a></li>
-                                    <li><a href="">Link</a></li>
+                                  
+                                    <?php 
+                                        switch($content_view){
+                                            case "main_view.php":   echo "<li class='active'><a href='/main'>Главная</a></li>
+                                                                    <li><a href='/contacts'>Контакты</a></li>
+                                                                    <li><a href='/portfolio'>О нас</a></li>" ; break;
+                                            case "contacts_view.php":   echo "<li><a href='/main'>Главная</a></li>
+                                                                    <li class='active'><a href='/contacts'>Контакты</a></li>
+                                                                    <li><a href='/portfolio'>О нас</a></li>"; break;
+                                            case "portfolio_view.php":   echo "<li ><a href='/main'>Главная</a></li>
+                                                                    <li><a href='/contacts'>Контакты</a></li>
+                                                                    <li class='active'><a href='/portfolio'>О нас</a></li>";break;
+                                            
+                                        }
+                                    ?>
+                                    
                                 </ul>
                             </div>
                         </div>
