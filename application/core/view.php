@@ -3,7 +3,7 @@
 class View
 {
 	
-	//public $template_view; // здесь можно указать общий вид по умолчанию.
+	public $template_view = "template_view.php"; // здесь можно указать общий вид по умолчанию.
 	
 	/*
 	$content_file - виды отображающие контент страниц;
