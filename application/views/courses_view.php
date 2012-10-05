@@ -8,6 +8,7 @@
                 
             </ul>
         </div>
+        <div id="issue"></div>
         <div class="span8">
         
         </div>
