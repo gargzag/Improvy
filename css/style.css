@@ -44,3 +44,9 @@ border-width: 1px;
     font-weight: bold;
     
 }
+
+#issue {
+    position: relative;
+    top: 40px;
+    left: 140px;
+}

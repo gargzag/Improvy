@@ -1,5 +1,6 @@
 <?php
 
+
 class Controller_Courses extends Controller{
     
     function __construct(){
@@ -19,6 +20,7 @@ class Controller_Courses extends Controller{
     }
     function action_yoga(){
         $data = $this->model->get_data();
+        $data = $this->model->first();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_dance(){
@@ -33,4 +35,3 @@ class Controller_Courses extends Controller{
 }
 
 
-?>
