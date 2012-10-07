@@ -2,8 +2,8 @@
     <div class="row">
         <div class="span5">
             <div class="well well-large">
-                <h4>Take your product to new heights.</h4>
-                <p>Bounce is a modern and minimalistic landing page perfect for showing off your latest product or service and its features. Bounce is a wonderful starting point to create something more unique.
+                
+                <p> Improvy - это сервис, позволяющий за пару кликов 
                 <p><a href="/courses"><button class="btn btn-large btn-primary" type="button">Совершенствоваться</button></a>
             </div>
         </div>   

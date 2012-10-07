@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="description" content="" />
+		<meta name="description" content="Imptovy - это место, где собраны все образовательные курсы и спортивные секции вашего города." />
 		<meta name="keywords" content="" />
 		<title>ImprovY</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,6 +11,7 @@
         <link href="/css/style.css" rel="stylesheet" type="text/css"/>
         <script src="/js/jquery.js" type="text/javascript"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        
 	</head>
 	<body >
         <header>
