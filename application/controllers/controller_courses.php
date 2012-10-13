@@ -12,20 +12,20 @@ class Controller_Courses extends Controller{
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-    function action_fitnes(){
+    function action_sport(){
 
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-    function action_yoga(){
+    function action_martial(){
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-    function action_dance(){
+    function action_computer(){
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-    function action_photo(){
+    function action_languages(){
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php');
     }

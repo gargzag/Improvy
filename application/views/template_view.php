@@ -15,27 +15,30 @@
 	</head>
 	<body >
         <header>
+                
                     <div class="navbar navbar-fixed-top">
-                        <div class="navbar-inner">
+                        <div class="navbar-inner ">
                             <div class="container">
                                 <a class="brand" href="/main">ImprovY</a>
+                                <a class="brand" href="/main">Санкт-Петербург</a>
                                 <ul class="nav pull-right">
-                                  
+                                    <li><a href='/contacts'>Контакты</a></li>
+                                    <li><button class="btn btn-primary" type="button">Добавить курсы</button></li>
                                     <?php 
-                                        
-                                        switch($content_view){
-                                            case "main_view.php":   echo "<li class='active'><a href='/main'>Главная</a></li>
-                                                                    <li><a href='/contacts'>Контакты</a></li>
-                                                                    <li><a href='/portfolio'>О нас</a></li>" ; break;
-                                            case "contacts_view.php":   echo "<li><a href='/main'>Главная</a></li>
-                                                                    <li class='active'><a href='/contacts'>Контакты</a></li>
-                                                                    <li><a href='/portfolio'>О нас</a></li>"; break;
-                                            case "portfolio_view.php":   echo "<li ><a href='/main'>Главная</a></li>
-                                                                    <li><a href='/contacts'>Контакты</a></li>
-                                                                    <li class='active'><a href='/portfolio'>О нас</a></li>";break;
-                                            
-                                        }
-                                    ?>
+//                                        
+//                                        switch($content_view){
+//                                            case "main_view.php":   echo "<li class='active'><a href='/main'>Главная</a></li>
+//                                                                    <li><a href='/contacts'>Контакты</a></li>
+//                                                                    <li><a href='/portfolio'>О нас</a></li>" ; break;
+//                                            case "contacts_view.php":   echo "<li><a href='/main'>Главная</a></li>
+//                                                                    <li class='active'><a href='/contacts'>Контакты</a></li>
+//                                                                    <li><a href='/portfolio'>О нас</a></li>"; break;
+//                                            case "portfolio_view.php":   echo "<li ><a href='/main'>Главная</a></li>
+//                                                                    <li><a href='/contacts'>Контакты</a></li>
+//                                                                    <li class='active'><a href='/portfolio'>О нас</a></li>";break;
+//                                            
+//                                        }
+//                                    ?>
                                     
                                 </ul>
                             </div>
