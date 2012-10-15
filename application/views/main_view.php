@@ -51,7 +51,7 @@
     <div class="row">
         <div class="span4">
             <div class="item">
-                <a href="courses/martial">
+                <a href="courses/martial?course=martial">
                     <div class="item_header">Боевые единоборства</div>
                     <div class="img"><img src="images/martial.jpg"/></div>
                 </a>
