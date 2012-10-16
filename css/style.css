@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿.footer{
     padding: 70px 0;
     margin-top: 70px;
@@ -69,4 +70,97 @@ border-width: 1px;
 #res {
     top:10px;
     left:20px;
+=======
+﻿.footer{
+    padding: 70px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+    background-color: whiteSmoke;
+}
+.item{
+    width: 100%;
+    border: 1px solid #B4B4B4;
+    webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15),inset 0 0 0 1px rgba(255,255,255,0.9);
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.img{
+    display: block;
+    width:100%;
+    min-heigt:100%;
+    border-top: 1px solid #CCC;
+}
+.item:hover{
+    -webkit-box-shadow:0 1px 10px 0 rgba(16, 118, 167, 0.51),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow:0 1px 10px 0 rgba(16, 118, 167, 0.51),inset 0 0 0 1px rgba(255,255,255,0.9);
+    box-shadow:0 1px 10px 0 rgba(16, 118, 167, 0.51),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+.item_header {
+    padding:10px;
+    
+    
+}
+.item a{
+    text-decoration: none;
+}
+
+.result{
+    /*border:1px solid #E5E5E5;*/
+    /*border-bottom:0;*/
+    padding: 0px 0 10px 0;
+    /*display:table;*/
+    
+}
+.filtr{
+    border:1px solid #E5E5E5;
+    border-right:0;
+}
+
+/*hr {
+margin: 20px 0 40px 0;
+border-top: 1px solid #EEE;
+border-bottom: 1px solid white;
+display: block;
+-webkit-margin-before: 0.5em;
+-webkit-margin-after: 0.5em;
+-webkit-margin-start: auto;
+-webkit-margin-end: auto;
+border-width: 1px;
+}*/
+.text_icon{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+    
+}
+.details{
+    width: 60%;
+    padding: 0 0 0 10px;
+}
+.picture{
+    width: 20%;
+    /*display: block;
+    padding: 4px;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;*/
+}
+.price{
+    width: 20%;
+>>>>>>> Mp/master
 }

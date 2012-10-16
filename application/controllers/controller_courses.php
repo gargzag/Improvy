@@ -34,4 +34,3 @@ class Controller_Courses extends Controller{
 }
 
 
-?>
