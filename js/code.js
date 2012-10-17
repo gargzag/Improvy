@@ -1,12 +1,9 @@
 $(function() {
-    //alert("LOH");
-  $(".details").load('/php/search.php', function(response) {
-    
-    $(".details").empty();
-    var res = $.parseJSON(response);
-    var l = res.length;
-    for(var i = 0; i < l; i++) {
-      $(".details").append('<p>' + res[i].id + '</p>');
-    };
-  });
-})
+	$("#side").accordion({
+		navigation: true
+	});
+	$("#side li a").click(function() {
+		$.cookie("openItem", $(this).attr("href"));
+	});
+	$("#side li a[href$='" + $.cookie("openItem") + "']").addClass("open");
+});
