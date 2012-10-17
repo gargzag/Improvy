@@ -14,9 +14,11 @@ class Controller_Courses extends Controller{
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_sport(){
-
+        
         $data = $this->model->get_data();
         $this->view->generate('courses_view.php','template_view.php',$data);
+        
+        
     }
     function action_martial(){
         $data = $this->model->get_data();

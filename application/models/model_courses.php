@@ -3,6 +3,12 @@
 class Model_Courses extends Model
 {
 	
+    
+    
+    public function get_course($course_name)
+    {
+        
+    }
 	public function get_data()
 	{	
 		

@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
         <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        
         <link href="/css/style.css" rel="stylesheet" type="text/css"/>
         <script src="/js/jquery.js" type="text/javascript"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

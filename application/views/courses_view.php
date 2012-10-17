@@ -131,7 +131,7 @@
             <td class="picture"><img src="../images/1.jpg"/></td>
             <td class="details">
                 <span class="page-header"> 
-                    <h4><a href="">Графика и дизайн</a><p><small>пр.Энгельса 45</small></h4>
+                    <h4><a href="/companyname/yoga">Графика и дизайн</a><p><small>пр.Энгельса 45</small></h4>
                 </span>
             </td>
             <td class="price"><p class="lead">от 3000р.</p></td>

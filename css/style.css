@@ -90,3 +90,14 @@ border-width: 1px;
 .price{
     width: 20%;
 }
+.enroll{
+    border: 1px solid #B4B4B4;
+    webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0 1px 10px 0 rgba(0,0,0,0.15),inset 0 0 0 1px rgba(255,255,255,0.9);
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15),inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
