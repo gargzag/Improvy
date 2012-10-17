@@ -121,6 +121,6 @@
             <span class="text-info text_icon"></span>
             <p>Bounce comes with several different colors, giving you a head start on creating a unique design.
         </div>
-    </div>
-</div>	
 </div>
+</div>	
+

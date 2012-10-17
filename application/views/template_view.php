@@ -8,13 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
         <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        
-        <link href="/css/style.css" rel="stylesheet" type="text/css"/>
         <script src="/js/jquery.js" type="text/javascript"></script>
-		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        
+        <script src="/js/code.js" type="text/javascript"></script>
+        <script src="/js/jquery.cookie.js" type="text/javascript"></script>
+        <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/css/jquery-ui.css" />
+        <script src="/js/jquery-ui.js"></script>
 	</head>
-	<body >
+    <body>
         <header>
                 
                     <div class="navbar navbar-fixed-top">
@@ -56,6 +58,5 @@
                 </div>
             </div>
         </footer> 
-				
-	</body>
-</html>
+    </body>
+ </html>
