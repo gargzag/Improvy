@@ -170,11 +170,10 @@
 <div class="container">
     <div class="row">
         <div class="span3">
+           <div id="side">
            
-<div id="side">
-
-  <h3><li><a href="#">Спорт/Фитнес</a></li></h3>
-  <ul class="nav nav-list">
+                <h3><li><a href="#">Спорт/Фитнес</a></li></h3>
+                    <ul class="nav nav-list">
                     <li><a href="sport">Все</a></li>
                     <li><a href="yoga">Yoga</a></li>
                     <li><a href="pilates">Pilates</a></li>
@@ -182,7 +181,7 @@
                     <li><a href="tennis">Теннис</a></li>
                     <li><a href="run">Бег</a></li>
                     <li><a href="streching">Стречинг</a></li>
-  </ul>
+                    </ul>
 
   <h3><li><a href="#">Боевые искусства</a></li></h3>
   <ul class="nav nav-list">
