@@ -2,7 +2,7 @@
     <div class="row">
         <div class="span12">
             <h4>CourseName
-            <p><small><a href="/companyname">CompanyName</a>,Adress,Telephone</small>
+            <p><small><a href="/summerhouse">CompanyName</a>,Adress,Telephone</small>
             </h4>
         </div>
     </div>

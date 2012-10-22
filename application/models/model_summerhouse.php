@@ -1,10 +1,10 @@
 <?php
 
-class Model_Courses extends Model
-{
 
-
-        function __construct(){
+class Model_Summerhouse extends Model{
+    
+    
+    function __construct(){
 
         //echo "<script type='text/javascript' src='/js/jquery.js'></script>";
         //include '/php/db.php';
@@ -19,16 +19,16 @@ class Model_Courses extends Model
         $db = mysql_pconnect($localhost, $dbuser) or die('В настоящий момент сервер базы данных не доступен.');  
         mysql_query("SET NAMES 'UTF8'");
         mysql_select_db($database, $db) or die ('В настоящий момент база данных не доступна.');
-    }
-	
-	public function get_data($course)
-	{	
-        $data = mysql_query("SELECT `$course`.`name_rus` as rus,`$course`.`name_eng` as eng, `$course`.`price`, `companies`.`name_rus`,`companies`.`name_eng`
+        }
+        
+        public function get_data(){
+            
+            $data = mysql_query("SELECT `$course`.`name_rus` as rus,`$course`.`name_eng` as eng, `$course`.`price`, `companies`.`name_rus`,`companies`.`name_eng`
                             FROM $course JOIN venues on $course.id_venue = venues.id_venue 
                                          JOIN companies on venues.id_company = companies.id_company");              
-        return $data;
-		
-	}
-    	
+            return $data;
+        }
+    
 }
 
+?>

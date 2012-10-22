@@ -14,24 +14,30 @@ class Controller_Courses extends Controller{
     }
     function action_sport(){
 
-        $data = $this->model->get_data();
+        $course = "sports";
+        $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_martial(){
-        $data = $this->model->get_data();
+        $course = "martial";
+        $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_computer(){
-        $data = $this->model->get_data();
+        $course = "computer";
+        $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_languages(){
-        $data = $this->model->get_data();
-        $data = $this->model->languages();
+        $course = "languages";
+        $data = $this->model->get_data($course);
+        $this->view->generate('courses_view.php','template_view.php',$data);
+    }
+     function action_dance(){
+        $course = "dances";
+        $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     
 }
-
-
 
