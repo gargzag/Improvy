@@ -1,21 +1,35 @@
 <div class="container">
 <div class="row">
     <div class="span3">
-        <ul class="nav nav-tabs nav-stacked">
-            <li class="active"><a href="#about">О компании</a></li>
-            <li><a href="#courses">Курсы</a></li>
-            <li><a href="#">Расписание</a></li>
-            <li><a href="#">Филиалы</a></li>
-        </ul>
+        
+
+        <br />
+        <form action="/summerhouse" method="post">
+            <select onchange="this.form.submit()" name="location">
+                <option value="all" >Все</option>
+                <option value="kamen" >Зал на Комендантском</option>
+                <option value="pioner">Зал на Пионерской</option>
+                <option value="krest">Зал на Крестовском</option>
+                <option value="vas">Зал на Ваське</option>
+                <option value="punk">Зал в ПУНКе</option>
+            </select>
+        </form>
     </div>
     <div class="span9">
         <div class="thumbnail">
             <img src="../images/comp.jpg" />
         </div>
         <br />
-        <div class="well" id="about">
-            <h6></h6>
-            <p><?php  ?></p>
+        <div class="well well-small" id="about">
+            <h6>О компании</h6>
+            <p><?php 
+                    if(mysql_num_rows($data) > 0) {
+                        while($row = mysql_fetch_array($data)) {
+                        echo ($row['about']);
+                        echo ($row['address']);
+                        }
+                    } else echo 1; 
+                ?> </p>
         </div>
         <div id="courses">
             <table class="table table-hover">

@@ -9,7 +9,14 @@
     
     <div class="row">
         <div class="span8">
-            <img src="../images/comp.jpg" />
+            <div class="thumbnail">
+             <img src="../images/comp.jpg" />
+            </div>
+            <br />
+            <div class="well well-small" id="about">
+                <h6>О курсе....</h6>
+                <p><?php  ?></p>
+            </div>
         </div>
         <div class="span4">
             <div class="well">
