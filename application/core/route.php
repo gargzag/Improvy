@@ -13,7 +13,7 @@ class Route
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
-		
+		global $routes;
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 
 		// получаем имя контроллера
@@ -27,7 +27,11 @@ class Route
 		{
 			$action_name = $routes[2];
 		}
-
+        if (!empty($routes[3]))
+        {
+            $view_name = $routes[3];
+        }
+        
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
@@ -91,3 +95,4 @@ class Route
     }
     
 }
+

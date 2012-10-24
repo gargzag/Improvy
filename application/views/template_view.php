@@ -95,7 +95,7 @@
                             <button type="" class="btn" id="sub">Регистрация</button>
                         </div>
                       </div>
-                      <button type="submit" class="btn" id="GO">Submit</button>
+                      
                 </form>
           </div>
           <div class="modal-footer">
@@ -148,3 +148,4 @@
 				
 	</body>
 </html>
+

@@ -1,4 +1,4 @@
-$(function() {
+ $(function() {
 	$("#side").accordion({
 		navigation: true,
 		heightStyle: "content",

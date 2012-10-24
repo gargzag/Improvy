@@ -14,7 +14,7 @@
                     <li><a href="streching">Стречинг</a></li>
   </ul>
 
-  <h3><li><a href="#">Боевые искусства</a></li></h3>
+  <h3><li><a href="martial">Боевые искусства</a></li></h3>
   <ul class="nav nav-list">
                     <li><a href="box">Бокс</a></li>
                     <li><a href="karate">Каратэ</a></li>
@@ -23,7 +23,7 @@
                     <li><a href="tai_box">Тайский бокс</a></li>
   </ul>
 
-  <h3><li><a href="#">Компьютерные курсы</a></li></h3>
+  <h3><li><a href="computer">Компьютерные курсы</a></li></h3>
   <ul class="nav nav-list">
                     <li><a href="#">Программирование</a></li>
                     <li><a href="#">SEO</a></li>
@@ -33,7 +33,7 @@
                     </ul>
   </ul>
 
-  <h3><li><a href="/courses/languages">Иностранные языки</a></li></h3>
+  <h3><li><a href="languages">Иностранные языки</a></li></h3>
   <ul class="nav nav-list">
                     <li><a href="№">Английский</a></li>
                     <li><a href="#">Французский</a></li>
@@ -43,7 +43,7 @@
                     <li><a href="#">Китайский</a></li>
   </ul>
 
-  <h3><li><a href="#">Танцы</a></li></h3>
+  <h3><li><a href="dance">Танцы</a></li></h3>
   <ul class="nav nav-list">
                     <li><a href="#">Клубные танцы</a></li>
                     <li><a href="#">Hip-Hop</a></li>
@@ -56,75 +56,30 @@
 </div>
         </div>
         <div class="span9">
-               <!-- <div  class="row">
-                    <?php
-                   /* if(mysql_num_rows($data) > 0) {
-                        while($row = mysql_fetch_array($data)) {
-                         echo ("<div class='result'>
-                        <div class='span2'>
-                            <div class='thumbnail'>
-                                <img src='../images/1.jpg'/>
-                            </div>
-                        </div>
-                        <div class='span5'>    
-                            <div class='details'>"
-                            .$row['name']
-                             .$row['description'].   
-                            "</div>
-                        </div>
-                        <div class='span2'>
-                            <div class='price'>"
-                            .$row['price'].
-                            "</div>
-                        </div>
-                    </div>
-                </div>");
-                           }
-                         } else echo 1;*/
-                     ?>       
-    </div>-->
+               
+                    
+   
     <table class="table table-hover">
-        <tr>
+        
              <?php
+                    
                     if(mysql_num_rows($data) > 0) {
                         while($row = mysql_fetch_array($data)) {
-                         echo ("<td class='picture'><img src='../images/1.jpg'/></td>
-            <td class='details'>
-                <span class='page-header'> 
-                    <h4><a href=''>".$row['s']."</a><p><small>".$row['name_rus']."</small></h4>
-                </span>
-            </td>
-            <td class='price'><p class='lead'>".$row['price']."</p></td>
-        </tr>");
-                     }
-                 } else echo 1;
+                        echo (" <tr>
+                                    <td class='picture'><img src='../images/1.jpg'/></td>
+                                    <td class='details'>
+                                        <span class='page-header'> 
+                                            <h4><a href=/".$row['name_eng']."/".$row['eng'].">".$row['rus']."</a><p><small>".$row['name_rus']."</small></h4>
+                                        </span>
+                                    </td>
+                                    <td class='price'><p class='lead'>".$row['price']."</p></td>
+                                </tr>");
+                        }
+                    } else echo 1;
         ?>
-       <!-- <tr>
-            <td class="picture"><img src="../images/1.jpg"/></td>
-            <td class="details">Alex</td>
-            <td class="price">2000</td>
-        </tr>
-        <tr>
-            <td>123</td>
-            <td class="details">Alex</td>
-            <td class="price">2000</td>
-        </tr>
-        <tr>
-            <td>123</td>
-            <td class="details">Alex</td>
-            <td class="price">2000</td>
-        </tr>
-        <tr>
-            <td>123</td>
-            <td class="details">Alex</td>
-            <td class="price">2000</td>
-        </tr>
-        <tr>
-            <td>123</td>
-            <td class="details">Alex</td>
-            <td class="price">2000</td>
-        </tr>-->
+       
     </table>
 </div>
 </div>
+
 </div>
