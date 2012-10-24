@@ -9,7 +9,7 @@ class Controller_Summerhouse extends Controller{
     }
     function action_index() {
        
-        
+        echo $_POST["location"];
         $data = $this->model->get_data();
         $this->view->generate('company_view.php','template_view.php',$data);
     }
