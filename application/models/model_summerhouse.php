@@ -24,7 +24,7 @@ class Model_Summerhouse extends Model{
         public function get_data(){
             
             $data = mysql_query("SELECT * FROM companies
-                                JOIN venues on companies.id_company = venues.id_company
+                                
                                 where companies.name_eng = 'summerhouse'");   
             return $data;
         }
