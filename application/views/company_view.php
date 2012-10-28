@@ -23,10 +23,9 @@
         <div class="well well-small" id="about">
             <h6>О компании</h6>
             <?php 
-                    if(mysql_num_rows($data) > 0) {
-                        while($row = mysql_fetch_array($data)) {
+                    if(mysql_num_rows($data[1]) > 0) {
+                        while($row = mysql_fetch_array($data[1])) {
                         echo ("<p>".$row['about']."</p>");
-                        echo ("<p>".$row['address']."</p>");
                         }
                     } else echo 1; 
                 ?> 
