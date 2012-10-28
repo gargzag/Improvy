@@ -19,44 +19,7 @@
         
         
 	</head>
-	<body >
-       <!--<div class="bg_modal"></div>
-        <div class="modalw"> 
-            <p align="right">
-                <a href="#" id="closemodal"><i class="icon-remove"></i>Закрыть</a>
-            </p>            
-            <div class="modalc">
-                <h1 align="center">ImprovY</h1>
-                <p>Здравствуйте, зарегистрируйтесь пложалуйста чтобы добавить свои курсы</p>
-                <p>Регистрация простая, заполните поля ниже</p>
-                <form class="form-horizontal" method="POST" action="">
-                      <div class="control-group">
-                        <label class="control-label" for="inputEmail">Email</label>
-                        <div class="controls">
-                          <input type="text" id="inputEmail" placeholder="Email"><div id="1"></div>
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <label class="control-label" for="inputPassword">Пароль</label>
-                        <div class="controls">
-                          <input type="password" id="inputPassword" placeholder="Пароль">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <label class="control-label" for="inputPassword">Повторите пароль</label>
-                        <div class="controls">
-                          <input type="password" id="inputPassword2" placeholder="Пароль">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <div class="controls">
-                            <button type="" class="btn" id="sub">Регистрация</button>
-                        </div>
-                      </div>
-                </form>
-            </div>
-        </div>-->
-      
+	<body >    
         <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -65,11 +28,11 @@
           <div class="modal-body">
               <p>Здравствуйте, зарегистрируйтесь пложалуйста чтобы добавить свои курсы</p>
                 <p>Регистрация простая, заполните поля ниже</p>
-                <form class="form-horizontal" method="POST" action="/php/registration.php">
+                <form class="form-horizontal" method="POST" action="" id="regForm">
                       <div class="control-group">
                         <label class="control-label" for="inputEmail">Название компании</label>
                         <div class="controls">
-                          <input type="text" id="name" placeholder="Название компании" name="name"><div id="1"></div>
+                          <input type="text" id="Inputname" placeholder="Название компании" name="name"><div id="1"></div>
                         </div>
                       </div>
                       <div class="control-group">
@@ -92,11 +55,30 @@
                       </div>
                       <div class="control-group">
                         <div class="controls">
-                            <button type="" class="btn" id="sub">Регистрация</button>
+                          <button class="btn btn-primary" type="button" id="sub">Регистрация</button>                                                 
+                        </div>
+                      </div>                      
+                </form>
+                     <form class="form-horizontal" method="POST" action="" id="entForm">
+                     <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email</label>
+                        <div class="controls">
+                          <input type="text" id="entEmail" placeholder="Email" name="Email">
                         </div>
                       </div>
-                      
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Пароль</label>
+                        <div class="controls">
+                          <input type="password" id="entPassword" placeholder="Пароль" name="Pass">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">                          
+                          <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>                                                 
+                        </div>
+                      </div>                      
                 </form>
+                <p id="thx" style="display:none">Спасибо за регистрацию! нажмите <a href="/main">сюда</a> чтобы начать работать</p>
           </div>
           <div class="modal-footer">
            <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -112,7 +94,11 @@
                                 <a class="brand" href="/main">Санкт-Петербург</a>
                                 <ul class="nav pull-right">
                                     <li><a href='/contacts'>Контакты</a></li>
-                                    <li><a href='#' id="b">Вход</a></li>
+                                    <li><a href='#' id="b">Регистрация</a></li>
+                                    <li><a href='#' id="b3">Вход</a></li>
+
+                                    <li><a href='#' id="b1">Личный кабинет</a></li>
+                                    <li><a href='' id="b2">Выход</a></li>
                                     <li><button class="btn btn-primary" type="button">Добавить курсы</button></li>
                                     <?php 
 //                                        

@@ -2,23 +2,30 @@
 	include 'db.php';
 	$name = htmlspecialchars($_POST['name']);
 	//echo $name;
-	$pass = $_POST['Pass'];
-	$email = $_POST['Email'];
-	$id = generateCode;
-
+	$pass = md5($_POST['pass']);
+	$email = $_POST['email'];
 	
-			if (mysql_query("INSERT INTO users (name,email,password) VALUES ('" .$name. "','" .$pass. "','" .$email. "')")) //пишем данные в БД и авторизовываем пользователя
-			{
-				/*setcookie ("login", $login, time() + 50000, '/');
-				setcookie ("password", md5($login.$password), time() + 50000, '/');
-				$rez = mysql_query("SELECT * FROM users WHERE login=".$login);
-				@$row = mysql_fetch_assoc($rez);
-				$_SESSION['id'] = $row['id'];
-				$regged = true;
-				include ("template/registration.php"); //подключаем шаблон*/
+	$checkName = mysql_fetch_array(mysql_query("SELECT `name` FROM `users` WHERE `name`='$name'"));
+	$checkEmail = mysql_fetch_array(mysql_query("SELECT `email` FROM `users` WHERE `email`='$email'"));
+	if ($checkEmail['email'] != null || $checkName['name'] != null) {
+		echo 1;
+	}
+	else 
+	{
+		echo 2;
+		if (mysql_query("INSERT INTO users (name,email,pass) VALUES ('" .$name. "','" .$email. "','" .$pass. "')")) //пишем данные в БД и авторизовываем пользователя
+		{
+				setcookie ("login", $name, time() + 50000, '/');
+				//setcookie ("password", md5($login.$password), time() + 50000, '/');
+				//$rez = mysql_query("SELECT * FROM users WHERE login=".$login);
+				//@$row = mysql_fetch_assoc($rez);
+				//$_SESSION['id'] = $row['id'];
+				//$regged = true;
+				//include ("template/registration.php"); //подключаем шаблон*/
 				echo "go";
-			} else echo "mimo";
-	
+
+		} else echo "mimo";
+	}
 
 	function generateCode($length = 10)
 		{

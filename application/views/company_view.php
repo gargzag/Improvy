@@ -22,14 +22,14 @@
         <br />
         <div class="well well-small" id="about">
             <h6>О компании</h6>
-            <p><?php 
+            <?php 
                     if(mysql_num_rows($data) > 0) {
                         while($row = mysql_fetch_array($data)) {
-                        echo ($row['about']);
-                        echo ($row['address']);
+                        echo ("<p>".$row['about']."</p>");
+                        echo ("<p>".$row['address']."</p>");
                         }
                     } else echo 1; 
-                ?> </p>
+                ?> 
         </div>
         <div id="courses">
             <table class="table table-hover">
