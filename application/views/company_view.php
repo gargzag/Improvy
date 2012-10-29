@@ -32,15 +32,22 @@
         </div>
         <div id="courses">
             <table class="table table-hover">
-               <tr>
-                    <td class='picture'><img src='../images/1.jpg'/></td>
-                    <td class='details'>
-                    <span class='page-header'> 
-                    <h4><a></a><p><small></small></h4>
-                    </span>
-                    </td>
-                    <td class='price'><p class='lead'></p></td>
-               </tr>
+               <?php
+                    
+                    if(mysql_num_rows($data[2]) > 0) {
+                        while($row = mysql_fetch_array($data[2])) {
+                        echo (" <tr>
+                                    <td class='picture'><img src='../images/1.jpg'/></td>
+                                    <td class='details'>
+                                        <span class='page-header'> 
+                                            <h4><a href=/".$row['name_eng']."/".$row['eng'].">".$row['rus']."</a><p><small>".$row['name_rus']."</small></h4>
+                                        </span>
+                                    </td>
+                                    <td class='price'><p class='lead'>".$row['price']."</p></td>
+                                </tr>");
+                        }
+                    } else echo 1;
+                ?>
             </table>
         </div>
         </div>

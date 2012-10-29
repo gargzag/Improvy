@@ -27,21 +27,19 @@ class Route
 		{
 			$action_name = $routes[2];
 		}
-        if (!empty($routes[3]))
-        {
-            $view_name = $routes[3];
-        }
         
-		// добавляем префиксы
+        //if ($routes[1]=="main"||$routes[1]=="contacts"||$routes[1]=="courses")
+		//{// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
-
-		/*
-		echo "Model: $model_name <br>";
-		echo "Controller: $controller_name <br>";
-		echo "Action: $action_name <br>";
-		*/
+        //}
+        /*else {
+            $model_name = 'Model_summerhouse';
+            $controller_name = 'Controller_summerhouse';
+		    $action_name = 'action_'.$action_name;
+        }*/
+		
 
 		// подцепляем файл с классом модели (файла модели может и не быть)
 
