@@ -29,6 +29,15 @@ class Model_Courses extends Model
         return $data;
 		
 	}
+    
+    public function edit_descriptoin($course_description)
+	{	
+        mysql_query("UPDATE  `improvy`.`companies` 
+                     SET  `about` = '`$course_description`' 
+                     WHERE  `companies`.`id_company` =1;");              
+        
+		
+	}
     	
 }
 

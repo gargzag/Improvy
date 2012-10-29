@@ -19,6 +19,8 @@ class Model_Summerhouse extends Model{
                                 where companies.name_eng = 'summerhouse'");
             $data[1] = $data1;
             $data[2] = $data2;            
+
+            
             return $data;
         }
     
