@@ -35,6 +35,7 @@
                         //mysql_query("UPDATE  `improvy`.`companies` 
                         //             SET  `about` = '`$course_description`' 
                         //             WHERE  `companies`.`id_company` =1;"); 
+					
                         if (!isset ($_POST['test']))
                         {                         
                             //Вывод из базы данных
@@ -45,7 +46,8 @@
                             echo '<input type="hidden" name="action" value="false">';
                             echo '<textarea class="textarea" placeholder="Enter text..." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                            
                             echo '</form>';     
-                            //echo "action=".$_POST["action"]."";                                                   
+                            //echo "action=".$_POST["action"]."";
+														
                         }
                         else
                         {
@@ -69,7 +71,12 @@
                         }
                             
                 ?>
-                
+                		<script>
+        	$('.textarea').wysihtml5();
+        </script>
+        <script type="text/javascript" charset="utf-8">
+        	$(prettyPrint);
+        </script>
                  </p>
                 
                 
