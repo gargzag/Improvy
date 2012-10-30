@@ -393,15 +393,15 @@
     var locale = $.fn.wysihtml5.locale = {
         en: {
             font_styles: {
-                normal: "Текст",
-                h1: "Заголовок 1",
-                h2: "Заголовок 2",
-                h3: "Заголовок 3"
+                normal: "Text",
+                h1: "h 1",
+                h2: "h 2",
+                h3: "h 3"
             },
             emphasis: {
-                bold: "Жирный",
-                italic: "Наклонный",
-                underline: "Подчеркнутый"
+                bold: "Abc",
+                italic: "Abc",
+                underline: "Abc"
             },
             lists: {
                 unordered: "Unordered list",
