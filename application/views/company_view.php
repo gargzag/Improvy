@@ -5,15 +5,17 @@
 
         <br />
         <form action="/summerhouse" method="post">
-            <select onchange="this.form.submit()" name="location">
-                <option value="all" >Все</option>
-                <option value="kamen" >Зал на Комендантском</option>
+            <select onchange="this.form.submit()" name="location" id="select">
+                <option value="all">Выберите адрес</option>
+                <option value="Хухуху">Зал на Комендантском</option>
                 <option value="pioner">Зал на Пионерской</option>
                 <option value="krest">Зал на Крестовском</option>
                 <option value="vas">Зал на Ваське</option>
                 <option value="punk">Зал в ПУНКе</option>
             </select>
         </form>
+        <a href=""><button class="btn btn-primary">Добавить адрес</button></a>
+        
     </div>
     <div class="span9">
         <div class="thumbnail">

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="/css/jquery-ui-1.9.0.custom.css" />
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/reg.js"></script>
+        <script src="/js/select.js"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         
         
