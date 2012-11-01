@@ -22,6 +22,43 @@
         	.jumbo {
         		font-size: 20px;font-weight:normal;padding:14px 24px;margin-right:10px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;
 				}
+            .button_edit_textarea {
+                position:relative;
+                top: -45px;
+                left:10px;
+                float:right;
+                width:  48px !important;  
+                height: 48px; 
+                margin: 0;
+                padding:0;
+                border: 0;
+                background: transparent url('images/png/edit_textarea.png') no-repeat center top;
+                text-indent: -1000em;
+                cursor: pointer;
+                opacity: 0.5; 
+                cursor: hand;              
+            }
+            .button_edit_textarea:hover, .new_coorse_add_button:hover{
+                opacity: 0.9;
+            }
+            .button_save {
+                float:right;
+                 position:relative;             
+            }
+            .new_coorse_add_button{
+                width:  64px !important;  
+                height: 64px; 
+                margin: auto auto !important;
+                padding:0;
+                border: 0;
+                cursor: pointer;
+                opacity: 0.7; 
+                cursor: hand;               
+            }
+            .accordion-group:hover {                
+                background: #f5f5f5;
+            }
+            
 		</style>        
         <script type="text/javascript">        
           var _gaq = _gaq || [];

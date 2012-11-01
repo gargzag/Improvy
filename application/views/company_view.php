@@ -22,6 +22,9 @@
             <h6>О компании</h6>
             <p>
             <?php
+            
+            
+
                 while($row = mysql_fetch_array($data)) 
                 {
                     $text_description =  ($row['about']);
@@ -36,22 +39,23 @@
                                      WHERE  `companies`.`id_company` =1;");
                     }                               
                     echo '<form name="frm" method="POST">';
+                    echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
                     //Вывод из базы данных 
                     echo $text_description."<br/>"; 
-                    echo '<input type="submit" value="Редактировать!" class="btn" text-align="right">';
                     //Флаг для смены окна
                     echo '<input type="hidden" name="action" value=2>';
                     echo '</form>';                            				
                 }
                 else {   
                     echo '<form name="frm" method="POST">';
+                    echo '<input type="submit" value="Сохранить" class="btn button_save">';
                     //Флаг для смены окна
                     echo '<input type="hidden" name="action" value=1>';
                     //Флаг для сохранения
                     echo '<input type="hidden" name="action_save" value=1>';
                     //Вывод из базы данных  
-                    echo '<textarea class="textarea" placeholder="Enter text..." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                            
-                    echo '<input type="submit" value="Сохранить" class="btn">';
+                    echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                           
+                    
                     echo '</form>';     
                 }                            
                 ?>
@@ -64,21 +68,104 @@
         </script>
                  
         </div>
-        <div id="courses">
-            <table class="table table-hover">
+<div id="courses">
+    <div class="accordion table-hover" id="accordion2">
+        <div class="accordion-group">
+            <table border="0">
                <tr>
                     <td class='picture'><img src='../images/1.jpg'/></td>
                     <td class='details'>
                     <span class='page-header'> 
-                    <h4><a></a><p><small></small></h4>
+                    <h4><a>123</a><p><small>1234</small></p></h4>
                     </span>
                     </td>
-                    <td class='price'><p class='lead'></p></td>
-               </tr>
-            </table>
+                    <td class='price'><p class='lead'></p></td>                                
+                </tr>
+             </table>
+            
+        </div>     
+        <div class="accordion-group">
+            <div class="accordion-heading" >
+               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                <div class="new_coorse_add_button">
+                    <img src="images/png/new_coorse_add.png">
+                </div>                      
+                </a>                      
+             </div>                             
+              <div id="collapseOne" class="accordion-body collapse">
+                  <div class="accordion-inner">                                  
+                      <form class="form-horizontal" method="POST" action="php/new_course" id="regForm">
+                        <div class="control-group">
+                            <label class="control-label" for="inputNameCourse">Название курса</label>
+                            <div class="controls">
+                            <input type="text" id="inputname" placeholder="Название курса" name="name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputDescriptionCourse">Описание</label>
+                            <div class="controls">
+                                <input type="text" id="inputDescription" placeholder="Описание" name="description">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputImageCourse">Выберите картинку</label>
+                            <div class="controls">
+                                <input type="submit" class="btn" value="С компьютера" id="input" name="description">
+                                или
+                                <input type="text" id="inputImage" placeholder="Ссылка" name="description">
+                            </div>
+                        </div>   
+                    <p>Новый курс будет добавлен сразу после проверки модератором
+                            <input type="submit" class="btn" value="Добавить"></p> 
+                    </form>
+                </div>
+            </div>
         </div>
-        </div>
-        
+    </div>
+                    
+
+            
+            
+            <!--  Модальное окно 1.0              
+            <div class="modal ">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Новый курс</h3>
+              </div>
+              <div class="modal-body">                
+                <form class="form-horizontal" method="POST" action="" id="regForm">
+                    <div class="control-group">
+                        <label class="control-label" for="inputNameCourse">Название курса</label>
+                        <div class="controls">
+                        <input type="text" id="Inputname" placeholder="Название курса" name="name"><div id="1"></div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDescriptionCourse">Описание</label>
+                        <div class="controls">
+                            <input type="text" id="inputDescription" placeholder="Описание" name="description"><div id="1"></div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputImageCourse">Выберите картинку</label>
+                        <div class="controls">
+                            <input type="submit" class="btn" value="С компьютера" id="input" name="description"><div id="1"></div>
+                            или<br /> 
+                            <input type="text" id="inputImage" placeholder="Ссылка" name="description"><div id="1"></div>
+                        </div>
+                    </div>
+                <p>Новый курс будет добавлен сразу после проверки модератором</p> 
+                </form>
+               </div>
+              <div class="modal-footer">
+                <a href="#" class="btn">Отмена</a>
+                <a href="#" class="btn btn-primary">Добавить</a>
+              </div>
+            </div>
+            энд модальное окно
+             -->
+</div>
+        </div>        
     </div>
 </div>
 </div>
