@@ -6,26 +6,27 @@ class Model_Summerhouse extends Model{
     
     function __construct(){
 
-        //echo "<script type='text/javascript' src='/js/jquery.js'></script>";
-        //include '/php/db.php';
-        $localhost  = 'localhost'; // хост
-        $dbuser     = 'root';      // имя пользователя
-        $dbpassword = '1q2w3e';    // пароль
-        $database   = 'improvy';   // база данных
-    
-         /*
-            * Подключение к БД
-        */
-        $db = mysql_pconnect($localhost, $dbuser) or die('В настоящий момент сервер базы данных не доступен.');  
-        mysql_query("SET NAMES 'UTF8'");
-        mysql_select_db($database, $db) or die ('В настоящий момент база данных не доступна.');
+        include "php/db.php";
         }
         
         public function get_data(){
             
-            $data = mysql_query("SELECT * FROM companies
-                                
-                                where companies.name_eng = 'summerhouse'");   
+            $location = $_POST['location'];
+            echo $location;
+            $data1 = mysql_query("SELECT * FROM companies
+                                where companies.name_eng = 'summerhouse'"); 
+            if (!isset($location))
+            {
+                $data2 = mysql_query(" SELECT * FROM companies
+					                   JOIN venues on companies.id_company = venues.id_company
+			                         ");
+            } else {
+            $data2 = mysql_query("SELECT * FROM companies
+									JOIN venues on companies.id_company = venues.id_company			
+                                where companies.name_eng = 'A2' and venues.address = '$location'");
+            }
+            $data[1] = $data1;
+            $data[2] = $data2;            
             return $data;
         }
     

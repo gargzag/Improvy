@@ -2,9 +2,9 @@
 
 include 'db.php';
 $name = $_POST['name'];
-$description = md5($_POST['description']);
+$description = $_POST['description'];
 $email = $_POST['email'];
 
-mysql_query("   INSERT INTO courses (name,email,pass) 
-                VALUES ('" .$name. "','" .$email. "','" .$pass. "')
+mysql_query("   INSERT INTO courses (name,description,pass) 
+                VALUES ('" .$name. "','" .$description. "','" .$pass. "')
             ");

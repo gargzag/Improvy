@@ -14,9 +14,10 @@
         <script src="/js/code.js" type="text/javascript"></script>        
         <link rel="stylesheet" href="/css/jquery-ui-1.9.0.custom.css" />
         <script src="/js/jquery-ui.js"></script>
+        <script src="/js/reg.js"></script>
+        <script src="/js/select.js"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        
-		<!-- Textarea edit       -->
+        <!-- Textarea edit       -->
          <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-wysihtml5.css"></link>
         <style type="text/css" media="screen">
         	.jumbo {
@@ -38,9 +39,18 @@
                 opacity: 0.5; 
                 cursor: hand;              
             }
-            .button_edit_textarea:hover, .new_coorse_add_button:hover{
-                opacity: 0.9;
+            .button_edit_textarea:hover, .new_coorse_add_button:hover, .image_collapse_open:hover{
+                opacity: 1.0;
             }
+             
+             ..image_collapse_open{
+                width:60px !important;
+                height:60px !important;
+             }
+            .new_coorse_add_button, .image_collapse_open{
+                opacity: 0.7;   
+            }
+            
             .button_save {
                 float:right;
                  position:relative;             
@@ -52,7 +62,7 @@
                 padding:0;
                 border: 0;
                 cursor: pointer;
-                opacity: 0.7; 
+                
                 cursor: hand;               
             }
             .accordion-group:hover {                
@@ -75,10 +85,76 @@
         <script src="bootstrap/js/bootstrap-wysihtml5.js"></script>  
         <!-- Textarea edit  end     -->
 		
+        
 	</head>
-	<body >
-        <header>
-                
+	<body >    
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">ImprovY</h3>
+          </div>
+          <div class="modal-body">
+              <p>Здравствуйте, зарегистрируйтесь пложалуйста чтобы добавить свои курсы</p>
+                <p>Регистрация простая, заполните поля ниже</p>
+                <form class="form-horizontal" method="POST" action="" id="regForm">
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Название компании</label>
+                        <div class="controls">
+                          <input type="text" id="Inputname" placeholder="Название компании" name="name"><div id="1"></div>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email</label>
+                        <div class="controls">
+                          <input type="text" id="inputEmail" placeholder="Email" name="Email"><div id="1"></div>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Пароль</label>
+                        <div class="controls">
+                          <input type="password" id="inputPassword" placeholder="Пароль" name="Pass">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Повторите пароль</label>
+                        <div class="controls">
+                          <input type="password" id="inputPassword2" placeholder="Пароль">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">
+                          <button class="btn btn-primary" type="button" id="sub">Регистрация</button>                                                 
+                        </div>
+                      </div>                      
+                </form>
+                     <form class="form-horizontal" method="POST" action="" id="entForm">
+                     <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email</label>
+                        <div class="controls">
+                          <input type="text" id="entEmail" placeholder="Email" name="Email">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Пароль</label>
+                        <div class="controls">
+                          <input type="password" id="entPassword" placeholder="Пароль" name="Pass">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">                          
+                          <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>                                                 
+                        </div>
+                      </div>                      
+                </form>
+                <p id="thx" style="display:none">Спасибо за регистрацию! нажмите <a href="/main">сюда</a> чтобы начать работать</p>
+          </div>
+          <div class="modal-footer">
+           <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+
+        <header>                
                     <div class="navbar navbar-fixed-top">
                         <div class="navbar-inner ">
                             <div class="container">
@@ -86,6 +162,11 @@
                                 <a class="brand" href="/main">Санкт-Петербург</a>
                                 <ul class="nav pull-right">
                                     <li><a href='/contacts'>Контакты</a></li>
+                                    <li><a href='#' id="b">Регистрация</a></li>
+                                    <li><a href='#' id="b3">Вход</a></li>
+
+                                    <li><a href='#' id="b1">Личный кабинет</a></li>
+                                    <li><a href='' id="b2">Выход</a></li>
                                     <li><button class="btn btn-primary" type="button">Добавить курсы</button></li>
                                     <?php 
 //                                        
@@ -118,5 +199,7 @@
                 </div>
             </div>
         </footer> 
+				
 	</body>
 </html>
+
