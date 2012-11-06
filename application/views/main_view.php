@@ -2,7 +2,7 @@
     <div class="row">
         <div class="span4">
             <div class="item">
-                <a href="courses/martial?course=martial">
+                <a href="courses/martial">
                     <div class="item_header">Боевые единоборства</div>
                     <div class="img"><img src="images/martial.jpg"/></div>
                 </a>
@@ -38,8 +38,8 @@
         </div>
         <div class="span4">
             <div class="item">
-                <a href="">
-                    <div class="item_header">3123123</div>
+                <a href="courses/dance">
+                    <div class="item_header">Танцы</div>
                     <div class="img"><img src="images/1.jpg"/></div>
                 </a>
             </div>

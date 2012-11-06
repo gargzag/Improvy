@@ -1,3 +1,4 @@
+
 <?php
 
 $fp = fopen('../application/controllers/controller_test.php','w+');
@@ -12,4 +13,5 @@ $mytext = '<?php
             
              
             }'; // Исходная строка
+
 $test = fwrite($fp, $mytext);
