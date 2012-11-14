@@ -65,10 +65,89 @@
                 
                 cursor: hand;               
             }
-            .accordion-group:hover {                
+            .accordion-group:hover, .accordion-group:active, .accordion-group:focus {                
                 background: #f5f5f5;
             }
+            .accordion-group {
+                margin:0;                                
+                border-radius:0px;
+            }
+            #new_course_text {
+                font-size: 12px;
+            }            
+            .accordion-toggle{
+                padding: 0px !important;
+            }
+            .table_course {
+                border:0px;
+                width:100%;
+                height:85px !important;
+            }
+            .picture_course {
+                
+                margin: 0;
+            }
+            .picture_course img{
+                padding: 0px 10px 0px 0px;
+                height: 80px;
+                width:140px;
+                margin: 0px;
+            }
+            .name_course {
+                float:left;
+            }
+            .name_course a, {
+            text-decoration: none;
+            color:#0381cb;
+            }
+            .name_course a:hover {
+                text-decoration: none;
+                
+            }
+            .price_course {
+                color:#e28768;
+                text-align:right;
+                padding: 5px 10px 5px 10px;
+            }
+            .description_course {
+                word-wrap: break-word;
+            }
+            .controls file {
+                
+            }
             
+
+            
+            .type_file { /* блок-родитель, внутри которого будут позиционироваться остальные элементы для реализации стильного поля выбора файлов */
+                position: relative;
+                height: 26px;
+            }
+            .inputFile { /* поле type="file" */
+                z-index: 2; /* z-слой должен быть больше, чем у блока с оформлением */
+                filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); /* делаем поле абсолютно прозрачным */
+                -moz-opacity: 0;
+                -khtml-opacity: 0;
+                opacity: 0;
+                width: 200px; /* задаем ширину для всех браузеров. Для firefox подбираем значение параметра size в поле */
+            }
+            .fonTypeFile { /* блок с оформлением */
+                width: 77px; /* размеры картинки для оформления */
+                height: 32px;
+                position: absolute;
+                top: 3px;
+                left: 230px;
+                z-index: 1; /* z-слой меньше, чем у поля выбора файла */
+            }
+            .inputFileVal { /* поле, в котором будет показан результат выбора файла */
+                position: relative;
+                top: 3px;
+                left: 0px;
+                z-index: 2;
+                width: 206px;
+                background: none;
+                border: none;
+            }
+
 		</style>        
         <script type="text/javascript">        
           var _gaq = _gaq || [];

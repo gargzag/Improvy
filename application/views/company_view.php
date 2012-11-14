@@ -1,11 +1,23 @@
 <div class="container">
 <div class="row">
     <div class="span3">
+        <div class="thumbnail" style="padding:5px;">
+            <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
+            <div id="ymaps-map-id_135272645449970217571" style="width: 210px; height: 300px;"></div>
+            <script type="text/javascript">
+            function fid_135272645449970217571(ymaps) {
+                var map = new ymaps.Map("ymaps-map-id_135272645449970217571", {center: [30.381683621829444, 59.950885785505406], zoom: 13, type: "yandex#map"});
+                    map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+                    map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9429719377242], {balloonContent: "Q-Йога", iconContent: "2"}, {preset: "twirl#redIcon"}));
+                    };</script>
+            <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_135272645449970217571"></script>
+            <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
+         </div>       
         
 
         <br />
         <form action="/summerhouse" method="post">
-            <select onchange="this.form.submit()" name="location" id="select">
+<!--        <select onchange="this.form.submit()" name="location" id="select">
                 <option value="all">Выберите адрес</option>
                 <option value="Хухуху">Зал на Комендантском</option>
                 <option value="pioner">Зал на Пионерской</option>
@@ -13,8 +25,28 @@
                 <option value="vas">Зал на Ваське</option>
                 <option value="punk">Зал в ПУНКе</option>
             </select>
-        </form>
+-->
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option_all"> Показать все
+        </label><br />
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> Зал на Комендантском
+        </label><br />
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> Зал на Пионерской
+        </label><br />
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Крестовском
+        </label><br />     
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Ваське
+        </label><br />
+        <label class="checkbox inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал в ПУНКе
+        </label><br /><br />
         <a href=""><button class="btn btn-primary">Добавить адрес</button></a>
+        </form>
+        
         
     </div>
     <div class="span9">
@@ -25,9 +57,6 @@
         <div class="well well-small" id="about">
             <h6>О компании</h6>
 			<?php
-            
-            
-
                 while($row = mysql_fetch_array($data[1])) 
                 {
                     $text_description =  ($row['about']);
@@ -74,44 +103,56 @@
  
 <div id="courses">
     <div class="accordion" id="accordion2">
-        <div class="accordion-group">
-            <div class="accordion-heading" >
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                    123...?
-                </a> 
-            </div>
-        <div id="collapseOne" class="accordion-body collapse">
-            <div class="accordion-inner"> 
-                 3456
-            </div>
-        </div>
-        </div>
+
             
                <?php                    
                     if(mysql_num_rows($data[2]) > 0) {
                         $i=1;
+                        
+
                         while($row = mysql_fetch_array($data[2])) {
+                        //echo $i."name_eng=".$row['name_eng'];
+                        //echo "<br>".$i."eng=".$row['eng'];
+                        //echo "<br>".$i."name_rus=".$row['name_rus'];
+                        //echo "<br>".$i."price=".$row['price'];
+                        //echo "<br>".$i."description=".$row['description'];
                         echo (" <div class='accordion-group'>                        
                                     <div class='accordion-heading' >
-                                        <div class = 'picture_course'>
-                                        <img src='../images/1.jpg'/>
-                                        </div>
-                                        <div class='name_course'>
-                                            <span class='page-header'> 
-                                                <h4><a href=/".$row['name_eng']."/".$row['eng'].">".$row['rus']."</a><p><small>".$row['name_rus']."</small></h4>
-                                            </span>
-                                        </div>
-                                        <p class='lead'>".$row['price']."</p>
-                                        <div class='price'>
-                                            <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse".$i."' id='APMI".$i."'>
-                                            <img id='PMI".$i."' src = 'images/png/button_add1.png' class = 'image_collapse_open'>
-                                            </a>
-                                        </div>
-                                    
+                                        <div class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' data-target='#collapse".$i."'>                                            
+                                            
+                                            <table class = 'table_course'><tr>
+                                            <td width = '150px'>
+                                            <div class = 'picture_course'>
+                                                <a href=/".$row['name_eng']."/".$row['eng'].">
+                                                    <img src='../images/1.jpg'/>
+                                                </a>
+                                            </div>
+                                            </td>
+                                            <td>
+                                            <div class='name_course'>
+                                                <span class='page-header'> 
+                                                    <h4>
+                                                        <a href=/".$row['name_eng']."/".$row['eng'].">".$row['name_rus']."</a>
+                                                    </h4>
+                                                    <p>
+                                                        <small>".$row['name_rus']."</small>
+                                                    </p>
+                                                </span>                                    
+                                            </div>
+                                            </td>
+                                            <td>
+                                            <div class='price_course'>
+                                                    price".$row['price']."
+                                            </div>
+                                            </td>
+                                            </tr></table>
+                                        </div>                                                                               
                                     </div>
                                     <div id='collapse".$i."' class='accordion-body collapse'>
-                                        <div class='accordion-inner'> 
-                                             хуй вам
+                                        <div class='accordion-inner'>
+                                            <div class = 'description_course'> 
+                                             ОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание".$row['description']."
+                                             </div>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +162,7 @@
                     } else echo("<div class='accordion-group'>
                                     <div class='accordion-heading' >
                                     <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse2'>
-                                        Добавьте курсы сейчас
+                                        Следуйте указаниям ниже, чтобы добавить первый курс.
                                     </a>
                                     </div>
                                  </div>
@@ -135,7 +176,7 @@
              
                 
         <div class="accordion-group">
-            <div class="accordion-heading" >
+            <div class="accordion-heading" >            
                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNew" id="APM">
                 <div class="new_coorse_add_button">
                     <img id="PM" src="images/png/new_coorse_add_new.png">
@@ -143,47 +184,109 @@
                 </a>                      
              </div>                             
               <div id="collapseNew" class="accordion-body collapse">
-                  <div class="accordion-inner">                                  
-                      <form class="form-horizontal" method="POST" action="php/new_course" id="regForm">
+                  <div class="accordion-inner" style="background: #f5f5f5;">                                  
+                      <form class="form-horizontal" method="POST" action="php/new_course.php" id="regForm" name="form_new_course">
                         <div class="control-group">
                             <label class="control-label">Название курса</label>
                             <div class="controls">
-                            <input type="text" id="inputname" placeholder="Название курса" name="name">
+                            <input type="text" id="inputname" placeholder="Название курса" name="name_new_course">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Описание</label>
+                            <label class="control-label">Тип курса</label>
                             <div class="controls">
-                                <input type="text" id="inputDescription" placeholder="Описание" name="description">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Расположение</label>
-                            <div class="controls">
-                                <select name="location" id="select">
+                                <select name="type__new_course" id="select">
                                     <?php
-                                    echo ('
-                                    <option value="all">Выберите адрес</option>
-                                    <option value="Хухуху">Зал на Комендантском</option>
-                                    <option value="pioner">Зал на Пионерской</option>
-                                    <option value="krest">Зал на Крестовском</option>
-                                    <option value="vas">Зал на Ваське</option>
-                                    <option value="punk">Зал в ПУНКе</option>
+                                    echo ('                               
+                                    <option value="">Выберите тип курса</option>
+                                    <option value="komen">Английский язык</option>
+                                    <option value="pioner">Фото</option>
+                                    <option value="krest">Качалка ёпт</option>
                                     ')
                                     ?>
                                 </select>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputImageCourse">Выберите картинку</label>
+                            <label class="control-label">Описание</label>
                             <div class="controls">
-                                <input type="submit" class="btn" value="С компьютера" id="input" name="description">
-                                или
-                                <input type="text" id="inputImage" placeholder="Ссылка" name="description">
+                                <textarea class="textarea1" id="inputDescription" placeholder="Введите описание курса" name="description_new_course" style="width: 460px; height: 170px"></textarea>                             
+                            </div>
+                                <script>
+			                         $('.textarea1').wysihtml5();
+                                </script>
+                        </div>                        
+                        <div class="control-group">
+                            <label class="control-label" for="inputImageCourse">
+                                Выберите картинку<br/>Внимание!Картинка должна быть формата 200px*700px
+                            </label>
+                            <div class="controls" id="new_course_text">
+                                <div class="type_file">
+                                    <input type="text" class="inputFileVal" readonly="readonly" id="fileName" />
+                                    <input type="file" size="35" class="inputFile" onchange='document.getElementById("fileName").value=this.value' name="image_new_course_local"/>
+                                    <div class="fonTypeFile" >
+                                    <input type="button" class="btn" onclick="document.forms['form_new_course']['image_new_course_local'].click()" value="Обзор">
+                                    </div>
+                                </div>
+                                <br/>или добавьте ссылку на картинку <br/>
+                                <input type="text" id="inputImage" placeholder="Ссылка" name="image_new_course_link">
+                                
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">
+                                Выберите расположение
+                                
+                            </label>
+                            <div class="controls" id="new_course_text">
+                               
+                                    <?php
+                                    echo ('
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Зал на Комендантском
+                                    </label><br />
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Зал на Пионерской
+                                    </label><br />
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Крестовском
+                                    </label><br />     
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Ваське
+                                    </label><br />
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал в ПУНКе
+                                    </label><br />
+                                    ');                          
+                                    /*echo ('
+                                    <select name="location_new_course" id="select" multiple="multiple">
+                                        <option value="">Выберите адрес</option>
+                                        <option value="komen">Зал на Комендантском</option>
+                                        <option value="pioner">Зал на Пионерской</option>
+                                        <option value="krest">Зал на Крестовском</option>
+                                        <option value="vasil">Зал на Ваське</option>
+                                        <option value="punk">Зал в ПУНКе</option>
+                                    </select>
+                                    ');*/
+                                    ?>
+                                <br />или добавьте новое место проведения курса<br />
+                                <input type="text" id="inputname" placeholder="Название, если есть" name="name_new_venue">
+                                <input type="text" id="inputname" placeholder="Город" name="countre_adress_new_venue">
+                                <input type="text" id="inputname" placeholder="Контактный телефон" name="phone_new_venue">
+                                <input type="text" id="inputname" placeholder="Улица" name="street_adress_new_venue">
+                                <input type="text" id="inputname" placeholder="Метро" name="metro_new_venue">
+                                <input type="text" id="inputname" placeholder="Дом" name="home_adress_new_venue">
+                                <input type="text" id="inputname" placeholder="Как найти" name="found_adress_new_venue">
+                                <input type="text" id="inputname" placeholder="Корпус" name="corpus_adress_new_venue">
+                                
+                                
                             </div>
                         </div>   
                     <p>Новый курс будет добавлен сразу после проверки модератором
-                            <input type="submit" class="btn" value="Добавить"></p> 
+                            <input type="submit" class="btn" value="Добавить"></p>
+                            
+                          
+
                     </form>
                 </div>
             </div>
