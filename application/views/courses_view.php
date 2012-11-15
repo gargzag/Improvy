@@ -76,7 +76,7 @@
                                             <table class = 'table_course'><tr>
                                             <td width = '150px'>
                                             <div class = 'picture_course'>
-                                                <a href=/".$row['name_eng']."/".$row['eng'].">
+                                                <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">
                                                     <img src='../images/1.jpg'/>
                                                 </a>
                                             </div>
@@ -85,10 +85,10 @@
                                             <div class='name_course'>
                                                 <span class='page-header'> 
                                                     <h4>
-                                                        <a href=/".$row['name_eng']."/".$row['eng'].">".$row['name_rus']."</a>
+                                                        <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a>
                                                     </h4>
                                                     <p>
-                                                        <small>".$row['name_rus']."</small>
+                                                        <small>".$row['compname_rus']."</small>
                                                     </p>
                                                 </span>                                    
                                             </div>

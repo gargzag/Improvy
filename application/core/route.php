@@ -45,10 +45,12 @@ class Route
 
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "application/models/".$model_file;
-		if(file_exists($model_path))
-		{
-			include "application/models/".$model_file;
-		}
+		/**
+ * if(file_exists($model_path))
+ * 		{
+ * 			include "application/models/".$model_file;
+ * 		}
+ */
 
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';

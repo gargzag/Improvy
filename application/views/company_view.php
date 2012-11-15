@@ -68,10 +68,11 @@
                     if (($_POST['action_save']=='1'))    {
                         //Запись в базу данных
                         $text_description = $_POST["test"];
+                        $compid= $_SESSION['id'];
                         mysql_query("UPDATE  `improvy`.`companies` 
 
                                      SET  `about` = '$text_description' 
-                                     WHERE  `companies`.`id_company` =1;");
+                                     WHERE  `companies`.`id_company` = $compid ");
                     }                               
                     echo '<form name="frm" method="POST">';
                     echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
@@ -126,7 +127,7 @@
                                             <table class = 'table_course'><tr>
                                             <td width = '150px'>
                                             <div class = 'picture_course'>
-                                                <a href=/".$row['name_eng']."/".$row['eng'].">
+                                                <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">
                                                     <img src='../images/1.jpg'/>
                                                 </a>
                                             </div>
@@ -135,10 +136,10 @@
                                             <div class='name_course'>
                                                 <span class='page-header'> 
                                                     <h4>
-                                                        <a href=/".$row['name_eng']."/".$row['eng'].">".$row['name_rus']."</a>
+                                                        <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a>
                                                     </h4>
                                                     <p>
-                                                        <small>".$row['name_rus']."</small>
+                                                        <small>".$row['compname_rus']."</small>
                                                     </p>
                                                 </span>                                    
                                             </div>

@@ -1,5 +1,6 @@
 <?php
 
+include "/application/models/model_summerhouse.php";
 class Controller_Summerhouse extends Controller{
     
     function __construct(){
@@ -10,6 +11,7 @@ class Controller_Summerhouse extends Controller{
     function action_index() {
        
         echo $_POST["location"];
+        $namecomp = 'summerhouse';
         $data = $this->model->get_data();
         $this->view->generate('company_view.php','template_view.php',$data);
     }
