@@ -55,31 +55,87 @@
 
 </div>
         </div>
-        <div class="span9">
-               
-                    
-   
-    <table class="table table-hover">
-        
-             <?php
-                    
-                    if(mysql_num_rows($data) > 0 || die(mysql_error()) ) {
+
+        <div class="span9">                  
+            <div id="courses">
+                <div class="accordion" id="accordion2">
+                    <?php                                      
+                    if(mysql_num_rows($data) > 0) {
+                        $i=1;
+                        
                         while($row = mysql_fetch_array($data)) {
-                        echo (" <tr>
-                                    <td class='picture'><img src='../images/1.jpg'/></td>
-                                    <td class='details'>
-                                        <span class='page-header'> 
-                                            <h4><a href=/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a><p><small>".$row['compname_rus']."</small></h4>
-                                        </span>
-                                    </td>
-                                    <td class='price'><p class='lead'>".$row['price']."</p></td>
-                                </tr>");
+                        //echo $i."name_eng=".$row['name_eng'];
+                        //echo "<br>".$i."eng=".$row['eng'];
+                        //echo "<br>".$i."name_rus=".$row['name_rus'];
+                        //echo "<br>".$i."price=".$row['price'];
+                        //echo "<br>".$i."description=".$row['description'];
+                        echo (" <div class='accordion-group'>                        
+                                    <div class='accordion-heading' >
+                                        <div class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' data-target='#collapse".$i."'>                                            
+                                            
+                                            <table class = 'table_course'><tr>
+                                            <td width = '150px'>
+                                            <div class = 'picture_course'>
+                                                <a href=/".$row['name_eng']."/".$row['eng'].">
+                                                    <img src='../images/1.jpg'/>
+                                                </a>
+                                            </div>
+                                            </td>
+                                            <td>
+                                            <div class='name_course'>
+                                                <span class='page-header'> 
+                                                    <h4>
+                                                        <a href=/".$row['name_eng']."/".$row['eng'].">".$row['name_rus']."</a>
+                                                    </h4>
+                                                    <p>
+                                                        <small>".$row['name_rus']."</small>
+                                                    </p>
+                                                </span>                                    
+                                            </div>
+                                            </td>
+                                            <td>
+                                            <div class='price_course'>
+                                                    price".$row['price']."
+                                            </div>
+                                            </td>
+                                            </tr></table>
+                                        </div>                                                                               
+                                    </div>
+                                    <div id='collapse".$i."' class='accordion-body collapse'>
+                                        <div class='accordion-inner'>
+                                            <div class = 'description_course'> 
+                                             ОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание".$row['description']."
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ");
+                        $i=$i+1;
+
                         }
-                    } else echo 1;
-        ?>
-       
-    </table>
-</div>
-</div>
+                    } else 
+                    echo("  <div class='accordion-group'>
+                                <div class='accordion-heading' >
+                                    <div style='padding:5px 10px 5px 30px ;')>
+                                        <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse2'>
+                                            К сожалению, курсов данного типа еще нет в нашей базе.<br>
+                                            В ближайшее время будет пополнение курсов<br> 
+                                            Ждите новостей в группе вконтакте
+                                        </a>
+                                    </div>
+                                </div>
+                             </div>
+                             <div id='collapse2' class='accordion-body collapse'>
+                                 <div class='accordion-inner'> 
+                                      хуй вам
+                                 </div>
+                             </div>
+                        ");
+  
+                 ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
