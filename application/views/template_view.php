@@ -17,7 +17,74 @@
         <script src="/js/reg.js"></script>
         <script src="/js/select.js"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Textarea edit       -->
+         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-wysihtml5.css"></link>
+        <style type="text/css" media="screen">
+        	.jumbo {
+        		font-size: 20px;font-weight:normal;padding:14px 24px;margin-right:10px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;
+				}
+            .button_edit_textarea {
+                position:relative;
+                top: -45px;
+                left:10px;
+                float:right;
+                width:  48px !important;  
+                height: 48px; 
+                margin: 0;
+                padding:0;
+                border: 0;
+                background: transparent url('images/png/edit_textarea.png') no-repeat center top;
+                text-indent: -1000em;
+                cursor: pointer;
+                opacity: 0.5; 
+                cursor: hand;              
+            }
+            .button_edit_textarea:hover, .new_coorse_add_button:hover, .image_collapse_open:hover{
+                opacity: 1.0;
+            }
+             
+             ..image_collapse_open{
+                width:60px !important;
+                height:60px !important;
+             }
+            .new_coorse_add_button, .image_collapse_open{
+                opacity: 0.7;   
+            }
+            
+            .button_save {
+                float:right;
+                 position:relative;             
+            }
+            .new_coorse_add_button{
+                width:  64px !important;  
+                height: 64px; 
+                margin: auto auto !important;
+                padding:0;
+                border: 0;
+                cursor: pointer;
+                
+                cursor: hand;               
+            }
+            .accordion-group:hover {                
+                background: #f5f5f5;
+            }
+            
+		</style>        
+        <script type="text/javascript">        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-30181385-1']);
+          _gaq.push(['_trackPageview']);
         
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();        
+        </script>  
+		<script src="bootstrap/js/wysihtml5-0.3.0.js"></script>
+        <script src="bootstrap/js/bootstrap-wysihtml5.js"></script>  
+        <!-- Textarea edit  end     -->
+		
         
 	</head>
 	<body >    
@@ -135,4 +202,5 @@
 				
 	</body>
 </html>
+
 

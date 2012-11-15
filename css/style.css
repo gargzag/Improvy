@@ -68,7 +68,7 @@ border-width: 1px;
     
 }
 .details{
-    width: 60%;
+    width: 45%;
     padding: 0 0 0 10px;
 }
 .picture{
@@ -96,4 +96,7 @@ border-width: 1px;
 }
 #side{
     border-bottom:  1px solid lightGrey;
+}
+.bag{
+    background: url('/images/bag.png') repeat;
 }
