@@ -1,12 +1,11 @@
 <?php
-
 // подключаем файлы ядра
 require_once 'core/model.php';
 require_once 'core/view.php';
 require_once 'core/controller.php';
 require_once 'core/route.php';
 require_once '/php/db.php';
-
+require_once 'core/auth.php';
 /*
 Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
 	> аутентификацию
@@ -20,6 +19,4 @@ require_once '/php/db.php';
 	> Backup
 	> и др.
 */
-
-
 Route::start(); // запускаем маршрутизатор
