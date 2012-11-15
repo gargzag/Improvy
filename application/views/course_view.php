@@ -13,10 +13,32 @@
              <img src="../images/comp.jpg" />
             </div>
             <br />
-            <div class="well well-small" id="about">
-                <h6>О курсе....</h6>
-                <p><?php  ?></p>
+            <div class="tabbable"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">О курсе</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Преподаватели</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Расписание</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div class="well well-small" id="about">
+                            <h6>О курсе....</h6>
+                            <p>
+                                <?php   
+                                    $data1 = mysql_query("SELECT * FROM companies
+                                                          JOIN venues ON companies.id_company = venues.id_company
+                                                          JOIN courses ON venues.id_venues = courses.id_courses
+                                                          where companies.name_eng ='$routes[1]' and courses.name_eng = '$routes[2]'"); 
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <p>Howdy, I'm in Section 2.</p>
+                    </div>
+                </div>
             </div>
+            
         </div>
         <div class="span4">
             <div class="well">
@@ -29,7 +51,7 @@
     </div>
     <div class="row">
         <div class="span8">
-        
+            
         </div>
     </div>
 </div>

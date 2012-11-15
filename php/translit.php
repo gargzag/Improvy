@@ -6,7 +6,7 @@
      
     // $str - текст сообщения в кириллице
      
-    function sms_translit($str) 
+    function translit($str) 
     {
         $translit = array(
             "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
