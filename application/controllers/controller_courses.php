@@ -1,5 +1,6 @@
 <?php
 
+include "application/models/model_courses.php";
 class Controller_Courses extends Controller{
     
     function __construct(){

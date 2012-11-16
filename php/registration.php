@@ -1,8 +1,7 @@
 <?php
 	session_start();
 	include 'db.php';
-
-	$Cname = $_POST['Cname'];
+    $Cname = $_POST['Cname'];
 	$fio = $_POST['fio'];
 	//echo $name;
 	//$pass = md5($_POST['pass']);
