@@ -51,7 +51,7 @@
     </div>
     <div class="span9">
         <div class="thumbnail">
-            <img src="../images/comp.jpg" />
+            <img src="/alfa/images/comp.jpg" />
         </div>
         <br />
         <div class="well well-small" id="about">
@@ -61,7 +61,7 @@
 
                 while($row = mysql_fetch_array($data[1])) 
                 {
-                    $text_description =  ($row['about']);
+                    $text_description =  $row['about'];
                 }
                   
                 if (!($_POST['action']=='2'))    {                 

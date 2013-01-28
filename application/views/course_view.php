@@ -2,7 +2,7 @@
     <div class="row">
         <div class="span12">
             <h4>CourseName
-            <p><small><a href="/summerhouse">CompanyName</a>,Adress,Telephone</small>
+            <p><small><a href="/alfa/summerhouse">CompanyName</a>,Adress,Telephone</small>
             </h4>
         </div>
     </div>
@@ -25,10 +25,11 @@
                             <h6>О курсе....</h6>
                             <p>
                                 <?php   
+                                	$routes = explode('/', $_SERVER['REQUEST_URI']);
                                     $data1 = mysql_query("SELECT * FROM companies
                                                           JOIN venues ON companies.id_company = venues.id_company
                                                           JOIN courses ON venues.id_venues = courses.id_courses
-                                                          where companies.name_eng ='$routes[1]' and courses.name_eng = '$routes[2]'"); 
+                                                          where companies.compname_eng ='$routes[2]' and courses.coursename_eng = '$routes[3]'"); 
                                 ?>
                             </p>
                         </div>

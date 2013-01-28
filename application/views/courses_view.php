@@ -62,7 +62,6 @@
                     <?php                                      
                     if(mysql_num_rows($data) > 0) {
                         $i=1;
-                        
                         while($row = mysql_fetch_array($data)) {
                         //echo $i."name_eng=".$row['name_eng'];
                         //echo "<br>".$i."eng=".$row['eng'];
@@ -76,7 +75,7 @@
                                             <table class = 'table_course'><tr>
                                             <td width = '150px'>
                                             <div class = 'picture_course'>
-                                                <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">
+                                                <a href=/alfa/".$row['compname_eng']."/".$row['coursename_eng'].">
                                                     <img src='../images/1.jpg'/>
                                                 </a>
                                             </div>
@@ -85,7 +84,7 @@
                                             <div class='name_course'>
                                                 <span class='page-header'> 
                                                     <h4>
-                                                        <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a>
+                                                        <a href=/alfa/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a>
                                                     </h4>
                                                     <p>
                                                         <small>".$row['compname_rus']."</small>
@@ -104,7 +103,7 @@
                                     <div id='collapse".$i."' class='accordion-body collapse'>
                                         <div class='accordion-inner'>
                                             <div class = 'description_course'> 
-                                             ОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание".$row['description']."
+                                             ".$row['description']."
                                              </div>
                                         </div>
                                     </div>

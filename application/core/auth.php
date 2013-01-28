@@ -1,5 +1,5 @@
 <?php
-include '/php/db.php';
+include 'php/db.php';
 session_start();
 if (isset($_COOKIE['login'])) {
 	$ckID = $_COOKIE['login'];

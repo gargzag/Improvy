@@ -14,7 +14,7 @@ $(function() {
 		//$('#myModal').modal('show')
 		//$("#entForm").hide();
 		//$("#regForm").show();
-		location.href = '/registration';
+		location.href = '/alfa/registration';
 
 	})
 	$("#b2").click(function() {
