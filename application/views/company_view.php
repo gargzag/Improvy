@@ -51,7 +51,7 @@
     </div>
     <div class="span9">
         <div class="thumbnail">
-            <img src="/alfa/images/comp.jpg" />
+            <img src="/images/comp.jpg" />
         </div>
         <br />
         <div class="well well-small" id="about">
@@ -68,7 +68,7 @@
                     if (($_POST['action_save']=='1'))    {
                         //Запись в базу данных
                         $text_description = $_POST["test"];
-                        $compid= $_SESSION['id'];
+                        $compid = $_SESSION['id'];
                         mysql_query("UPDATE  `improvy`.`companies` 
 
                                      SET  `about` = '$text_description' 

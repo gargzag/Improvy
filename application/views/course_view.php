@@ -2,7 +2,7 @@
     <div class="row">
         <div class="span12">
             <h4>CourseName
-            <p><small><a href="/alfa/summerhouse">CompanyName</a>,Adress,Telephone</small>
+            <p><small><a href="/summerhouse">CompanyName</a>,Adress,Telephone</small>
             </h4>
         </div>
     </div>
@@ -23,15 +23,19 @@
                     <div class="tab-pane active" id="tab1">
                         <div class="well well-small" id="about">
                             <h6>О курсе....</h6>
-                            <p>
                                 <?php   
                                 	$routes = explode('/', $_SERVER['REQUEST_URI']);
-                                    $data1 = mysql_query("SELECT * FROM companies
+                                    $data = mysql_query("SELECT * FROM companies
                                                           JOIN venues ON companies.id_company = venues.id_company
-                                                          JOIN courses ON venues.id_venues = courses.id_courses
-                                                          where companies.compname_eng ='$routes[2]' and courses.coursename_eng = '$routes[3]'"); 
+                                                          JOIN courses ON venues.id_venue = courses.id_venue
+                                                          where companies.compname_eng ='$routes[1]' and courses.coursename_eng = '$routes[2]'"); 
+                                    while($row = mysql_fetch_array($data)) 
+                                    {
+                                        $text_description =  $row['description'];
+                                        echo $text_description;
+                                    }
                                 ?>
-                            </p>
+
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">

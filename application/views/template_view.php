@@ -6,19 +6,19 @@
 		<meta name="keywords" content="" />
 		<title>ImprovY</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link href="/alfa/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-        <link href="/alfa/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="/alfa/css/style.css" rel="stylesheet" type="text/css"/>
-        <script src="/alfa/js/jquery.js" type="text/javascript"></script>
-        <script src="/alfa/js/jquery.cookie.js" type="text/javascript"></script>
-        <script src="/alfa/js/code.js" type="text/javascript"></script>        
-        <link rel="stylesheet" href="/alfa/css/jquery-ui-1.9.0.custom.css" />
-        <script src="/alfa/js/jquery-ui.js"></script>
-        <script src="/alfa/js/reg.js"></script>
-        <script src="/alfa/js/select.js"></script>
-		<script src="/alfa/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- Textarea edit       -->
-         <link rel="stylesheet" type="text/css" href="/alfa/bootstrap/css/bootstrap-wysihtml5.css"></link>
+		<link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jquery.cookie.js" type="text/javascript"></script>
+        <script src="/js/code.js" type="text/javascript"></script>        
+        <link rel="stylesheet" href="/css/jquery-ui-1.9.0.custom.css" />
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/reg.js"></script>
+        <script src="/js/select.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Textarea edit -->
+         <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-wysihtml5.css"></link>
         <style type="text/css" media="screen">
         	.jumbo {
         		font-size: 20px;font-weight:normal;padding:14px 24px;margin-right:10px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;
@@ -147,8 +147,8 @@
                 background: none;
                 border: none;
             }
-
-		</style>        
+        </style>        
+        
         <script type="text/javascript">        
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-30181385-1']);
@@ -160,8 +160,9 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();        
         </script>  
-		<script src="/alfa/bootstrap/js/wysihtml5-0.3.0.js"></script>
-        <script src="/alfa/bootstrap/js/bootstrap-wysihtml5.js"></script>  
+
+		<script src="/bootstrap/js/wysihtml5-0.3.0.js"></script>
+        <script src="/bootstrap/js/bootstrap-wysihtml5.js"></script>  
         <!-- Textarea edit  end     -->
 		
         
@@ -221,16 +222,17 @@
                     <div class="navbar navbar-fixed-top">
                         <div class="navbar-inner ">
                             <div class="container">
-                                <a class="brand" href="/alfa/main">ImprovY</a>
-                                <a class="brand" href="/alfa/main">Санкт-Петербург</a>
+                                <a class="brand" href="/main">ImprovY</a>
+                                <a class="brand" href="/main">Санкт-Петербург</a>
                                 <ul class="nav pull-right">
-                                    <li><a href='/alfa/contacts'>Контакты</a></li>
+                                    <li><a href='/contacts'>Контакты</a></li>
+                                    
                                     <?php
                                    if (!isset($_SESSION['id'])) {
                                     echo("<li><a href='#enter' id='b3'>Вход</a></li>
                                       <li><button class='btn btn-primary' type='button' id='b'>Добавить курсы</button></li>");
                                     } else echo("<li><a href='#' id='b1'>Личный кабинет</a></li>
-                                    <li><a href='#' id='b2'>Выход</a></li>");
+                                    <li><a href='#exit' id='b2'>Выход</a></li>");
                                     ?>                         
                                 </ul>
                             </div>

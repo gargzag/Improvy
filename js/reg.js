@@ -14,7 +14,7 @@ $(function() {
 		//$('#myModal').modal('show')
 		//$("#entForm").hide();
 		//$("#regForm").show();
-		location.href = '/alfa/registration';
+		location.href = '/registration';
 
 	})
 	$("#b2").click(function() {
@@ -82,7 +82,7 @@ $(function() {
 					//alert(data);
 				};
 			}
-		})
+		}) 
 
 	})
 	$("#ent").click(function() {
