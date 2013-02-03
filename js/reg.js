@@ -18,16 +18,21 @@ $(function() {
 
 	})
 	$("#b2").click(function() {
-		$.cookie("login", null, {
+		$.cookie("id", null, {
 			path: '/'
 		});
-		$.cookie("sesid", null, {
+		$.cookie("hash", null, {
 			path: '/'
 		});
 		$.ajax({
-			url: '/php/del.php'
+			url: '/php/del.php',
+			success: function(data) {
+				if (data == 1) {
+					location.href = '/';
+				};
+			}	
 		});
-		location.href = '/';
+		
 	})
 	$("#b3").click(function() {
 		$('#myModal').modal('show');
@@ -89,6 +94,7 @@ $(function() {
 		$(".er").remove();
 		var email = $("#entEmail").val();
 		var pas = $("#entPassword").val();
+
 		$.ajax({
 			type: "POST",
 			url: '/php/enter.php',
@@ -99,14 +105,18 @@ $(function() {
 			success: function(data) {
 				if(data == 1) {
 					$('#myModal').modal('show');
-					$("#ent").after("<div class='er'>Пользователя с таким Email не существует или вы ввели неверно парольспас</div>");
-				} else {
-					window.location = location.href.substring(0, location.href.length - 1);
+					$("#ent").after("<div class='er'>Пользователя с таким Email не существует</div>");
+				} 
+				if(data == 2) {
+					$('#myModal').modal('show');
+					$("#ent").after("<div class='er'>Вы ввели неверно пароль</div>");
+				}
+				if(data!=1 && data!=2){
+					window.location = location.href.substring(0, location.href.length - 6);
 					//alert($.cookie("PHPSESSID"))
 					//$('#myModal').modal('show');
-				};
+				}
 			}
 		})
 	})
-
 })
