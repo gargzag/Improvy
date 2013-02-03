@@ -231,8 +231,11 @@
                                    if (!isset($_SESSION['id'])) {
                                     echo("<li><a href='#enter' id='b3'>Вход</a></li>
                                       <li><button class='btn btn-primary' type='button' id='b'>Добавить курсы</button></li>");
-                                    } else echo("<li><a href='#' id='b1'>Личный кабинет</a></li>
-                                    <li><a href='#exit' id='b2'>Выход</a></li>");
+                                    } else {
+                                        $compname = $_SESSION['name'];
+                                        echo "<li><a href='/$compname' id='b1'>Личный кабинет</a></li>
+                                        <li><a href='#exit' id='b2'>Выход</a></li>";
+                                    }
                                     ?>                         
                                 </ul>
                             </div>

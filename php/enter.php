@@ -5,7 +5,7 @@
 	$password = $_POST['password'];
 	$email = $_POST['email'];
 
-	$result = mysql_query("SELECT `email`,`password`,`compname_rus`,`id_company` FROM `companies` WHERE `email`='$email' ");
+	$result = mysql_query("SELECT `email`,`password`,`compname_rus`,`id_company`,`compname_eng` FROM `companies` WHERE `email`='$email' ");
 		if(mysql_num_rows($result)>0){
 			while($row = mysql_fetch_array($result)) {
 				if($password == $row['password']) {
@@ -15,6 +15,7 @@
         			//$rez = mysql_query("SELECT * FROM `users` WHERE `pass`='$pass'");
 					session_start();
 					$_SESSION['id'] = $row['id_company'];
+					$_SESSION['name'] = $row['compname_eng'];
 					
 				}else echo "2";        
 	    	}	
