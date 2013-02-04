@@ -1,4 +1,5 @@
 <?php
+	
 	session_start();
 	include 'db.php';
     $Cname = $_POST['Cname'];
@@ -31,7 +32,7 @@
 				//$_SESSION['id'] = $row['id'];
 				//$regged = true;
 				//include ("template/registration.php"); //подключаем шаблон*/
-				echo "go";
+				createControl(strtolower($Cname_eng));
 
 		} else echo "mimo";
 	}
@@ -51,7 +52,8 @@ function translit($str)
             "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
             "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
             "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
-            "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
+            "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya",
+            " "=>"_"
         );
         return strtr($str,$translit);
     }
@@ -66,6 +68,32 @@ function generateCode($length = 6)
 		   }
 		   return $string;
 		}
+function createControl($name){
+	$filename = '../application/controllers/controller_'.$name.'.php';
+	$fp = fopen($filename,'w+');
+	if(is_writable($filename)){
+		$mytext = '<?php
+					include "application/models/model_company.php";
+	            	class Controller_'.$name.' extends Controller{
+			            function __construct(){
+				            $this->model = new Model_Company();
+				            $this->view = new View();
+				        }
+				        function action_index() {
+				            $data = $this->model->get_data();
+				            $this->view->generate("company_view.php","template_view.php",$data);
+			        	}
+		            }'; // Исходная строка
+		$test = fwrite($fp, $mytext);
+		if(!$test){
+			echo "Error";
+		}
+		
+	}
+	else{
+	echo "Файл не доступен для записи";
+	}
+}
 //////////////////////////////////////
 	/*$date=time();
 	
