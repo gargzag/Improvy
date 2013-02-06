@@ -16,6 +16,7 @@
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/reg.js"></script>
         <script src="/js/select.js"></script>
+        <script src="/js/addcourse.js"></script>
 		<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Textarea edit -->
          <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-wysihtml5.css"></link>
