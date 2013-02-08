@@ -5,7 +5,7 @@
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
             <div id="ymaps-map-id_135272645449970217571" style="width: 210px; height: 300px;"></div>
             <script type="text/javascript">
-            function fid_135272645449970217571(ymaps) {
+            function fid_13527264544997#0217571(ymaps) {
                 var map = new ymaps.Map("ymaps-map-id_135272645449970217571", {center: [30.381683621829444, 59.950885785505406], zoom: 13, type: "yandex#map"});
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9429719377242], {balloonContent: "Q-Йога", iconContent: "2"}, {preset: "twirl#redIcon"}));
@@ -239,11 +239,7 @@
                             <div class="controls">
                                 <select name="under_type_new_course" id="under_type_new_course">
                                     <option value="">Выберите подтип курса</option>
-                                    <?php
-                                    echo ('                               
-                                    <option value="komen">Английский язык</option>
-                                    ')
-                                    ?>
+                                    
                                 </select>
                             </div>
                         </div>

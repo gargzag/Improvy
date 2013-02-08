@@ -5,14 +5,25 @@ $(function() {
         $.ajax({
             url:'/php/subtype.php',
             type: "POST",
+            dataType : "json",
             data:
-                {"type_new_course":type_new_course},  
-                success:function(data){
+                {"type_new_course":type_new_course},
+                 
+                success: function(data){
                     var options = '';
-                    $(data).each(function() {
-                        options += '<option value="' + $(this).attr('id') + '">' + $(this).attr('title') + '</option>';
+                    /*var kal = "rerew";
+                    var data1 = eval ( '('+ data +')' );
+                    alert (data);
+                    alert (data1);*/
+
+                    
+                    $.each(data.name, function(i) {
+                        //alert(i);
+                        
+                        options += '<option value="' + data.id[i] + '">' + data.name[i] + '</option>';
                     });
                     $('#under_type_new_course').html(options);
+                    
                 }
         })
     })

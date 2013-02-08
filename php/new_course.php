@@ -38,10 +38,12 @@ if (!isset($_POST['name_new_course']))
 
 
 $name_new_venue = $_POST['name_new_venue'];
+echo $name_new_venue;
+echo $phone_new_venue;
+$name_new_venue_eng = translit($name_new_venue);
 $phone_new_venue = $_POST['phone_new_venue'];
 $metro_new_venue = $_POST['metro_new_venue'];
 $found_adress_new_venue = $_POST['found_adress_new_venue'];
-
 $countre_adress_new_venue = $_POST['countre_adress_new_venue'];
 $street_adress_new_venue = $_POST['street_adress_new_venue'];
 $home_adress_new_venue = $_POST['home_adress_new_venue'];
@@ -87,7 +89,7 @@ $result = mysql_query("
                 VALUES (
                     NULL , 
                     '$company_new_course', 
-                    '$name_eng',
+                    '$name_new_venue_eng',
                     '$name_new_venue',  
                     '$phone_new_venue',  
                     '$metro_new_venue',  

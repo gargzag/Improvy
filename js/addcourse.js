@@ -14,6 +14,8 @@ $("#badd").click(function() {
 		var home_adress_new_venue = $("#home_adress_new_venue").val();
 		var found_adress_new_venue = $("#found_adress_new_venue").val();
 		var corpus_adress_new_venue = $("#corpus_adress_new_venue").val();
+		
+
         
 		$.ajax({
 			type: "POST",
@@ -44,4 +46,6 @@ $("#badd").click(function() {
 			}
 		})
 	})
+	
+
 })
