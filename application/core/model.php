@@ -13,8 +13,8 @@ class Model
 	*/
 
 	// метод выборки данных
-	public function get_data()
-	{
+	//public function get_data()
+	//{
 		// todo
-	}
+	//}
 }

@@ -5,7 +5,7 @@
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
             <div id="ymaps-map-id_135272645449970217571" style="width: 210px; height: 300px;"></div>
             <script type="text/javascript">
-            function fid_135272645449970217571(ymaps) {
+            function fid_13527264544997#0217571(ymaps) {
                 var map = new ymaps.Map("ymaps-map-id_135272645449970217571", {center: [30.381683621829444, 59.950885785505406], zoom: 13, type: "yandex#map"});
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9429719377242], {balloonContent: "Q-Йога", iconContent: "2"}, {preset: "twirl#redIcon"}));
@@ -51,50 +51,66 @@
     </div>
     <div class="span9">
         <div class="thumbnail">
-            <img src="../images/comp.jpg" />
+            <img src="/images/comp.jpg" />
         </div>
         <br />
         <div class="well well-small" id="about">
             <h6>О компании</h6>
 
-			<?php
+			<?php 
+
 
                 while($row = mysql_fetch_array($data[1])) 
                 {
-                    $text_description =  ($row['about']);
+                    $text_description =  $row['about'];
                 }
-                  
-                if (!($_POST['action']=='2'))    {                 
-                    if (($_POST['action_save']=='1'))    {
-                        //Запись в базу данных
-                        $text_description = $_POST["test"];
-                        $compid= $_SESSION['id'];
-                        mysql_query("UPDATE  `improvy`.`companies` 
+                if (isset($_POST['action'])) {
+                      
+                   
+                    if (!($_POST['action']=='2'))    {                 
+                        if (($_POST['action_save']=='1'))    {
+                            //Запись в базу данных
+                            $text_description = $_POST["test"];
+                            $compid = $_SESSION['id'];
+                            mysql_query("UPDATE  `improvy`.`companies` 
 
-                                     SET  `about` = '$text_description' 
-                                     WHERE  `companies`.`id_company` = $compid ");
-                    }                               
+                                         SET  `about` = '$text_description' 
+                                         WHERE  `companies`.`id_company` = $compid ");
+                        }                               
+                        echo '<form name="frm" method="POST">';
+                        echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';                        
+                        //Вывод из базы данных 
+                        echo $text_description."<br/>"; 
+                        //Флаг для смены окна
+                        echo '<input type="hidden" name="action" value=2>';
+                        echo '</form>';                            				
+                    }
+                    else {   
+                        echo '<form name="frm" method="POST">';
+                        echo '<input type="submit" value="Сохранить" class="btn button_save">';
+                        //Флаг для смены окна
+                        echo '<input type="hidden" name="action" value=1>';
+                        //Флаг для сохранения
+                        echo '<input type="hidden" name="action_save" value=1>';
+                        //Вывод из базы данных  
+                        echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                           
+                        
+                        echo '</form>';     
+                    }
+                }
+                else{
                     echo '<form name="frm" method="POST">';
-                    echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
+                    if (isset($_SESSION['id']))
+                    {                        
+                        echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
+                    }
                     //Вывод из базы данных 
                     echo $text_description."<br/>"; 
                     //Флаг для смены окна
                     echo '<input type="hidden" name="action" value=2>';
-                    echo '</form>';                            				
-                }
-                else {   
-                    echo '<form name="frm" method="POST">';
-                    echo '<input type="submit" value="Сохранить" class="btn button_save">';
-                    //Флаг для смены окна
-                    echo '<input type="hidden" name="action" value=1>';
-                    //Флаг для сохранения
-                    echo '<input type="hidden" name="action_save" value=1>';
-                    //Вывод из базы данных  
-                    echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                           
-                    
-                    echo '</form>';     
-                }                            
-                ?>
+                    echo '</form>';   
+                }                               
+            ?>
 				        <script>
 							$('.textarea').wysihtml5();
 						</script>
@@ -184,38 +200,54 @@
             <div class="accordion-heading" >            
                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNew" id="APM">
                 <div class="new_coorse_add_button">
-                    <img id="PM" src="images/png/new_coorse_add_new.png">
+                    <img id="PM" src="images/png/new_coorse_add_new.png"/>
                 </div>                      
                 </a>                      
              </div>                             
               <div id="collapseNew" class="accordion-body collapse">
                   <div class="accordion-inner" style="background: #f5f5f5;">                                  
-                      <form class="form-horizontal" method="POST" action="php/new_course.php" id="regForm" name="form_new_course">
+                      <form class="form-horizontal" method="POST" action="" id="regForm" name="form_new_course">
                         <div class="control-group">
                             <label class="control-label">Название курса</label>
                             <div class="controls">
-                            <input type="text" id="inputname" placeholder="Название курса" name="name_new_course">
+                            <input type="text" id="name_new_course" placeholder="Название курса" name="name_new_course"/></input>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Тип курса</label>
                             <div class="controls">
-                                <select name="type__new_course" id="select">
+                                <select name="type_new_course" id="type_new_course">
+                                        <option value="">Выберите тип курса</option>
                                     <?php
-                                    echo ('                               
-                                    <option value="">Выберите тип курса</option>
-                                    <option value="komen">Английский язык</option>
-                                    <option value="pioner">Фото</option>
-                                    <option value="krest">Качалка ёпт</option>
-                                    ')
+                                        $type_course = mysql_query("
+                                            SELECT id_type, name 
+                                            FROM  `type` 
+                                        ");
+                                        while($row = mysql_fetch_array($type_course)) 
+                                        {
+                                        echo ('                                         
+                                            <option value="'.$row["id_type"].'">'.$row["name"].'</option>
+                                            ');
+                                        }
                                     ?>
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label">Подтип курса</label>
+                            <div class="controls">
+                                <select name="sub_new_course" id="sub_type_new_course">
+                                    <option value="">Выберите подтип курса</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="control-group">
                             <label class="control-label">Описание</label>
                             <div class="controls">
-                                <textarea class="textarea1" id="inputDescription" placeholder="Введите описание курса" name="description_new_course" style="width: 460px; height: 170px"></textarea>                             
+                                <textarea class="textarea1" id="description_new_course" placeholder="Введите описание курса" name="description_new_course" style="width: 460px; height: 170px"></textarea>                             
                             </div>
                                 <script>
 			                         $('.textarea1').wysihtml5();
@@ -227,14 +259,14 @@
                             </label>
                             <div class="controls" id="new_course_text">
                                 <div class="type_file">
-                                    <input type="text" class="inputFileVal" readonly="readonly" id="fileName" />
-                                    <input type="file" size="35" class="inputFile" onchange='document.getElementById("fileName").value=this.value' name="image_new_course_local"/>
+                                    <input type="text" class="inputFileVal" readonly="readonly" id="fileName" /></input>
+                                    <input type="file" size="35" class="inputFile" id="image_new_course_local" onchange='document.getElementById("fileName").value=this.value' name="image_new_course_local"/></input>
                                     <div class="fonTypeFile" >
-                                    <input type="button" class="btn" onclick="document.forms['form_new_course']['image_new_course_local'].click()" value="Обзор">
+                                    <input type="button" class="btn"  onclick="document.forms['form_new_course']['image_new_course_local'].click()" value="Обзор"></input>
                                     </div>
                                 </div>
                                 <br/>или добавьте ссылку на картинку <br/>
-                                <input type="text" id="inputImage" placeholder="Ссылка" name="image_new_course_link">
+                                <input type="text" id="image_new_course_link" placeholder="Ссылка" name="image_new_course_link"></input>
                                 
                             </div>
                         </div>
@@ -244,25 +276,31 @@
                                 
                             </label>
                             <div class="controls" id="new_course_text">
-                               
+                               <div class="address_new_course" id="address_new_course">
                                     <?php
-                                    echo ('
-                                    <label class="checkbox inline">
-                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Зал на Комендантском
-                                    </label><br />
-                                    <label class="checkbox inline">
-                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Зал на Пионерской
-                                    </label><br />
-                                    <label class="checkbox inline">
-                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Крестовском
-                                    </label><br />     
-                                    <label class="checkbox inline">
-                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Ваське
-                                    </label><br />
-                                    <label class="checkbox inline">
-                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал в ПУНКе
-                                    </label><br />
-                                    ');                          
+                                    global $routes ;
+                                    $name_companies =  $routes[1];
+                                    
+                                    $id_companies = $_SESSION['id']; 
+                                    $venue_id = mysql_query("
+                                        SELECT  `venues`.`venuename_rus` as p1 ,  `venues`.`id_venue` as p2 ,  `companies`.`compname_eng`
+                                        FROM  `venues` 
+                                        JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
+                                        WHERE  `companies`.`compname_eng` =  '$name_companies'                                 
+                                        ");
+                                        $ii = 1;
+                                    echo '<div id="venue_checkbox_div">'; 
+                                    while($row1 = mysql_fetch_array($venue_id)) 
+                                    {
+                                        echo ('
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="venues_id'.$ii.'" id="venue_check_div" name = "venues_id" value="'.$row1["p2"].'">'.$row1["p1"].'
+                                        </label><br />                                      
+                                        ');  
+                                        $ii=$ii+1; 
+                                     
+                                    }
+                                    echo '</div>';
                                     /*echo ('
                                     <select name="location_new_course" id="select" multiple="multiple">
                                         <option value="">Выберите адрес</option>
@@ -274,21 +312,22 @@
                                     </select>
                                     ');*/
                                     ?>
+                               </div>
                                 <br />или добавьте новое место проведения курса<br />
-                                <input type="text" id="inputname" placeholder="Название, если есть" name="name_new_venue">
-                                <input type="text" id="inputname" placeholder="Город" name="countre_adress_new_venue">
-                                <input type="text" id="inputname" placeholder="Контактный телефон" name="phone_new_venue">
-                                <input type="text" id="inputname" placeholder="Улица" name="street_adress_new_venue">
-                                <input type="text" id="inputname" placeholder="Метро" name="metro_new_venue">
-                                <input type="text" id="inputname" placeholder="Дом" name="home_adress_new_venue">
-                                <input type="text" id="inputname" placeholder="Как найти" name="found_adress_new_venue">
-                                <input type="text" id="inputname" placeholder="Корпус" name="corpus_adress_new_venue">
+                                <input type="text" id="name_new_venue" placeholder="Название, если есть" name="name_new_venue"></input>
+                                <input type="text" id="countre_adress_new_venue" placeholder="Город" name="countre_adress_new_venue"></input>
+                                <input type="text" id="phone_new_venue" placeholder="Контактный телефон" name="phone_new_venue"></input>
+                                <input type="text" id="street_adress_new_venue" placeholder="Улица" name="street_adress_new_venue"></input>
+                                <input type="text" id="metro_new_venue" placeholder="Метро" name="metro_new_venue"></input>
+                                <input type="text" id="home_adress_new_venue" placeholder="Дом" name="home_adress_new_venue"></input>
+                                <input type="text" id="found_adress_new_venue" placeholder="Как найти" name="found_adress_new_venue"></input>
+                                <input type="text" id="corpus_adress_new_venue" placeholder="Корпус" name="corpus_adress_new_venue"></input>
                                 
                                 
                             </div>
                         </div>   
                     <p>Новый курс будет добавлен сразу после проверки модератором
-                            <input type="submit" class="btn" value="Добавить"></p>
+                            <input class="btn" value="Добавить" id="badd"/></p>
                             
                           
 

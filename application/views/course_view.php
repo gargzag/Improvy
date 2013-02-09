@@ -23,14 +23,19 @@
                     <div class="tab-pane active" id="tab1">
                         <div class="well well-small" id="about">
                             <h6>О курсе....</h6>
-                            <p>
                                 <?php   
-                                    $data1 = mysql_query("SELECT * FROM companies
+                                	$routes = explode('/', $_SERVER['REQUEST_URI']);
+                                    $data = mysql_query("SELECT * FROM companies
                                                           JOIN venues ON companies.id_company = venues.id_company
-                                                          JOIN courses ON venues.id_venues = courses.id_courses
-                                                          where companies.name_eng ='$routes[1]' and courses.name_eng = '$routes[2]'"); 
+                                                          JOIN courses ON venues.id_venue = courses.id_venue
+                                                          where companies.compname_eng ='$routes[1]' and courses.coursename_eng = '$routes[2]'"); 
+                                    while($row = mysql_fetch_array($data)) 
+                                    {
+                                        $text_description =  $row['description'];
+                                        echo $text_description;
+                                    }
                                 ?>
-                            </p>
+
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">
