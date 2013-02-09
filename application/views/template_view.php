@@ -207,7 +207,7 @@
                       </div>
                       <div class="control-group">
                         <div class="controls">                          
-                          <button class="btn btn-primary" type="submit" id="ent" href='#'>Войти</button>                                                 
+                          <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>                                                 
                         </div>
                       </div>                      
                 </form>

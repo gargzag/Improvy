@@ -22,7 +22,7 @@ $(function() {
                         
                         options += '<option value="' + data.id[i] + '">' + data.name[i] + '</option>';
                     });
-                    $('#under_type_new_course').html(options);
+                    $('#sub_type_new_course').html(options);
                     
                 }
         })
