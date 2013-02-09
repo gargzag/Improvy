@@ -35,7 +35,7 @@ class Controller_Courses extends Controller{
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
      function action_dance(){
-	 
+        
         $data = $this->model->get_dance();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
@@ -154,27 +154,27 @@ class Controller_Courses extends Controller{
     }
     //ТАНЦЫ
     function action_clubdance(){
-        $course = "clubdance";
+        $course = "club-dance";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_hiphop(){
-        $course = "hiphop";
+        $course = "hip-hop";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_balroom(){
-        $course = "baldance";
+        $course = "balroom";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_childdance(){
-        $course = "childdance";
+        $course = "child-dance";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_bellydance(){
-        $course = "bellydance";
+        $course = "belly-dance";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }

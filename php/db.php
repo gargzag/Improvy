@@ -1,8 +1,8 @@
-﻿<?php
+<?php
     
     $localhost  = 'localhost'; // хост
     $dbuser     = 'root';      // имя пользователя
-    $dbpassword = '';          // пароль
+    $dbpassword = 'root';          // пароль
     $database   = 'improvy';      // база данных
     
     /*
