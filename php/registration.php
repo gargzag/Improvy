@@ -53,7 +53,7 @@ function translit($str)
             "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
             "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
             "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya",
-            " "=>"_"
+            " "=>"_", "-"=> "_"
         );
         return strtr($str,$translit);
     }
@@ -68,7 +68,9 @@ function generateCode($length = 6)
 		   }
 		   return $string;
 		}
-function createControl($name){
+
+function createControl($name){ //Автоматизированное добавление контроллера при регистрации компании
+	
 	$filename = '../application/controllers/controller_'.$name.'.php';
 	$fp = fopen($filename,'w+');
 	if(is_writable($filename)){

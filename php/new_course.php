@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'db.php';
 function translit($str) 
 {
     $translit = array(
@@ -19,7 +20,7 @@ function translit($str)
     );
     return strtr($str,$translit);
 }
-include 'db.php';
+
 $company_new_course = $_SESSION['id'];
 
 

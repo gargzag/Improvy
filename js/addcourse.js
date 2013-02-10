@@ -1,9 +1,10 @@
 ﻿$(function() {
 $("#badd").click(function() {
-		var alldatacorrect = '1';
+		
+        var alldatacorrect = '1';
         var all_data_address_correct = '1';
         var venues_checked = [];
-            $(':checkbox:checked').each(function(i){
+            $('.address_new_course > input:checked').each(function(i){
                 venues_checked[i] = $(this).val();
             });
 		
@@ -16,10 +17,10 @@ $("#badd").click(function() {
             alldatacorrect = 0;
         }        
         
-        var venues_checked = [];
+        /*var venues_checked = [];
             $(':checkbox:checked').each(function(i){
                 venues_checked[i] = $(this).val();
-            });
+            });*/
 		if((venues_checked[1] == '') && (alldatacorrect == '1')) {
             alert("Укажите местополодение курса");
             var input = document.getElementById ("address_new_course");
