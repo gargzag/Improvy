@@ -3,49 +3,158 @@
     <div class="span3">
         <div class="thumbnail" style="padding:5px;">
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
-            <div id="ymaps-map-id_135272645449970217571" style="width: 210px; height: 300px;"></div>
+            <div id="ymaps-map-id_1" style="width: 210px; height: 300px;"></div>
             <script type="text/javascript">
-            function fid_13527264544997#0217571(ymaps) {
-                var map = new ymaps.Map("ymaps-map-id_135272645449970217571", {center: [30.381683621829444, 59.950885785505406], zoom: 13, type: "yandex#map"});
+
+            function fid_1(ymaps) {
+                var map = new ymaps.Map("ymaps-map-id_1", {center: [30.381683621829444, 59.950885785505406], zoom: 8, type: "yandex#map"});
+
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
-                    map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9429719377242], {balloonContent: "Q-Йога", iconContent: "2"}, {preset: "twirl#redIcon"}));
+                    <?php
+                    global $routes ;
+                    $name_companies =  $routes[1];
+                    $id_companies = $_SESSION['id'];
+                    $venue_maps = mysql_query("
+                    SELECT  `venues`.`coordinate`, `venues`.`venuename_rus`
+                    FROM  `venues` 
+                    JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
+                    WHERE  `companies`.`compname_eng` =  '$name_companies'  
+                    
+                    ");
+                    $ij = 1;
+                    while($row = mysql_fetch_array($venue_maps))
+                    {
+                        echo 'map.geoObjects.add(new ymaps.Placemark(['.$row["coordinate"].'], {balloonContent: "'.$row["venuename_rus"].'", iconContent: "'.$ij.'"}, {preset: "twirl#redIcon"}));';
+                        $ij = $ij + 1;
+                    }
+                    ?>
+                    
+                    //map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9329719377242], {balloonContent: "Q-Йога", iconContent: "1"}, {preset: "twirl#redIcon"}));
+                    
+                    
                     };</script>
-            <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_135272645449970217571"></script>
+            <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_1"></script>
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
          </div>       
         
 
-        <br />
         <form action="/summerhouse" method="post">
-<!--        <select onchange="this.form.submit()" name="location" id="select">
-                <option value="all">Выберите адрес</option>
-                <option value="Хухуху">Зал на Комендантском</option>
-                <option value="pioner">Зал на Пионерской</option>
-                <option value="krest">Зал на Крестовском</option>
-                <option value="vas">Зал на Ваське</option>
-                <option value="punk">Зал в ПУНКе</option>
-            </select>
--->
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox1" value="option_all"> Показать все
-        </label><br />
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox1" value="option1"> Зал на Комендантском
-        </label><br />
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox2" value="option2"> Зал на Пионерской
-        </label><br />
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Крестовском
-        </label><br />     
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал на Ваське
-        </label><br />
-        <label class="checkbox inline">
-            <input type="checkbox" id="inlineCheckbox3" value="option3"> Зал в ПУНКе
-        </label><br /><br />
-        <a href=""><button class="btn btn-primary">Добавить адрес</button></a>
+            <label class="checkbox inline" style="width: 150px !important;">
+                <input type="checkbox" id="inlineCheckbox1" value="option_all" > Показать все<br /></input>
+            </label><br />
+             <?php
+                $venue_maps = mysql_query("
+                SELECT  *
+                    FROM  `venues` 
+                    JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
+                    WHERE  `companies`.`compname_eng` =  '$name_companies'
+                ");
+                $ij = 1;
+                while($row = mysql_fetch_array($venue_maps))
+                {
+                    echo '<label class="checkbox inline" style="width: 170px !important;">
+                    <input type="checkbox" id="inlineCheckbox1" value="'.$row["id_venue"].'" >'.$row["venuename_rus"].'<br /></input>
+                    </label><br>';                    
+                }
+            ?>
+            
+            
+     
         </form>
+        
+        
+         <a href="#modal_new_venue" role="button" class="btn btn-primary" data-toggle="modal">Добавить адрес</a>
+         
+        <!-- Modal -->
+        <div id="modal_new_venue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+            </div>
+            <form class="form-horizontal" method="POST" action="/php/new_venue.php" id="form_new_venue" name="form_new_venue">
+                <div class="modal-body">
+                
+                    <div class="control-group">
+                        <label class="control-label">Название, если есть</label>
+                        <div class="controls">
+                            <input type="text" id="name_new_venue" placeholder="Название, если есть" name="name_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Город</label>
+                        <div class="controls">
+                            <input type="text" id="countre_adress_new_venue" placeholder="Город" name="countre_adress_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Контактный телефон</label>
+                        <div class="controls">
+                            <input type="text" id="phone_new_venue" placeholder="Контактный телефон" name="phone_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Улица</label>
+                        <div class="controls">
+                            <input type="text" id="street_adress_new_venue" placeholder="Улица" name="street_adress_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Метро</label>
+                        <div class="controls">
+                            <input type="text" id="metro_new_venue" placeholder="Метро" name="metro_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Дом</label>
+                        <div class="controls">
+                            <input type="text" id="home_adress_new_venue" placeholder="Дом" name="home_adress_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Как найти</label>
+                        <div class="controls">
+                            <input type="text" id="found_adress_new_venue" placeholder="Как найти" name="found_adress_new_venue"></input>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Корпус</label>
+                        <div class="controls">
+                            <input type="text" id="corpus_adress_new_venue" placeholder="Корпус" name="corpus_adress_new_venue"></input>
+                        </div>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                   <!--<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                   <input  type="submit" class="btn btn-primary" value="PHP" />-->
+                   <button class="btn btn-primary">Отмена</button>
+                   <input  class="btn btn-primary" value="Добавить курс" id="button_add_venue"/>
+              </div>
+          </form> 
+        </div>
+        <!-- Modal_1_end -->
+        
+        
+        <!-- Modal_2 -->
+        <div id="modal_preview_maps" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+          </div>
+          <div class="modal-body">
+            <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
+            <div id="ymaps-map-id_2" class="modal_map" style="width: 450px; height: 350px;"></div>
+            <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_2"></script>
+            <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        
+        <!-- Modal_2_end -->
+
         
         
     </div>
@@ -171,7 +280,7 @@
                                     <div id='collapse".$i."' class='accordion-body collapse'>
                                         <div class='accordion-inner'>
                                             <div class = 'description_course'> 
-                                             ОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание".$row['description']."
+                                             ".$row['description']."
                                              </div>
                                         </div>
                                     </div>
@@ -237,7 +346,7 @@
                         <div class="control-group">
                             <label class="control-label">Подтип курса</label>
                             <div class="controls">
-                                <select name="sub_new_course" id="sub_type_new_course">
+                                <select name="sub_new_course" id="subtype_new_course">
                                     <option value="">Выберите подтип курса</option>
                                     
                                 </select>
@@ -276,10 +385,11 @@
                                 
                             </label>
                             <div class="controls" id="new_course_text">
-                               <div class="address_new_course" id="address_new_course">
+                                <div class="address_new_course" id="address_new_course">
+                                    
                                     <?php
-                                    global $routes ;
-                                    $name_companies =  $routes[1];
+                                    
+                                    
                                     
                                     $id_companies = $_SESSION['id']; 
                                     $venue_id = mysql_query("
@@ -289,47 +399,34 @@
                                         WHERE  `companies`.`compname_eng` =  '$name_companies'                                 
                                         ");
                                         $ii = 1;
-                                    echo '<div id="venue_checkbox_div">'; 
+                                    echo '<div id="venue_checkbox_div"><label class="checkbox inline">'; 
                                     while($row1 = mysql_fetch_array($venue_id)) 
                                     {
                                         echo ('
-                                        <label class="checkbox inline">
+                                        
                                             <input type="checkbox" id="venues_id'.$ii.'" id="venue_check_div" name = "venues_id" value="'.$row1["p2"].'">'.$row1["p1"].'
-                                        </label><br />                                      
+                                        <br />                                      
                                         ');  
                                         $ii=$ii+1; 
                                      
                                     }
-                                    echo '</div>';
-                                    /*echo ('
-                                    <select name="location_new_course" id="select" multiple="multiple">
-                                        <option value="">Выберите адрес</option>
-                                        <option value="komen">Зал на Комендантском</option>
-                                        <option value="pioner">Зал на Пионерской</option>
-                                        <option value="krest">Зал на Крестовском</option>
-                                        <option value="vasil">Зал на Ваське</option>
-                                        <option value="punk">Зал в ПУНКе</option>
-                                    </select>
-                                    ');*/
+                                    echo '</label></div>';
                                     ?>
-                               </div>
-                                <br />или добавьте новое место проведения курса<br />
-                                <input type="text" id="name_new_venue" placeholder="Название, если есть" name="name_new_venue"></input>
-                                <input type="text" id="countre_adress_new_venue" placeholder="Город" name="countre_adress_new_venue"></input>
-                                <input type="text" id="phone_new_venue" placeholder="Контактный телефон" name="phone_new_venue"></input>
-                                <input type="text" id="street_adress_new_venue" placeholder="Улица" name="street_adress_new_venue"></input>
-                                <input type="text" id="metro_new_venue" placeholder="Метро" name="metro_new_venue"></input>
-                                <input type="text" id="home_adress_new_venue" placeholder="Дом" name="home_adress_new_venue"></input>
-                                <input type="text" id="found_adress_new_venue" placeholder="Как найти" name="found_adress_new_venue"></input>
-                                <input type="text" id="corpus_adress_new_venue" placeholder="Корпус" name="corpus_adress_new_venue"></input>
-                                
-                                
+                                    
+                               </div>                                
+                                 
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Новый курс будет добавлен сразу после проверки модератором</label>
+                            <div class="controls">
+                                <input  class="btn btn-primary" value="Добавить" id="button_add_course"/>
                             </div>
                         </div>   
-                    <p>Новый курс будет добавлен сразу после проверки модератором
-                            <input class="btn" value="Добавить" id="badd"/></p>
                             
-                          
+                            
+                            
+
 
                     </form>
                 </div>
