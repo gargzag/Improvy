@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pad">
 <div class="row">
   <div class="span12 bg_reg">
     <h1 style="color: blue;"><em>Improvy<small>- это агрегатор курсов, треннингов, спортивных секций. Это Яндекс среди курсов.</small></em></h1> 
@@ -64,4 +64,5 @@
 
   </div>
 </div>
+<div class = "hfooter"></div>
 </div>

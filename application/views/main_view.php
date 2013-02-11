@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pad">
     <div class="row">
         <div class="span4">
             <div class="item">
@@ -73,6 +73,7 @@
             <p>Bounce comes with several different colors, giving you a head start on creating a unique design.
         </div>
 </div>
+<div class = "hfooter"></div>
 </div>	
 
 

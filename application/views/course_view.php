@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pad">
     <div class="row">
         <div class="span12">
             <h4>CourseName
@@ -59,4 +59,5 @@
             
         </div>
     </div>
+    <div class = "hfooter"></div>
 </div>
