@@ -103,6 +103,7 @@ $(function() {
 				"email": email
 			},
 			success: function(data) {
+				
 				if(data == 1) {
 					$('#myModal').modal('show');
 					$("#ent").after("<div class='er'>Пользователя с таким Email не существует</div>");
