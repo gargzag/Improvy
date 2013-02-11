@@ -59,5 +59,6 @@
             
         </div>
     </div>
-    <div class = "hfooter"></div>
+</div>
+<div class = "hfooter"></div>
 </div>

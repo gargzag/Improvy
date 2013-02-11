@@ -99,10 +99,16 @@
         </header>
         <br />
         <?php include 'application/views/'.$content_view; ?>
+        
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    fdsfsd
+                    <div class="span6">
+
+                    </div>
+                    <div class="span6">
+
+                    </div>
                 </div>
             </div>
         </footer> 

@@ -18,6 +18,9 @@ html,body{
     background-color: whiteSmoke;
     height: 80px;
     margin-top: -80px;
+    background: url(images/bg-k10.png) repeat;
+    border-bottom: 4px solid #f6f6f6;
+    color: #666 !important;
 }
 .hfooter{
     height: 100px;

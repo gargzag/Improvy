@@ -34,7 +34,7 @@ class Controller_Courses extends Controller{
         $data = $this->model->get_languages();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-     function action_dance(){
+     function action_dances(){
 	 
         $data = $this->model->get_dance();
         $this->view->generate('courses_view.php','template_view.php',$data);
@@ -75,7 +75,7 @@ class Controller_Courses extends Controller{
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //БОЕВЫЕ ЕДИНОБОРСТВА
-    function action_box(){
+    function action_boxing(){
         $course = "box";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
@@ -87,6 +87,11 @@ class Controller_Courses extends Controller{
     }
     function action_sambo(){
         $course = "sambo";
+        $data = $this->model->get_data($course);
+        $this->view->generate('courses_view.php','template_view.php',$data);
+    }
+    function action_dzudo(){
+        $course = "dzudo";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
