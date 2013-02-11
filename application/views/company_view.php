@@ -13,7 +13,6 @@
                     <?php
                     global $routes ;
                     $name_companies =  $routes[1];
-                    $id_companies = $_SESSION['id'];
                     $venue_maps = mysql_query("
                     SELECT  `venues`.`coordinate`, `venues`.`venuename_rus`
                     FROM  `venues` 

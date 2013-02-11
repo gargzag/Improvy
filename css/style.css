@@ -141,7 +141,7 @@ border-width: 1px;
                 margin: 0;
                 padding:0;
                 border: 0;
-                background: transparent url('images/png/edit_textarea.png') no-repeat center top;
+                background: transparent url('../images/png/edit_textarea.png') no-repeat center top;
                 text-indent: -1000em;
                 cursor: pointer;
                 opacity: 0.5; 
