@@ -125,3 +125,21 @@ $(function() {
         else $("#PMI19").attr("src", src2); 
     })    
 })
+
+ $(function() {
+   // alert('page');
+   var page;
+    $("#dsd li").click(function() {
+        page = $(this).text();
+       // alert(page);
+            $.ajax({
+            type: "POST",
+            url: '/php/issue.php',
+            data: {
+                "page": page
+            }
+        })
+    })
+
+       
+ })
