@@ -5,8 +5,7 @@
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
             <div id="ymaps-map-id_1" style="width: 210px; height: 300px;"></div>
             <script type="text/javascript">
-
-            function fid_1(ymaps) {
+                function fid_1(ymaps) {
                 var map = new ymaps.Map("ymaps-map-id_1", {center: [30.381683621829444, 59.950885785505406], zoom: 8, type: "yandex#map"});
 
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
@@ -34,21 +33,24 @@
                     };</script>
             <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_1"></script>
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
-         </div>       
+        </div>       
         
 
         <form action="/summerhouse" method="post">
             <label class="checkbox inline" style="width: 150px !important;">
-                <input type="checkbox" id="inlineCheckbox1" value="option_all" > Показать все<br /></input>
+                <input type="checkbox" id="inlineCheckbox1" value="option_all" > Показать все <br /></input>
             </label><br />
-             <?php
-                $venue_maps = mysql_query("
-                SELECT  *
+            
+            <?php
+                
+                $venue_maps = mysql_query(" 
+                    SELECT  *
                     FROM  `venues` 
                     JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
                     WHERE  `companies`.`compname_eng` =  '$name_companies'
                 ");
                 $ij = 1;
+                
                 while($row = mysql_fetch_array($venue_maps))
                 {
                     echo '<label class="checkbox inline" style="width: 170px !important;">

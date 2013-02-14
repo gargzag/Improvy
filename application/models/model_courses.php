@@ -39,12 +39,12 @@ class Model_Courses extends Model
         return $data;
 		
 	}
-	public function get_dance()
+	public function get_dances()
 	{	
         $data = mysql_query("SELECT  distinct `courses`.`coursename_rus`, `courses`.`coursename_eng`, `courses`.`price`,`courses`.`description`, `courses`.`minprice`, `companies`.`compname_rus`,`companies`.`compname_eng`
                             FROM courses JOIN venues on courses.id_venue = venues.id_venue 
                                          JOIN companies on venues.id_company = companies.id_company 
-                            where courses.type = 'club-dance' or courses.type = 'hip-hop' or courses.type = 'balroom' or courses.type = 'child-dance' or courses.type = 'belly-dance' or courses.type = 'tango' ");              
+                            where courses.type = 'club-dance' or courses.type = 'hiphop' or courses.type = 'balroom' or courses.type = 'childdance' or courses.type = 'bellydance' or courses.type = 'tango' ");              
         return $data;
 		
 	}
