@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'db.php';
 function translit($str) 
 {
     $translit = array(
@@ -19,144 +20,65 @@ function translit($str)
     );
     return strtr($str,$translit);
 }
-include 'db.php';
-$company_new_course = $_SESSION['id'];
 
+
+$company_new_course = $_SESSION['id'];
 
 $name_new_course = $_POST['name_new_course'];
 $name_eng = translit($name_new_course);
 $description = $_POST['description_new_course'];
-
+$venues_checked = $_POST['venues_checked'];
+$price_new_course = $_POST['price_new_course'];
+$minprice_new_course = $_POST['minprice_new_course'];
+$timetable_new_course = $_POST['timetable_new_course'];
 $type_new_course = $_POST['type_new_course'];
+$subtype_new_course = $_POST['subtype_new_course'];
 $image_link = $_POST['image_new_course_link'];
 $image_local = $_POST['image_new_course_local'];
 
-if (!isset($_POST['name_new_course'])) 
-{
-   echo(" <script>alert('Добрый день')</script>");
-}
-
-
-$name_new_venue = $_POST['name_new_venue'];
-$name_eng_new_venue = translit($name_new_venue);
-$phone_new_venue = $_POST['phone_new_venue'];
-$metro_new_venue = $_POST['metro_new_venue'];
-$found_adress_new_venue = $_POST['found_adress_new_venue'];
-$countre_adress_new_venue = $_POST['countre_adress_new_venue'];
-$street_adress_new_venue = $_POST['street_adress_new_venue'];
-$home_adress_new_venue = $_POST['home_adress_new_venue'];
-$corpus_adress_new_venue = $_POST['corpus_adress_new_venue'];
-
-//echo "Запрос к геокодеру по адресу: </br>";
-$link_geocoder =    "город ".$countre_adress_new_venue.
-                    " улица ".$street_adress_new_venue.
-                    " дом ".$home_adress_new_venue.
-                    " корпус ".$corpus_adress_new_venue ;       
-$adress = $link_geocoder;
-$key = "ACaQDlEBAAAADx8EBAIAVvmKSReS9YyV0-V0wOJcrlmSxgIAAAAAAAAAAABvYWqTFI1UJvu1H3wCMja4lQhHDA==";
-$adress1=urlencode($adress);
-$url="http://geocode-maps.yandex.ru/1.x/?geocode=".$adress1."&key=".$key;
-$content=file_get_contents($url);
-preg_match('/<pos>(.*?)<\/pos>/',$content,$point);
-$coordinate=str_replace(' ',', ',trim(strip_tags($point[1])));
-//echo "<br>".$coordinate;
-
-
-$result_new_course = mysql_query("
-               INSERT INTO  `improvy`.`venues` (
-                `id_venue` ,
-                `id_company` ,
-                `venuename_eng` ,
-                `venuename_rus` ,
-                `telephone` ,
-                `metro` ,
-                `country` ,
-                `street` ,
-                `home` ,
-                `how_found` ,
-                `coordinate`
-                )
-                VALUES (
-                    NULL , 
-                    '$company_new_course', 
-                    '$name_eng_new_venue',
-                    '$name_new_venue',  
-                    '$phone_new_venue',  
-                    '$metro_new_venue',  
-                    '$countre_adress_new_venue',  
-                    '$street_adress_new_venue',  
-                    '$home_adress_new_venue',  
-                    '$corpus_adress_new_venue',
-                    '$coordinate'
-    );
-");
 
 $result = mysql_query("
                         INSERT INTO  `improvy`.`courses` (
                         `id_course` ,
-                        `id_venue` ,
-                        `coursename_eng` ,
                         `coursename_rus` ,
+                        `coursename_eng` ,
                         `type` ,
+                        `subtype` ,
                         `description` ,
                         `price` ,
+                        `minprice` ,
+                        `timetable` ,
                         `time_start` ,
                         `time_end` ,
                         `activation`
                         )
                         VALUES (
-                        NULL ,  
-                        '1',  
+                        NULL ,    
                         '$name_new_course',  
                         '$name_eng',  
-                        '$type_new_course',  
+                        '$type_new_course',
+                        '$subtype_new_course',  
                         '$description',  
-                        '123',  
+                        '$price_new_course',
+                        '$minprice_new_course',
+                        '$timetable_new_course',  
                         '2013-02-26',  
                         '2013-02-22',  
                         '1'
                         );
 ");
-
-
-
-/**
- * echo "
- *         <div id='ymaps-map-id_135272645449970217571' style='width: 210px; height: 300px;'></div>
- *         <script type='text/javascript'>
- *         function fid_135272645449970217571(ymaps) {
- *         var map = new ymaps.Map('ymaps-map-id_135272645449970217571', {center: [".$coordinate."], zoom: 13, type: 'yandex#map'});
- *         map.controls.add('zoomControl').add('mapTools').add(new ymaps.control.TypeSelector(['yandex#map', 'yandex#satellite', 'yandex#hybrid', 'yandex#publicMap']));
- *         map.geoObjects.add(new ymaps.Placemark([".$coordinate."], {balloonContent: '".$found_adress_new_venue." ".$phone_new_venue."', iconContent: '1'}, {preset: 'twirl#redIcon'}));
- *         };</script>";
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$last_id = mysql_query(" select max(`courses`.`id_course`) as id_course   from `courses`");
+while($row = mysql_fetch_array($last_id))
+                    { 
+                        $last_id_course = $row["id_course"];
+                    }
+foreach ($venues_checked as $key => $value) 
+{
+    echo $value.'<br />';
+    mysql_query(" INSERT INTO `improvy`.`cv` (`id_venue`, `id_course`) 
+                                    VALUES ('$value', '$last_id_course');   
+");
+}
 
 
 /*
@@ -195,7 +117,8 @@ echo "File uploading failed.\n";
 //end
 
 mysql_query("   INSERT INTO courses (name,description,pass) 
-                VALUES ('" .$name. "','" .$description. "','" .$pass. "') "); */
+                VALUES ('" .$name. "','" .$description. "','" .$pass. "') "); 
 //echo $_SESSION['compname'];                
 //header("location: http://improvy.ru/$_SESSION['compname']");
 //exit();
+*/

@@ -1,5 +1,4 @@
-$(function() {
-    
+﻿$(function() {
     $('#type_new_course').change(function(){
         var type_new_course = $("#type_new_course").val();
         $.ajax({
@@ -16,13 +15,15 @@ $(function() {
                     alert (data);
                     alert (data1);*/
 
-                    
+
+                    options += '<option value="">Выберите подтип курса</option>';
                     $.each(data.name, function(i) {
-                        //alert(i);
+                        
                         
                         options += '<option value="' + data.id[i] + '">' + data.name[i] + '</option>';
                     });
-                    $('#under_type_new_course').html(options);
+                    $('#subtype_new_course').html(options);
+
                     
                 }
         })
