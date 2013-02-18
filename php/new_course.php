@@ -20,7 +20,7 @@ function translit($str)
     );
     return strtr($str,$translit);
 }
-
+ 
 $company_new_course = $_SESSION['id'];
 $name_new_course = $_POST['name_new_course'];
 $name_eng = translit($name_new_course);
@@ -34,33 +34,30 @@ $subtype_new_course = $_POST['subtype_new_course'];
 $image_link = $_POST['image_new_course_link'];
 $image_local = $_POST['image_new_course_local'];
 
-function createAction($name){
+function createAction($name, $name_new_course){
 
-    $filename = '../application/controllers/controller_'.$name.'php';
+    $filename = '../application/controllers/controller_'.$name.'.php';
     $k=0;
     $file = file_get_contents($filename);
-    /*$file1 = implode("", $file);*/
     for($i=0; $i < strlen($file); $i++){
         if($file[$i] == "}"){
             $k = $i;
         }      
     }
     $mytext = 'function action_'.$name_new_course.'(){
-                $data = $this->model->get_data();
+                $data = $this->model->get_data_course();
                 $this->view->generate("course_view.php","template_view.php",$data);
             }
         }';
     $fileupdate = substr_replace($file,$mytext , $k);
     $fo = fopen($filename, 'w+');
     $test = fwrite($fo, $fileupdate);
+
 }
 
-foreach ($venues_checked as $key => $value) {
-
-$result = mysql_query("
+$result = mysql_query ("
                         INSERT INTO  `improvy`.`courses` (
                         `id_course` ,
-                        `id_venue` ,
                         `coursename_rus` ,
                         `coursename_eng` ,
                         `type` ,
@@ -74,8 +71,7 @@ $result = mysql_query("
                         `activation`
                         )
                         VALUES (
-                        NULL ,  
-                        '$value',  
+                        NULL ,    
                         '$name_new_course',  
                         '$name_eng',  
                         '$type_new_course',
@@ -87,9 +83,36 @@ $result = mysql_query("
                         '2013-02-26',  
                         '2013-02-22',  
                         '1'
-                        );
+                        ) ");
+
+if($result){
+    $query = mysql_query("
+                    SELECT companies.compname_eng
+                    FROM companies
+                    WHERE companies.id_company = '$company_new_course' ") ;
+    while ($row = mysql_fetch_array($query)) {
+                $company_name = $row['compname_eng'];
+    }        
+    echo $company_name;
+    createAction($company_name, $name_new_course);
+
+}
+else{echo "хз че такое";}
+
+$last_id = mysql_query(" select max(`courses`.`id_course`) as id_course   from `courses`");
+while($row = mysql_fetch_array($last_id))
+                    { 
+                        $last_id_course = $row["id_course"];
+                    }
+foreach ($venues_checked as $key => $value) 
+{
+    /*echo $value.'<br />';*/
+    mysql_query(" INSERT INTO `improvy`.`cv` (`id_venue`, `id_course`) 
+                                    VALUES ('$value', '$last_id_course');   
 ");
 }
+
+
 /*
 //Проверка изображения на наличие скриптов и всякой другой 
 if($_FILES["filename"]["size"] > 1024*3*1024)

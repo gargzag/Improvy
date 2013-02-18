@@ -10,17 +10,9 @@
 
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     <?php
-                    global $routes ;
-                    $name_companies =  $routes[1];
-                    $venue_maps = mysql_query("
-                    SELECT  `venues`.`coordinate`, `venues`.`venuename_rus`
-                    FROM  `venues` 
-                    JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
-                    WHERE  `companies`.`compname_eng` =  '$name_companies'  
+                    $ij=1;
                     
-                    ");
-                    $ij = 1;
-                    while($row = mysql_fetch_array($venue_maps))
+                    while($row = mysql_fetch_array($data['map_query']))
                     {
                         echo 'map.geoObjects.add(new ymaps.Placemark(['.$row["coordinate"].'], {balloonContent: "'.$row["venuename_rus"].'", iconContent: "'.$ij.'"}, {preset: "twirl#redIcon"}));';
                         $ij = $ij + 1;
@@ -43,20 +35,15 @@
             
             <?php
                 
-                /*
-                $ij = 1;*/
-                
-                while($row = mysql_fetch_array($data['venue_query']))
+                while($row = mysql_fetch_array($data['map_venue_query']))
                 {
                     echo '<label class="checkbox inline" style="width: 170px !important;">
                     <input type="checkbox" id="inlineCheckbox1" value="'.$row["id_venue"].'" >'.$row["venuename_rus"].'<br /></input>
                     </label><br>';                    
                 }
             ?>
-            
-            
-     
         </form>
+        
         <?php
         if (isset($_SESSION['id']))
         {
@@ -133,9 +120,8 @@
         ';
         }
         ?>
-        
-        
     </div>
+    
     <div class="span9">
         <div class="thumbnail">
             <img src="/images/comp.jpg" />
@@ -145,34 +131,28 @@
             <h6>О компании</h6>
 
 			<?php 
-
                 
-
-
                 while($row = mysql_fetch_array($data['about_query'])) 
                 {
                     $text_description =  $row['about'];
                 }
                 if (isset($_POST['action'])) {
-                      
-                   
                     if (!($_POST['action']=='2'))    {                 
                         if (($_POST['action_save']=='1'))    {
                             //Запись в базу данных
                             $text_description = $_POST["test"];
                             $compid = $_SESSION['id'];
                             mysql_query("UPDATE  `improvy`.`companies` 
-
                                          SET  `about` = '$text_description' 
                                          WHERE  `companies`.`id_company` = $compid ");
                         }                               
-                        echo '<form name="frm" method="POST">';
-                        echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';                        
+                        echo '<form name="frm" method="POST">
+                                <input type="submit" value="Редактировать!" class="button_edit_textarea" >';                        
                         //Вывод из базы данных 
                         echo $text_description."<br/>"; 
                         //Флаг для смены окна
-                        echo '<input type="hidden" name="action" value=2>';
-                        echo '</form>';                            				
+                        echo '<input type="hidden" name="action" value=2>
+                              </form>';                            				
                     }
                     else {   
                         echo '<form name="frm" method="POST">';
@@ -274,13 +254,13 @@
                     } else echo("<div class='accordion-group'>
                                     <div class='accordion-heading' >
                                     <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse2'>
-                                        Следуйте указаниям ниже, чтобы добавить первый курс.
+                                        Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
                                     </a>
                                     </div>
                                  </div>
                                  <div id='collapse2' class='accordion-body collapse'>
                                      <div class='accordion-inner'> 
-                                          хуй вам
+                                          Здесь можно разместить информацию о правильности размещения курсов
                                      </div>
                                  </div>
                                 ");
@@ -403,18 +383,10 @@
                                     
                                     ';
                                     
-                                    
-                                    
                                     $id_companies = $_SESSION['id']; 
-                                    $venue_id = mysql_query("
-                                        SELECT  `venues`.`venuename_rus` as p1 ,  `venues`.`id_venue` as p2 ,  `companies`.`compname_eng`
-                                        FROM  `venues` 
-                                        JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
-                                        WHERE  `companies`.`compname_eng` =  '$name_companies'                                 
-                                        ");
-                                        $ii = 1;
+                                    $ii = 1;
                                     echo '<div id="venue_checkbox_div">'; 
-                                    while($row1 = mysql_fetch_array($venue_id)) 
+                                    while($row1 = mysql_fetch_array($data['courses_venue_query'])) 
                                     {
                                         echo ('
                                         
