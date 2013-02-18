@@ -43,15 +43,10 @@
             
             <?php
                 
-                $venue_maps = mysql_query(" 
-                    SELECT  *
-                    FROM  `venues` 
-                    JOIN  `companies` ON  `venues`.`id_company` =  `companies`.`id_company` 
-                    WHERE  `companies`.`compname_eng` =  '$name_companies'
-                ");
-                $ij = 1;
+                /*
+                $ij = 1;*/
                 
-                while($row = mysql_fetch_array($venue_maps))
+                while($row = mysql_fetch_array($data['venue_query']))
                 {
                     echo '<label class="checkbox inline" style="width: 170px !important;">
                     <input type="checkbox" id="inlineCheckbox1" value="'.$row["id_venue"].'" >'.$row["venuename_rus"].'<br /></input>
@@ -151,8 +146,10 @@
 
 			<?php 
 
+                
 
-                while($row = mysql_fetch_array($data[1])) 
+
+                while($row = mysql_fetch_array($data['about_query'])) 
                 {
                     $text_description =  $row['about'];
                 }
@@ -218,11 +215,11 @@
 
             
                <?php                    
-                    if(mysql_num_rows($data[2]) > 0) {
+                    if(mysql_num_rows($data['courses_query']) > 0) {
                         $i=1;
                         
 
-                        while($row = mysql_fetch_array($data[2])) {
+                        while($row = mysql_fetch_array($data['courses_query'])) {
                         //echo $i."name_eng=".$row['name_eng'];
                         //echo "<br>".$i."eng=".$row['eng'];
                         //echo "<br>".$i."name_rus=".$row['name_rus'];

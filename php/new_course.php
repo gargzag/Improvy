@@ -21,9 +21,7 @@ function translit($str)
     return strtr($str,$translit);
 }
 
-
 $company_new_course = $_SESSION['id'];
-
 $name_new_course = $_POST['name_new_course'];
 $name_eng = translit($name_new_course);
 $description = $_POST['description_new_course'];
@@ -36,6 +34,26 @@ $subtype_new_course = $_POST['subtype_new_course'];
 $image_link = $_POST['image_new_course_link'];
 $image_local = $_POST['image_new_course_local'];
 
+function createAction($name){
+
+    $filename = '../application/controllers/controller_'.$name.'php';
+    $k=0;
+    $file = file_get_contents($filename);
+    /*$file1 = implode("", $file);*/
+    for($i=0; $i < strlen($file); $i++){
+        if($file[$i] == "}"){
+            $k = $i;
+        }      
+    }
+    $mytext = 'function action_'.$name_new_course.'(){
+                $data = $this->model->get_data();
+                $this->view->generate("course_view.php","template_view.php",$data);
+            }
+        }';
+    $fileupdate = substr_replace($file,$mytext , $k);
+    $fo = fopen($filename, 'w+');
+    $test = fwrite($fo, $fileupdate);
+}
 
 foreach ($venues_checked as $key => $value) {
 

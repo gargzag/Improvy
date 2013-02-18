@@ -19,5 +19,8 @@ class Controller_Summerhouse extends Controller{
         $data = $this->model->get_data();
         $this->view->generate('course_view.php','template_view.php',$data);
     }
-    
+
 }
+
+
+
