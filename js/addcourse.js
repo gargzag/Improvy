@@ -40,13 +40,11 @@
             var input = document.getElementById("subtype_new_course");
             input.focus();
             alldatacorrect = 0;
-        }
-
-        var description_new_course = $("#description_new_course").val();
+        } 
+		var description_new_course = $("#description_new_course").val();
         if((description_new_course == '') && (alldatacorrect == '1')) {
             alert("Введите описание курса");
-            var input = document.getElementById("description_new_course");
-            input.focus();
+            $("#description_new_course").focus();
             alldatacorrect = 0;
         }
 

@@ -40,7 +40,6 @@
         <!-- Textarea edit  end     -->
 	</head>
  
-
 	<body >    
         <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header" id="modal-header">
@@ -101,7 +100,6 @@
                     </div>
               
         </header>
-        <br />
         <?php include 'application/views/'.$content_view; ?>
         
         <footer class="footer">

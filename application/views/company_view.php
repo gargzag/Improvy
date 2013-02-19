@@ -29,9 +29,9 @@
                     ?>
                     
                     //map.geoObjects.add(new ymaps.Placemark([30.381806211813883, 59.9329719377242], {balloonContent: "Q-Йога", iconContent: "1"}, {preset: "twirl#redIcon"}));
-                    
-                    
-                    };</script>
+                                       
+                    };
+                    </script>
             <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_1"></script>
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
          </div>       
@@ -70,7 +70,7 @@
         <div id="modal_new_venue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Modal header</h3>
+            <h3 id="myModalLabel">Добавление адреса</h3>
             </div>
             <form class="form-horizontal" method="POST" action="/php/new_venue.php" id="form_new_venue" name="form_new_venue">
                 <div class="modal-body">
@@ -155,8 +155,6 @@
                     $text_description =  $row['about'];
                 }
                 if (isset($_POST['action'])) {
-                      
-                   
                     if (!($_POST['action']=='2'))    {                 
                         if (($_POST['action_save']=='1'))    {
                             //Запись в базу данных
@@ -167,13 +165,13 @@
                                          SET  `about` = '$text_description' 
                                          WHERE  `companies`.`id_company` = $compid ");
                         }                               
-                        echo '<form name="frm" method="POST">';
-                        echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';                        
+                        echo '<form name="frm" method="POST">
+                                <input type="submit" value="Редактировать!" class="button_edit_textarea" >';                        
                         //Вывод из базы данных 
                         echo $text_description."<br/>"; 
                         //Флаг для смены окна
-                        echo '<input type="hidden" name="action" value=2>';
-                        echo '</form>';                            				
+                        echo '<input type="hidden" name="action" value=2>
+                              </form>';                            				
                     }
                     else {   
                         echo '<form name="frm" method="POST">';
@@ -275,13 +273,13 @@
                     } else echo("<div class='accordion-group'>
                                     <div class='accordion-heading' >
                                     <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse2'>
-                                        Следуйте указаниям ниже, чтобы добавить первый курс.
+                                        Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
                                     </a>
                                     </div>
                                  </div>
                                  <div id='collapse2' class='accordion-body collapse'>
                                      <div class='accordion-inner'> 
-                                          хуй вам
+                                          Здесь можно разместить информацию о правильности размещения курсов
                                      </div>
                                  </div>
                                 ");
