@@ -23,7 +23,7 @@
 	else
 	{
 		echo 2;
-		if (mysql_query("INSERT INTO companies (compname_rus, compname_eng, fio, address, email, password, telephone, site, activation) VALUES ('" .$Cname. "','" .$Cname_eng. "','" .$fio. "', '" .$address. "','" .$email. "','" .$password. "', '" .$phone. "','" .$site. "', '0')")) //пишем данные в БД и авторизовываем пользователя
+		if (mysql_query("INSERT INTO companies (compname_rus, compname_eng, fio, address, email, password, telephone, site, activation, about) VALUES ('" .$Cname. "','" .$Cname_eng. "','" .$fio. "', '" .$address. "','" .$email. "','" .$password. "', '" .$phone. "','" .$site. "', '0', 'Заполните информацию о компании')")) //пишем данные в БД и авторизовываем пользователя
 		{
 				//setcookie ("login", $pass, time() + 50000, '/');
 				//setcookie ("password", md5($login.$password), time() + 50000, '/');
@@ -82,7 +82,7 @@ function createControl($name){ //Автоматизированное добав
 				            $this->view = new View();
 				        }
 				        function action_index() {
-				            $data = $this->model->get_data();
+				            $data = $this->model->get_data_company();
 				            $this->view->generate("company_view.php","template_view.php",$data);
 			        	}
 		            }'; // Исходная строка

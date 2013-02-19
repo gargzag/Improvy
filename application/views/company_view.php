@@ -2,6 +2,7 @@
 <div class="row">
     <div class="span3">
         <div class="thumbnail" style="padding:5px;">
+            
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
             <div id="ymaps-map-id_1" style="width: 210px; height: 300px;"></div>
             <script type="text/javascript">
@@ -28,6 +29,8 @@
         </div>       
         
 
+
+        <!-- Checkbox под картой -->
         <form action="/summerhouse" method="post">
             <label class="checkbox inline" style="width: 150px !important;">
                 <input type="checkbox" id="inlineCheckbox1" value="option_all" > Показать все <br /></input>
@@ -44,6 +47,7 @@
             ?>
         </form>
         
+        <!-- Модальное окно для добавления адреса -->
         <?php
         if (isset($_SESSION['id']))
         {
@@ -121,7 +125,7 @@
         }
         ?>
     </div>
-    
+    <!-- Информация о компании -->
     <div class="span9">
         <div class="thumbnail">
             <img src="/images/comp.jpg" />
@@ -189,7 +193,7 @@
         </div>
 
 
- 
+ <!-- Вывод курсов -->
 <div id="courses">
     <div class="accordion" id="accordion2">
 
@@ -251,19 +255,10 @@
                                 ");
                         $i=$i+1;
                         }
-                    } else echo("<div class='accordion-group'>
-                                    <div class='accordion-heading' >
-                                    <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse2'>
-                                        Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
-                                    </a>
-                                    </div>
-                                 </div>
-                                 <div id='collapse2' class='accordion-body collapse'>
-                                     <div class='accordion-inner'> 
-                                          Здесь можно разместить информацию о правильности размещения курсов
-                                     </div>
-                                 </div>
-                                ");
+                    } else echo("<div class='alert alert-info'>
+                                    Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
+                                    <button class='close' data-dismiss = 'alert'>&times;</button>
+                                </div> ");
                 ?>
              
         <?php                
