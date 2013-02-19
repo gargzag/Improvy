@@ -107,13 +107,13 @@
             <br />
             <div class="tabbable"> <!-- Only required for left/right tabs -->
                 <?php 
-                    $data = mysql_query("SELECT distinct `courses`.id_course, `courses`.minprice, `courses`.description, `courses`.price, `courses`.timetable
+                    $data_course = mysql_query("SELECT distinct `courses`.id_course, `courses`.minprice, `courses`.description, `courses`.price, `courses`.timetable
                                         FROM `courses` 
                                         join `cv` on `courses`.`id_course` = `cv`.`id_course` 
                                         join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
                                         join `companies` on `companies`.`id_company`=`venues`.`id_company`
                                         where `courses`.`coursename_eng` = '$name_course_eng' ");
-                    while($row = mysql_fetch_array($data)) 
+                    while($row = mysql_fetch_array($data_course)) 
                     {
                         $id_course = $row['id_course'];
                         $minprice_course = $row['minprice'];

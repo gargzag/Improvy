@@ -96,7 +96,7 @@ class Model_Company extends Model{
                     join `companies` on `companies`.`id_company`=`venues`.`id_company`
                     where   `courses`.`coursename_eng` = '$name_course_eng' and 
                     `companies`.`compname_eng` =  '$name_companies_eng' "); // Вывод филиалов
-            
+            $num_rows = mysql_num_rows($info_address_query);
             $map_address_query = mysql_query(" 
                         SELECT  `venues`.`venuename_rus`, 
                             `venues`.`phone`, 
@@ -118,6 +118,7 @@ class Model_Company extends Model{
             $data['info_course_query'] = $info_course_query;
             $data['info_address_query'] = $info_address_query;
             $data['map_address_query'] = $map_address_query;
+            $data['num_rows'] = $num_rows;
 
             return $data;
 
