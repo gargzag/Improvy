@@ -10,7 +10,7 @@
         <p>Регистрация простая, заполните поля ниже</p>
         <p>Поля отмеченные <font color="red">*</font> обязательный для заполнения!</p>
         <p id="thx" style="display:none;">Спасибо за регистрацию! нажмите <a href="/main">сюда</a> чтобы начать работать</p>
-                <form class="form-horizontal" method="POST" action="" id="regForm">
+                <form class="form-horizontal" method="POST" action="/php/registration.php" target="iframe" id="regForm" enctype=multipart/form-data>
                   <div class="row">
                     <div class="span6">
                       <fieldset>
@@ -47,6 +47,10 @@
                         <label >Телефон <font color="red">*</font></label>
                        
                           <input type="text" id="Phone" class="span4" placeholder="" name="Phone">
+
+                          <label >Логотип <font color="red">*</font></label>
+                       
+                          <input type="file" id="logo" class="span4" placeholder="" name="uploadfile">
                                           
                     </div>
                     <div class="control-group">
@@ -56,11 +60,26 @@
                       </div>
                       <div class="control-group">
                         <div class="controls">
-                          <button class="btn btn-primary" type="button" id="sub">Регистрация</button>                                                 
+                          <button class="btn btn-primary" type="submit" id="sub">Регистрация</button>                                                 
                         </div>
                       </div>       
                       </div>               
                 </form>
+                <iframe name="iframe" hieght="0" width="0" frameborder="0"></iframe>
+                <!-- Modal -->
+                <div id="reg_complete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Modal header</h3>
+                  </div>
+                  <div class="modal-body">
+                    <p>One fine body…</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
 
   </div>
 </div>
