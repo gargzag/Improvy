@@ -110,17 +110,19 @@
                     <div class="span6 ">
                             <div class="cocial" >
                                 <div class="cocial_img" >
-                                    <img  src="images/main/vk_over.png" onmouseover="this.src='images/main/vk.png';" onmouseout="this.src='images/main/vk_over.png';"/>
-                                </div>
+                                    <a href="http://vk.com/improvy" target="_blank">
+                                        <img  src="/images/main/vk_over.png" onmouseover="this.src='/images/main/vk.png';" onmouseout="this.src='/images/main/vk_over.png';"/>
+                                     </a>
+                                 </div>
                                 <div class="cocial_img" >
-                                    <a href="http://www.facebook.com/groups/608762325807004/">
-                                        <img  src="images/main/facebook_over.png" onmouseover="this.src='images/main/facebook.png';" onmouseout="this.src='images/main/facebook_over.png';"/>
+                                    <a href="http://www.facebook.com/groups/608762325807004/" target="_blank">
+                                        <img  src="/images/main/facebook_over.png" onmouseover="this.src='/images/main/facebook.png';" onmouseout="this.src='/images/main/facebook_over.png';"/>
                                     </a>
                                 </div>
                                 <div class="cocial_img" >
-                                    <a href="http://vk.com/improvy">
-                                        <img  src="images/main/twiter_over.png" onmouseover="this.src='images/main/twiter.png';" onmouseout="this.src='images/main/twiter_over.png';"/>
-                                    </a>
+                                    
+                                        <img  src="/images/main/twiter_over.png" onmouseover="this.src='/images/main/twiter.png';" onmouseout="this.src='/images/main/twiter_over.png';"/>
+                                   
                                 </div>
                             </div>
                     

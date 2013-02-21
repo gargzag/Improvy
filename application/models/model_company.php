@@ -67,7 +67,7 @@ class Model_Company extends Model{
             $name_course_eng = $routes[2];
             
             $info_company_query = mysql_query("   
-                        SELECT `compname_rus`, `telephone`
+                        SELECT `id_company`, `compname_rus`, `telephone`
                         FROM `companies` 
                         where   `companies`.`compname_eng` =  '$name_companies_eng' "); // Информация о компании на странице курса
 

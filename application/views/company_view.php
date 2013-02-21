@@ -59,7 +59,7 @@
         
         <!-- Модальное окно для добавления адреса -->
         <?php
-        if ($id_com == $_SESSION['id']) 
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo '
          <a href="#modal_new_venue" role="button" class="btn btn-primary" data-toggle="modal">Добавить адрес</a>
@@ -183,7 +183,7 @@
                 }
                 else{
                     echo '<form name="frm" method="POST">';
-                    if ( $id_com == $_SESSION['id'])
+                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
                     {    
                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
                     }
@@ -266,7 +266,7 @@
                         $i=$i+1;
                         }
                     } else
-                        if ($_SESSION['id'] == $id_com)
+                        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
                         {
                             echo("<div class='alert alert-info'>
                                     Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
@@ -276,7 +276,7 @@
                 ?>
              
         <?php                
-        if ($_SESSION['id'] == $id_com)
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo('
         <div class="accordion-group">
