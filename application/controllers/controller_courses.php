@@ -36,7 +36,7 @@ class Controller_Courses extends Controller{
     }
      function action_dances(){
 	 
-        $data = $this->model->get_dance();
+        $data = $this->model->get_dances();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     
@@ -44,70 +44,70 @@ class Controller_Courses extends Controller{
     
     //СПОРТ-ФИТНЕС
     function action_yoga(){
-        $course = "yoga";
+        $subtype = "7";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
 
     function action_pilates(){
-        $course = "pilates";
+        $course = "8";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_stripdance(){
-        $course = "strip-dane";
+        $course = "10";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_tennis(){
-        $course = "tennis";
+        $course = "9";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_run(){
-        $course = "run";
+        $course = "11";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_stretching(){
-        $course = "stretching";
+        $course = "12";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //БОЕВЫЕ ЕДИНОБОРСТВА
     function action_boxing(){
-        $course = "box";
+        $course = "1";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_karate(){
-        $course = "karate";
+        $course = "2";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_sambo(){
-        $course = "sambo";
+        $course = "3";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_dzudo(){
-        $course = "dzudo";
+        $course = "4";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_taibox(){
-        $course = "tai-box";
+        $course = "6";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //КОМПЬЮТЕРНЫЕ КУРСЫ
     function action_programming(){
-        $course = "programming";
+        $course = "13";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_seo(){
-        $course = "seo";
+        $course = "14";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
@@ -117,69 +117,69 @@ class Controller_Courses extends Controller{
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_design(){
-        $course = "design";
+        $course = "15";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_editing(){
-        $course = "editing";
+        $course = "16";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //ИНОСТРАННЫЕ ЯЗЫКИ
     function action_english(){
-        $course = "english";
+        $course = "17";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_french(){
-        $course = "french";
+        $course = "18";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_spanish(){
-        $course = "spanish";
+        $course = "19";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_italian(){
-        $course = "italian";
+        $course = "20";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_german(){
-        $course = "german";
+        $course = "21";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_chinese(){
-        $course = "chinese";
+        $course = "22";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //ТАНЦЫ
     function action_clubdance(){
-        $course = "clubdance";
+        $course = "23";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_hiphop(){
-        $course = "hiphop";
+        $course = "27";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_balroom(){
-        $course = "baldance";
+        $course = "24";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_childdance(){
-        $course = "childdance";
+        $course = "28";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     function action_bellydance(){
-        $course = "bellydance";
+        $course = "25";
         $data = $this->model->get_data($course);
         $this->view->generate('courses_view.php','template_view.php',$data);
     }

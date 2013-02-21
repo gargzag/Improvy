@@ -43,9 +43,7 @@
 				 	</script>");
 	}
 	else
-	{
-			
-		
+	{		
 		if($_FILES['uploadfile']['size'] != 0)
 			{
 				if ($_FILES['uploadfile']['size']<=1024000)
@@ -140,7 +138,7 @@ function createControl($name){ //Автоматизированное добав
 				            $this->view = new View();
 				        }
 				        function action_index() {
-				            $data = $this->model->get_data();
+				            $data = $this->model->get_data_company();
 				            $this->view->generate("company_view.php","template_view.php",$data);
 			        	}
 		            }'; // Исходная строка

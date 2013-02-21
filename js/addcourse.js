@@ -1,7 +1,8 @@
 ﻿$(function() {
 
-    $("#button_add_course").click(function() {
-        var alldatacorrect = '1';
+$("#button_add_course").click(function() {
+        
+		var alldatacorrect = '1';
         var name_new_course = $("#name_new_course").val();
 
         if((name_new_course == '') && (alldatacorrect == '1')) {
@@ -63,6 +64,7 @@
             $("#timetable_new_course").focus();
             alldatacorrect = 0;
         }
+<<<<<<< HEAD
 
         var image_new_course_local = $("#image_new_course_link").val();
         alert(image_new_course_local);
@@ -73,6 +75,19 @@
                 data: {
                     "name_new_course": name_new_course,
                     "type_new_course": type_new_course,
+=======
+        
+		var image_new_course_local = $("#image_new_course_local").val();
+        if (alldatacorrect == 1)
+        {
+    		$.ajax({
+    			type: "POST",
+    			url: '/php/new_course.php',
+    			data: {
+
+    				"name_new_course": name_new_course,
+    				"type_new_course": type_new_course,
+>>>>>>> Mp/master
                     "subtype_new_course": subtype_new_course,
                     "description_new_course": description_new_course,
                     "price_new_course": price_new_course,
