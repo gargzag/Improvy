@@ -1,6 +1,7 @@
 ﻿$(function() {
 
 $("#button_add_course").click(function() {
+        
 		var alldatacorrect = '1';
         var name_new_course = $("#name_new_course").val();
         
@@ -78,6 +79,7 @@ $("#button_add_course").click(function() {
     			type: "POST",
     			url: '/php/new_course.php',
     			data: {
+
     				"name_new_course": name_new_course,
     				"type_new_course": type_new_course,
                     "subtype_new_course": subtype_new_course,

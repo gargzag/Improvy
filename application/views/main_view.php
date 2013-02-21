@@ -2,17 +2,9 @@
     <div class="row">
         <div class="span4">
             <div class="item">
-                <a href="courses/martial">
-                    <div class="item_header">Боевые единоборства</div>
-                    <div class="img"><img src="images/boxing.jpg"/></div>
-                </a>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="item">
-                <a href="courses/sport">
-                    <div class="item_header">Спорт и фитнес</div>
-                    <div class="img"><img src="images/fit.jpg"/></div>
+                <a href="">
+                    <div class="item_header">Бизнес-тренинги</div>
+                    <div class="img"><img src="images/bisiness.jpg"/></div>
                 </a>
             </div>
         </div>
@@ -20,14 +12,11 @@
             <div class="item">
                 <a href="courses/computer">
                     <div class="item_header">Компьютерные курсы</div>
-                    <div class="img"><img src="images/compcourse.jpg"/></div>
+                    <div class="img"><img src="images/computer.jpg"/></div>
                 </a>
             </div>
         </div>
         
-    </div>
-    <br />
-    <div class="row"> 
         <div class="span4">
             <div class="item">
                 <a href="courses/languages">
@@ -36,6 +25,14 @@
                 </a>
             </div>
         </div>
+        
+        
+        
+        
+    </div>
+    <br />
+    <div class="row"> 
+        
         <div class="span4">
             <div class="item">
                 <a href="courses/dances">
@@ -46,12 +43,20 @@
         </div>
         <div class="span4">
             <div class="item">
-                <a href="">
-                    <div class="item_header">Искусство фотографии</div>
-                    <div class="img"><img src="images/photo.jpg"/></div>
+                <a href="courses/sport">
+                    <div class="item_header">Спорт и фитнес</div>
+                    <div class="img"><img src="images/fitness.jpg"/></div>
                 </a>
             </div>
-    </div>
+        </div>
+        <div class="span4">
+            <div class="item">
+                <a href="courses/martial">
+                    <div class="item_header">Боевые единоборства</div>
+                    <div class="img"><img src="images/martial.jpg"/></div>
+                </a>
+            </div>
+        </div>
 </div>
 <br />
 

@@ -1,69 +1,56 @@
-<div class="container pad">
-<div class="row">
-  <div class="span12 bg_reg">
-    <h1 style="color: blue;"><em>Improvy<small>- это агрегатор курсов, треннингов, спортивных секций. Это Яндекс среди курсов.</small></em></h1> 
-  </div>
+<div class = "texture">
+  <div class = "container">
+    <div class="row">
+      <div class = "span12 hero-unit2">
+        <h1>ImprovY</h1>
+        <p>- это простой и удобный инструмент, позволяющий автоматизировать организацию и продвижение событий.&nbsp &nbsp
+        Сервис предназначен для тренеров, косультантов, преподавателей различных образовательных программ.&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        С помощью ImprovY вы сократите временные затраты на создание и продвижение мероприятий в интернете.
+      </div>
+    </div>
+  </div>      
 </div>
-<div class="row">
-  <div class="span12">    
-        <p>Здравствуйте, зарегистрируйтесь пложалуйста чтобы добавить свои курсы</p>
-        <p>Регистрация простая, заполните поля ниже</p>
-        <p>Поля отмеченные <font color="red">*</font> обязательный для заполнения!</p>
-        <p id="thx" style="display:none;">Спасибо за регистрацию! нажмите <a href="/main">сюда</a> чтобы начать работать</p>
-                <form class="form-horizontal" method="POST" action="" id="regForm">
-                  <div class="row">
-                    <div class="span6">
-                      <fieldset>
-                      
-                        <label >Название компании <font color="red">*</font></label>
-                        
-                          <input type="text" id="Inputname" class="span4" placeholder="Название компании" name="name">
-                        
-                      
-                      
-                        <label >Имя Фамилия <font color="red">*</font></label>
-                        
-                          <input type="text" id="fio" class="span4" placeholder="Имя Фамилия" name="fio">
-                      
-                      
-                        <label>Email <font color="red">*</font></label>
-                        
-                          <input type="text" id="inputEmail" class="span4" placeholder="Email" name="Email">
-                      
-                    </fieldset>
-                    </div>
-                    <div class="span6">
-                      
-                        <label  >Адрес компании <font color="red">*</font></label>
-                       
-                          <input type="text" id="Address" class="span4" placeholder="" name="Address">
-                       
-                      
-                        <label>Веб-сайт(если есть)</label>
-                        
-                          <input type="text" id="Site" class="span4" placeholder="" name="Site">
-                       
-                      
-                        <label >Телефон <font color="red">*</font></label>
-                       
-                          <input type="text" id="Phone" class="span4" placeholder="" name="Phone">
-                                          
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                          <div id="1" style="height: 20px;"> </div>                     
-                      </div>  
-                      </div>
-                      <div class="control-group">
-                        <div class="controls">
-                          <button class="btn btn-primary" type="button" id="sub">Регистрация</button>                                                 
-                        </div>
-                      </div>       
-                      </div>               
-                </form>
-
-  </div>
+  <div class="container pad">
+  <div class="row">
+    <div class="span6 offset3 well well-large">
+        <div  id="thx" style="display:none;">
+          <h5>Спасибо за регистрацию! В течение 24 часов с Вами свяжется менеджер для уточнения информации.</h5>
+        </div>    
+        <form method="POST" action="" id="regForm">
+                <legend>
+                  Регистрация организатора <small> </small>
+                </legend>
+              
+                <input type="text" id="Inputname" class="span6" placeholder="Название компании" name="name"> 
+                <input type="text" id="fio" class="span6" placeholder="Имя Фамилия" name="fio">
+                <input type="text" id="inputEmail" class="span6" placeholder="Email" name="Email"> 
+                <input type="text" id="Address" class="span6" placeholder="Адрес компании" name="Address">        
+                <input type="text" id="Site" class="span6" placeholder="Сайт, если есть" name="Site">           
+                <input type="text" id="Phone" class="span6" placeholder="Номер телефона" name="Phone"> 
+                <div class="control-group">
+                    <div class="controls">
+                        <div id="1" style="height: 20px;"> </div>                     
+                    </div>  
+                </div>
+                <button class="btn btn-info btn-block" type="button" id="sub">Регистрация</button>       
+        </form>          
+   </div>
 </div>
 </div>
 <div class = "hfooter"></div>
-</div>
+</div>              
+                       
+                      
+    
+                        
+                          
+                       
+                      
+                        
+                    
+                  
+                                                                           
+                                   
+                
+
+

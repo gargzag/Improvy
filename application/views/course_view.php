@@ -4,50 +4,41 @@
             <h4 style="margin-top: 0 !important;">
              
               <?php
-                    global $routes ;
+                    
+                    $routes = explode('/', $_SERVER['REQUEST_URI']);
                     $name_companies_eng =  $routes[1];
                     $name_course_eng = $routes[2];
-                    $info_company = mysql_query("   
-                        SELECT `compname_rus`, `telephone`
-                        FROM `companies` 
-                        where   `companies`.`compname_eng` =  '$name_companies_eng'                    
-                    ");
-                    while($row = mysql_fetch_array($info_company))
+                    while($row = mysql_fetch_array($data['info_company_query']))
                     { 
                         $name_companies_rus = $row["compname_rus"];
                         $telephone = $row["telephone"];
                     }
                     
-                    $info_course = mysql_query("   
-                        SELECT distinct `coursename_rus`, `id_course`
-                        FROM `courses`                         
-                            join `venues` on `venues`.`id_venue` = `venues`.`id_venue` 
-                            join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                        where   `courses`.`coursename_eng` = '$name_course_eng' and 
-                            `companies`.`compname_eng` =  '$name_companies_eng'                   
-                    ");
-                    while($row = mysql_fetch_array($info_course))
-                    { $name_course_rus = $row["coursename_rus"]; $id_course = $row['id_course'];}
+                    while($row = mysql_fetch_array($data['info_course_query']))
+                    { 
+                        $name_course_rus = $row["coursename_rus"]; 
+                        $id_course = $row['id_course'];
+                    }
                    
-                   function translit($str) 
-{
-    $translit = array(
-        "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
-        "Д"=>"D","Е"=>"E","Ж"=>"J","З"=>"Z","И"=>"I",
-        "Й"=>"Y","К"=>"K","Л"=>"L","М"=>"M","Н"=>"N",
-        "О"=>"O","П"=>"P","Р"=>"R","С"=>"S","Т"=>"T",
-        "У"=>"U","Ф"=>"F","Х"=>"H","Ц"=>"TS","Ч"=>"CH",
-        "Ш"=>"SH","Щ"=>"SCH","Ъ"=>"","Ы"=>"YI","Ь"=>"",
-        "Э"=>"E","Ю"=>"YU","Я"=>"YA","а"=>"a","б"=>"b",
-        "в"=>"v","г"=>"g","д"=>"d","е"=>"e","ж"=>"j",
-        "з"=>"z","и"=>"i","й"=>"y","к"=>"k","л"=>"l",
-        "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
-        "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
-        "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
-        "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
-    );
-    return strtr($str,$translit);
-} 
+                    function translit($str) 
+                    {
+                        $translit = array(
+                            "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
+                            "Д"=>"D","Е"=>"E","Ж"=>"J","З"=>"Z","И"=>"I",
+                            "Й"=>"Y","К"=>"K","Л"=>"L","М"=>"M","Н"=>"N",
+                            "О"=>"O","П"=>"P","Р"=>"R","С"=>"S","Т"=>"T",
+                            "У"=>"U","Ф"=>"F","Х"=>"H","Ц"=>"TS","Ч"=>"CH",
+                            "Ш"=>"SH","Щ"=>"SCH","Ъ"=>"","Ы"=>"YI","Ь"=>"",
+                            "Э"=>"E","Ю"=>"YU","Я"=>"YA","а"=>"a","б"=>"b",
+                            "в"=>"v","г"=>"g","д"=>"d","е"=>"e","ж"=>"j",
+                            "з"=>"z","и"=>"i","й"=>"y","к"=>"k","л"=>"l",
+                            "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
+                            "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
+                            "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
+                            "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
+                        );
+                        return strtr($str,$translit);
+                    } 
                    
                    
                      
@@ -57,7 +48,8 @@
                             //Запись в базу данных
                             $name_course_rus_edit = $_POST["test"];
                             $compid = $_SESSION['id'];
-                            $name_eng = translit($name_new_course_edit);
+                            $name_eng = translit($name_course_rus_edit);
+                            
                             mysql_query("UPDATE  `improvy`.`courses` 
                                          SET  `coursename_rus` = '$name_course_rus_edit',
                                               `coursename_eng` = 'hiphop'
@@ -115,23 +107,20 @@
             <br />
             <div class="tabbable"> <!-- Only required for left/right tabs -->
                 <?php 
-            
-                                  
-                                	$routes = explode('/', $_SERVER['REQUEST_URI']);
-                                    $data = mysql_query("SELECT distinct `courses`.id_course, `courses`.minprice, `courses`.description, `courses`.price, `courses`.timetable
-                                                FROM `courses` 
-                                                   join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                                                   join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                                                   join `companies` on `companies`.`id_company`=`venues`.`id_company` 
-                                                   ");
-                                    while($row = mysql_fetch_array($data)) 
-                                    {
-                                        $id_course = $row['id_course'];
-                                        $minprice_course = $row['minprice'];
-                                        $description_course = $row['description'];
-                                        $price_course = $row['price'];
-                                        $timetable_course = $row['timetable'];
-                                     }   
+                    $data_course = mysql_query("SELECT distinct `courses`.id_course, `courses`.minprice, `courses`.description, `courses`.price, `courses`.timetable
+                                        FROM `courses` 
+                                        join `cv` on `courses`.`id_course` = `cv`.`id_course` 
+                                        join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
+                                        join `companies` on `companies`.`id_company`=`venues`.`id_company`
+                                        where `courses`.`coursename_eng` = '$name_course_eng' ");
+                    while($row = mysql_fetch_array($data_course)) 
+                    {
+                        $id_course = $row['id_course'];
+                        $minprice_course = $row['minprice'];
+                        $description_course = $row['description'];
+                        $price_course = $row['price'];
+                        $timetable_course = $row['timetable'];
+                    }   
                                         
                                         
              echo  '<ul class="nav nav-tabs">
@@ -198,24 +187,7 @@
                         
                         //Хип-хоп (англ. Hip-hop) — музыкальный жанр или музыкальная форма, являющийся сочетанием ритмичной музыки и наложенным на неё речитативом, иногда — с наличием мелодичного куплета.[1] Хип-хоп музыка является сочетанием двух музыкальных элементов субкультуры хип-хопа— диджеинга и эмсиинга.
                         //$_description_course
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        echo '          <script>
+                    echo '          <script>
                 							$(".textarea_description").wysihtml5();
                 						</script>
                 						<script type="text/javascript" charset="utf-8">
@@ -391,25 +363,9 @@
 
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     <?php
-                    $info_address_course = mysql_query(" 
-                    SELECT  `venues`.`venuename_rus`, 
-                            `venues`.`phone`, 
-                            `venues`.`metro`, 
-                            `venues`.`country`, 
-                            `venues`.`street`, 
-                            `venues`.`home`, 
-                            `venues`.`corpus`, 
-                            `venues`.`how_found`, 
-                            `venues`.`coordinate`
-                    FROM `courses` 
-                       join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                       join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                       join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                    where   `courses`.`coursename_eng` = '$name_course_eng' and 
-                            `companies`.`compname_eng` =  '$name_companies_eng'
-                    ");
+                    
                     $ij = 0;
-                    while($row = mysql_fetch_array($info_address_course))
+                    while($row = mysql_fetch_array($data['map_address_query']))
                     {
                         $ij = $ij + 1;
                         echo 'map.geoObjects.add(new ymaps.Placemark(['.$row["coordinate"].'], {balloonContent: "1", iconContent: "'.$ij.'"}, {preset: "twirl#redIcon"}));';
@@ -422,27 +378,10 @@
             </div>
             
             <?php
-                    $info_address_course = mysql_query(" 
-                    SELECT  `venues`.`id_venue`,
-                            `venues`.`venuename_rus`, 
-                            `venues`.`phone`, 
-                            `venues`.`metro`, 
-                            `venues`.`country`, 
-                            `venues`.`street`, 
-                            `venues`.`home`, 
-                            `venues`.`corpus`, 
-                            `venues`.`how_found`, 
-                            `venues`.`coordinate`
-                    FROM `courses` 
-                       join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                       join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                       join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                    where   `courses`.`coursename_eng` = '$name_course_eng' and 
-                            `companies`.`compname_eng` =  '$name_companies_eng'
-                    ");
+                    
                     $ij = 0;
                     echo "<dl>";
-                    while($row = mysql_fetch_array($info_address_course))
+                    while($row = mysql_fetch_array($data['info_address_query']))
                     {
                         $venuename_rus = $row['venuename_rus'];
                         if (isset($_SESSION['id']))
