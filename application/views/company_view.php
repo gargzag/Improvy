@@ -1,4 +1,9 @@
 <div class="container pad">
+
+  <?php
+         echo "<div class='navig'><i class='icon-arrow-left'></i><a href='".$_SESSION["crumb"]."'>Назад к поиску</a></div>";   
+  ?>
+
 <div class="row">
     <div class="span3">
         <div class="thumbnail" style="padding:5px;">

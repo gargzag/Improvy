@@ -1,4 +1,9 @@
 <div class="container pad">
+<ul>
+  <?php
+        $_SESSION["crumb"]= $_SERVER['REQUEST_URI'];     
+  ?>
+</ul>
     <div class="row">
         <div class="span3">
 
@@ -195,12 +200,6 @@
   
                  ?>
                 </div>
-                <ul id="dsd">
-                <a href= ./sport?page=1>1</a>
-                <li><a href='#' >2</a></li>
-                <li><a href='#'>3</a></li>
-                <li><a href='#'>4</a></li>
-                </ul>
             </div>
         </div>
     </div>
