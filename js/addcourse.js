@@ -64,7 +64,6 @@ $("#button_add_course").click(function() {
             $("#timetable_new_course").focus();
             alldatacorrect = 0;
         }
-<<<<<<< HEAD
 
         var image_new_course_local = $("#image_new_course_link").val();
         alert(image_new_course_local);
@@ -75,19 +74,6 @@ $("#button_add_course").click(function() {
                 data: {
                     "name_new_course": name_new_course,
                     "type_new_course": type_new_course,
-=======
-        
-		var image_new_course_local = $("#image_new_course_local").val();
-        if (alldatacorrect == 1)
-        {
-    		$.ajax({
-    			type: "POST",
-    			url: '/php/new_course.php',
-    			data: {
-
-    				"name_new_course": name_new_course,
-    				"type_new_course": type_new_course,
->>>>>>> Mp/master
                     "subtype_new_course": subtype_new_course,
                     "description_new_course": description_new_course,
                     "price_new_course": price_new_course,
@@ -107,24 +93,4 @@ $("#button_add_course").click(function() {
             })
         }
     })
-
-    var preview = $('#preview'); //id of the preview image
-    new AjaxUpload('imageUpload', {
-        action: 'saveimage.php',
-        //the php script that receives and saves the image
-        name: 'image',
-        //The saveimagephp will find the image info in the variable $_FILES['image']
-        /*onSubmit: function(file, extension) {
-            preview.attr('src', 'loading.gif'); //replace the image SRC with an animated GIF with a 'loading...' message 
-        },
-        onComplete: function(file, response) {
-            preview.load(function() {
-                preview.unbind();
-            });
-            preview.attr('src', response); //make the preview image display the uploaded file
-            $('#uploadedimg').val(response); //drop the path to the file into the hidden field
-        }*/
-    });
-
-
 })

@@ -303,3 +303,7 @@ border-width: 1px;
 .navig {
     margin: 5px;
 }
+
+.iss {
+    display: none;
+}
