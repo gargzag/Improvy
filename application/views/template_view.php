@@ -6,8 +6,9 @@
 		<meta name="keywords" content="" />
 		<title>ImprovY</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" /> 
+        
         <link href="/css/style.css" rel="stylesheet" type="text/css"/>
         <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jquery.cookie.js" type="text/javascript"></script>
@@ -50,32 +51,38 @@
                      <div class="control-group">
                         <label class="control-label" for="inputEmail">Email</label>
                         <div class="controls">
-                          <input type="text" id="entEmail" placeholder="Email" name="Email">
+                          <div class="input-prepend">
+                            <span class="add-on"><i class="icon-envelope"></i></span>
+                            <input type="text" id="entEmail" placeholder="Email" name="Email">
+                          </div>
                         </div>
                       </div>
                       <div class="control-group mb">
                         <label class="control-label" for="inputPassword">Пароль</label>
                         <div class="controls">
-                          <input type="password" id="entPassword" placeholder="Пароль" name="Pass">
+                          <div class="input-prepend">
+                            <span class="add-on"><i class="icon-lock"></i></span>
+                            <input type="password" id="entPassword" placeholder="Пароль" name="Pass">
+                          </div>
                         </div>
                       </div>
                       <div class="control-group">
                         <div class="controls">                          
-                          <a href="/#">Забыли пароль?</a>                                                 
-                        </div>
-                      </div>   
-                      <div class="control-group">
-                        <div class="controls">                          
-                          <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>                                                 
+                          <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>&nbsp&nbsp&nbsp&nbsp&nbsp 
+                          <a href=""><small>Забыли пароль?</small></a>                                                
                         </div>
                       </div>
-                                               
+                                              
+                          
+                          
+                        
+                      
                 </form>
                 
           </div>
          
           <div class="modal-footer">
-           <a href="/registration">Зарегистрироваться</a>
+            <a href=""><small>Зарегистрироваться</small></a>
           </div>
         </div>
         <div class = "content">
@@ -109,16 +116,18 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="span6">
-                      <span>Все права защищены</span>
-                      <ul class="inline">
-                        <li><a href="/main">Гланая</a></li>
-                        <li><a href="/registration">Зарегистрироваться</a></li>
-                        <li><a href="/abouts">О нас</a></i>
-                      </ul>
+                    <div class="span8 vm">
+                      
+                        <ul class="inline">
+                          <li><small>Copyright © ImprovY 2013</small></li>
+                          <li><a href="/main"><small>Главная</small></a></li>
+                          <li><a href="/about"><small>О нас</small></a></i>
+                          <li><a href="/registration"><small>Организаторам</small></a></li>
+                        </ul>
+                        
                     </div>
-                    <div class="span6 ">
-                            <div class="pull-rigth" >
+                    <div class="span4 ">
+                            <div class="pull-left" >
                                 <div class="cocial_img" >
                                     <a href="http://vk.com/improvy" target="_blank">
                                         <img  src="/images/main/vk_over.png" onmouseover="this.src='/images/main/vk.png';" onmouseout="this.src='/images/main/vk_over.png';"/>
