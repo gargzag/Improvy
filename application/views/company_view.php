@@ -12,7 +12,20 @@
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     <?php
                     $ij=1;
+
                     
+                    $routes = explode('/', $_SERVER['REQUEST_URI']);
+                    $name_company = $routes[1];
+                    
+                    $id = mysql_query("select `id_company`from `companies` where compname_eng ='$name_company'");
+                    while($row = mysql_fetch_array($id))
+                    {
+                        $id_com =$row['id_company'];
+                    }
+                    
+                    
+                    
+
                     while($row = mysql_fetch_array($data['map_query']))
                     {
                         echo 'map.geoObjects.add(new ymaps.Placemark(['.$row["coordinate"].'], {balloonContent: "'.$row["venuename_rus"].'", iconContent: "'.$ij.'"}, {preset: "twirl#redIcon"}));';
@@ -26,7 +39,11 @@
                     };</script>
             <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_1"></script>
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
-        </div>       
+
+
+
+
+        </div>
         
 
 
@@ -49,7 +66,7 @@
         
         <!-- Модальное окно для добавления адреса -->
         <?php
-        if (isset($_SESSION['id']))
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo '
          <a href="#modal_new_venue" role="button" class="btn btn-primary" data-toggle="modal">Добавить адрес</a>
@@ -166,15 +183,15 @@
                         //Флаг для сохранения
                         echo '<input type="hidden" name="action_save" value=1>';
                         //Вывод из базы данных  
-                        echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                           
+                        echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                          
                         
                         echo '</form>';     
                     }
                 }
                 else{
                     echo '<form name="frm" method="POST">';
-                    if (isset($_SESSION['id']))
-                    {                        
+                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                    {    
                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
                     }
                     //Вывод из базы данных 
@@ -255,14 +272,20 @@
                                 ");
                         $i=$i+1;
                         }
-                    } else echo("<div class='alert alert-info'>
+
+                    } else
+                        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                        {
+                            echo("<div class='alert alert-info'>
                                     Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
                                     <button class='close' data-dismiss = 'alert'>&times;</button>
                                 </div> ");
+                        }
+
                 ?>
              
         <?php                
-        if (isset($_SESSION['id']))
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo('
         <div class="accordion-group">
