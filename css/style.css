@@ -303,6 +303,7 @@ border-width: 1px;
 }
 
 
+
 .cocial{
     float:right;
 }
@@ -311,3 +312,10 @@ border-width: 1px;
      float:right;
 }
 
+.navig {
+    margin: 5px;
+}
+
+.iss {
+    display: none;
+}
