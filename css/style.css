@@ -319,3 +319,7 @@ border-width: 1px;
 .iss {
     display: none;
 }
+
+.mb{
+    margin-bottom: 0px;
+}

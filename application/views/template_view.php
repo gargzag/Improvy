@@ -43,7 +43,7 @@
         <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-header" id="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">ImprovY</h3>
+            <h3 id="myModalLabel">ImprovY</h3> 
           </div>
           <div class="modal-body">
                 <form class="form-horizontal" method="POST" action="" id="entForm">
@@ -53,7 +53,7 @@
                           <input type="text" id="entEmail" placeholder="Email" name="Email">
                         </div>
                       </div>
-                      <div class="control-group">
+                      <div class="control-group mb">
                         <label class="control-label" for="inputPassword">Пароль</label>
                         <div class="controls">
                           <input type="password" id="entPassword" placeholder="Пароль" name="Pass">
@@ -61,16 +61,21 @@
                       </div>
                       <div class="control-group">
                         <div class="controls">                          
+                          <a href="/#">Забыли пароль?</a>                                                 
+                        </div>
+                      </div>   
+                      <div class="control-group">
+                        <div class="controls">                          
                           <button class="btn btn-primary" type="button" id="ent" href='#'>Войти</button>                                                 
                         </div>
-                      </div>                      
+                      </div>
+                                               
                 </form>
                 
           </div>
          
           <div class="modal-footer">
-           <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            <button class="btn btn-primary">Save changes</button> -->
+           <a href="/registration">Зарегистрироваться</a>
           </div>
         </div>
         <div class = "content">
@@ -78,10 +83,10 @@
                     <div class="navbar navbar-fixed-top">
                         <div class="navbar-inner ">
                             <div class="container">
-                                <a class="brand" href="/main">ImprovY</a>
+                                <a class="brand" href="/main">ImprovY <sub><i>beta</i></sub> </a> 
                                 <a class="brand" href="/main">Санкт-Петербург</a>
                                 <ul class="nav pull-right">
-                                    <li><a href='/contacts'>Контакты</a></li>
+                                    <li><a href='/contacts'>О нас</a></li>
                                     
                                     <?php
                                    if (!isset($_SESSION['id'])) {
@@ -105,9 +110,15 @@
             <div class="container">
                 <div class="row">
                     <div class="span6">
-                       </div>
+                      <span>Все права защищены</span>
+                      <ul class="inline">
+                        <li><a href="/main">Гланая</a></li>
+                        <li><a href="/registration">Зарегистрироваться</a></li>
+                        <li><a href="/abouts">О нас</a></i>
+                      </ul>
+                    </div>
                     <div class="span6 ">
-                            <div class="cocial" >
+                            <div class="pull-rigth" >
                                 <div class="cocial_img" >
                                     <a href="http://vk.com/improvy" target="_blank">
                                         <img  src="/images/main/vk_over.png" onmouseover="this.src='/images/main/vk.png';" onmouseout="this.src='/images/main/vk_over.png';"/>
