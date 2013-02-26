@@ -21,7 +21,7 @@
         <script src="/js/addvenue.js"></script>
 		    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Textarea edit -->
-         <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-wysihtml5.css"></link>
+         <link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css"></link>
 
 
         <script type="text/javascript">        
@@ -35,8 +35,8 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();        
         </script>  
-        <script src="/bootstrap/js/wysihtml5-0.3.0.js"></script>
-        <script src="/bootstrap/js/bootstrap-wysihtml5.js"></script>  
+        <script src="/js/wysihtml5-0.3.0.js"></script>
+        <script src="/js/bootstrap-wysihtml5.js"></script>  
         <!-- Textarea edit  end     -->
 	</head>
  
@@ -116,7 +116,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="span8 vm">
+                    <div class="span7 vm">
                       
                         <ul class="inline">
                           <li><small>Copyright © ImprovY 2013</small></li>
@@ -126,28 +126,75 @@
                         </ul>
                         
                     </div>
-                    <div class="span4 ">
-                            <div class="pull-left" >
+                    <div class="span5 ">
+                        <div class="pull-left" >
                                 <div class="cocial_img" >
                                     <a href="http://vk.com/improvy" target="_blank">
-                                        <img  src="/images/main/vk_over.png" onmouseover="this.src='/images/main/vk.png';" onmouseout="this.src='/images/main/vk_over.png';"/>
+                                        <img  src="/images/main/vk_over.png" onmouseover="this.src='/images/main/vk.png';" onmousedown="this.src='/images/main/vk_click.png';" onmouseout="this.src='/images/main/vk_over.png';"/>
                                      </a>
                                  </div>
                                 <div class="cocial_img" >
                                     <a href="http://www.facebook.com/groups/608762325807004/" target="_blank">
-                                        <img  src="/images/main/facebook_over.png" onmouseover="this.src='/images/main/facebook.png';" onmouseout="this.src='/images/main/facebook_over.png';"/>
+                                        <img  src="/images/main/facebook_over.png" onmouseover="this.src='/images/main/facebook.png';"onmousedown="this.src='/images/main/facebook_click.png';" onmouseout="this.src='/images/main/facebook_over.png';"/>
                                     </a>
                                 </div>
                                 <div class="cocial_img" >
-                                    
-                                        <img  src="/images/main/twiter_over.png" onmouseover="this.src='/images/main/twiter.png';" onmouseout="this.src='/images/main/twiter_over.png';"/>
-                                   
+                                    <a href="" target="_blank">
+                                        <img  src="/images/main/odnoklassniki_over.png" onmouseover="this.src='/images/main/odnoklassniki.png';"onmousedown="this.src='/images/main/odnoklassniki_click.png';" onmouseout="this.src='/images/main/odnoklassniki_over.png';"/>
+                                    </a>
+                                </div>
+                                <div class="cocial_img" >
+                                    <a href="" target="_blank">
+                                        <img  src="/images/main/twiter_over.png" onmouseover="this.src='/images/main/twiter.png';"onmousedown="this.src='/images/main/twitter_click.png';" onmouseout="this.src='/images/main/twiter_over.png';"/>
+                                    </a>
                                 </div>
                             </div>
+                                     
                     
                     </div>
                 </div>
             </div>
+
+            <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter20304454 = new Ya.Metrika({id:20304454,
+                                webvisor:true,
+                                clickmap:true,
+                                trackLinks:true,
+                                accurateTrackBounce:true});
+                    } catch(e) { }
+                });
+            
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+            
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+            </script>
+            <noscript><div><img src="//mc.yandex.ru/watch/20304454" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+            <!-- /Yandex.Metrika counter -->
+            
+            <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-38811259-1']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            
+            </script>
         </footer> 
 				
 	</body>

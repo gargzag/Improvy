@@ -256,6 +256,13 @@
                                             </div>
                                             </td>
                                             <td>");
+                                            if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                                            { 
+                                                echo '  <div style = "position:relative; top: -25px; left: 0;">
+                                                            <i class="icon-remove icon-remove_button"   id="'.$row["id_course"].'" onclick="f_course(this)">
+                                                            </i>
+                                                        </div>';
+                                            }
                                             if ($row['minprice']!='0')
                                             echo "
                                             <div class='price_course'>
@@ -288,6 +295,27 @@
                         }
 
                 ?>
+
+                <script>            
+               function f_course(el) {
+                    id_remove_course = el.id;
+                    alert(id_remove_course);
+                    
+                    
+                        $.ajax({
+                        type: "POST",
+                        url: '/php/remove_course.php',
+                        data: {
+                            "id_remove_course": id_remove_course
+                        },
+                        success: function(data) {
+                                alert(data);
+                                location.reload();
+                                window.location = location.href;                                
+                        }
+                    })
+                }
+            </script>
              
         <?php                
         if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))

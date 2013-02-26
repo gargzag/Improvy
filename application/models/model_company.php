@@ -26,7 +26,7 @@ class Model_Company extends Model{
                     WHERE companies.compname_eng = '$name_company' "); //  Описание компании
 
             $courses_query = mysql_query("
-                    SELECT distinct compname_eng, coursename_eng, coursename_rus, compname_rus, minprice, description 
+                    SELECT distinct `courses`.`id_course`, compname_eng, coursename_eng, coursename_rus, compname_rus, minprice, description 
                     FROM `courses` 
                     JOIN `cv` on `courses`.`id_course` = `cv`.`id_course` 
                     JOIN `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
