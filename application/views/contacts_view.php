@@ -50,9 +50,10 @@
 				<form>
 				<legend>Форма обратной связи</legend>
 				
-					<input type="text" class = "span4" placeholder = "Имя">
-					<input type="text" class = "span4" placeholder = "Email">
-					<textarea class="span4" placeholder = "Сообщение" rows = "5"></textarea>
+					<input type="text" class = "span6" placeholder = "Имя">
+					<input type="text" class = "span6" placeholder = "Email">
+					<textarea class="span6" placeholder = "Сообщение" rows = "5"></textarea>
+					<input type="button" class="btn btn-info pull-right" value =" Отправить">
 				</form>	
 			</fieldset>
 		</div>
