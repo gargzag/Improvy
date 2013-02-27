@@ -33,7 +33,7 @@ class Model_Company extends Model{
                     WHERE companies.compname_eng = '$name_company' "); //  Описание компании
 
             $courses_query = mysql_query("
-                    SELECT distinct `courses`.`id_course`, compname_eng, coursename_eng, coursename_rus, compname_rus, minprice, description 
+                    SELECT distinct `courses`.`id_course`, `companies`.`id_company`, compname_eng, coursename_eng, coursename_rus, compname_rus, minprice, description 
                     FROM `courses` 
                     JOIN `cv` on `courses`.`id_course` = `cv`.`id_course` 
                     JOIN `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
@@ -84,7 +84,7 @@ class Model_Company extends Model{
                         where   `companies`.`compname_eng` =  '$name_companies_eng' "); // Информация о компании на странице курса
 
             $info_course_query = mysql_query("   
-                        SELECT distinct `coursename_rus`, `id_course`
+                        SELECT distinct `coursename_rus`, `id_course`,`companies`.`id_company`
                         FROM `courses`                         
                         join `venues` on `venues`.`id_venue` = `venues`.`id_venue` 
                         join `companies` on `companies`.`id_company`=`venues`.`id_company`

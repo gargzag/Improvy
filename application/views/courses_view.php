@@ -83,7 +83,7 @@
                                             <td width = '20%'>
                                             <div class = 'picture_course'>
                                                 <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">
-                                                    <img src='../images/1.jpg'/>
+                                                    <img src='../images/courselogo/".$row['id_company']."".$row['id_course'].".jpg'/>
                                                 </a>
                                             </div>
                                             </td>

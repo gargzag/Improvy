@@ -109,7 +109,9 @@
     <div class="row">
         <div class="span8">
             <div class="thumbnail">
-             <img src="../images/comp.jpg" />
+                <?php
+                echo "<img src='../images/courselogo/".$id_company."".$id_course.".jpg' />";
+                ?>
             </div>
             <br />
             <div class="tabbable"> <!-- Only required for left/right tabs -->
