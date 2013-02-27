@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "php/db.php" ;
  
 if(!isset($_SESSION['id'])){
 	if(isset($_COOKIE['id']) & isset($_COOKIE['hash'])){

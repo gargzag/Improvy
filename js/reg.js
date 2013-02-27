@@ -97,7 +97,7 @@ $(function() {
 		$(".er").remove();
 		var email = $("#entEmail").val();
 		var pas = $("#entPassword").val();
-		alert(email)
+		
 		if (email != '') {
 			$.ajax({
 				type: "POST",

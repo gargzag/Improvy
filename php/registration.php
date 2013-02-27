@@ -13,6 +13,7 @@
 	$Cname_eng = translit($Cname);
 	$password = generateCode();
 	$uploaddir = './files/';
+	$description = "Информация о Вашей компании";
 	/*$uploadfile = $uploaddir.$Cname_eng.'.jpeg';*/
 
 	// Копируем файл из каталога для временного хранения файлов:
@@ -70,7 +71,7 @@
 			 				
 					 	</script>");
 			}*/
-		if (mysql_query("INSERT INTO companies (compname_rus, compname_eng, fio, address, email, password, telephone, site, activation, photo) VALUES ('" .$Cname. "','" .$Cname_eng. "','" .$fio. "', '" .$address. "','" .$email. "','" .$password. "', '" .$phone. "','" .$site. "', '0','".$uploadfile."')")) //пишем данные в БД и авторизовываем пользователя
+		if (mysql_query("INSERT INTO companies (compname_rus, compname_eng, fio, address, email, password, telephone, site, activation, about) VALUES ('" .$Cname. "','" .$Cname_eng. "','" .$fio. "', '" .$address. "','" .$email. "','" .$password. "', '" .$phone. "','" .$site. "', '0','".$description."')")) //пишем данные в БД и авторизовываем пользователя
 		{
 				echo ("");
 				echo ("<script type='text/javascript'> 

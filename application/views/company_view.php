@@ -84,7 +84,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Добавление адреса</h3>
             </div>
-            <form class="form-horizontal" method="POST" action="/php/new_venue.php" id="form_new_venue" name="form_new_venue">
+            <form class="form-horizontal" method="POST" action="" id="form_new_venue" name="form_new_venue">
                 <div class="modal-body">
                 
                     <div class="control-group">
@@ -140,7 +140,7 @@
                    <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
                    <!--<<input  type="submit" class="btn btn-primary" value="PHP" />
                    <button class="btn btn-primary">Отмена</button>-->
-                   <input  class="btn btn-primary" value="Добавить курс" id="button_add_venue"/>
+                   <input class="btn btn-primary" value="Добавить курс" id="button_add_venue" type="button">
               </div>
           </form> 
         </div>
@@ -245,7 +245,7 @@
                                             <table class = 'table_course'><tr>
                                             <td width = '150px'>
                                             <div class = 'picture_course'>
-                                                <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">
+                                                <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">
                                                     <img src='../images/courselogo/".$row['id_company']."".$row['id_course'].".jpg'/>
                                                 </a>
                                             </div>
@@ -254,7 +254,7 @@
                                             <div class='name_course'>
                                                 <span class='page-header'> 
                                                     <h4>
-                                                        <a href=/".$row['compname_eng']."/".$row['coursename_eng'].">".$row['coursename_rus']."</a>
+                                                        <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">".$row['coursename_rus']."</a>
                                                     </h4>
                                                     <p>
                                                         <small>".$row['compname_rus']."</small>

@@ -53,7 +53,7 @@ echo "Запрос к геокодеру по адресу:".  $link_geocoder." 
 echo "<br>".$name_new_venue."<br>".$name_eng_new_venue."<br>".$phone_new_venue."<br>".$metro_new_venue."<br>".$found_adress_new_venue."<br>".$company_new_course."<br>";
 
 $result_new_course = mysql_query("
-              INSERT INTO  `improvy_db`.`venues` (
+              INSERT INTO  `improvy`.`venues` (
                 `id_venue` ,
                 `id_company` ,
                 `venuename_eng` ,
@@ -81,7 +81,7 @@ $result_new_course = mysql_query("
                 '$found_adress_new_venue',  
                 '$coordinate'
                 );
-") || die(mysql_error());
+");
 echo 1323;
 
 

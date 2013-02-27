@@ -64,7 +64,7 @@ $("#button_add_venue").click(function() {
                             
         				//$('#modal_preview_maps').modal('show');
         				    //location.reload();
-       				     //   window.location = location.href;
+       				     window.location.reload();
         					        				
                         
         			}

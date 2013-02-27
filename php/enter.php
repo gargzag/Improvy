@@ -14,7 +14,7 @@
         			setcookie ("id", $row['id_company'],time() + 50000,'/');
         			//$rez = mysql_query("SELECT * FROM `users` WHERE `pass`='$pass'");
 					$_SESSION['id'] = $row['id_company'];
-					$_SESSION['name'] = $row['compname_eng'];
+					$_SESSION['name'] = strtolower($row['compname_eng']);
 					
 				}else echo "2";        
 	    	}	
