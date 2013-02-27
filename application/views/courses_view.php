@@ -66,7 +66,7 @@
                 <div class="accordion" id="accordion2">
                     <?php                                      
                     if(mysql_num_rows($data) > 0) {
-                        $i=1;
+                        $k=1;
                         while($row = mysql_fetch_array($data)) {
                         //echo $i."name_eng=".$row['name_eng'];
                         //echo "<br>".$i."eng=".$row['eng'];
@@ -77,7 +77,7 @@
                         $name_companies_eng =  $row['compname_eng'];
                         echo (" <div class='accordion-group iss'>                        
                                     <div class='accordion-heading' >
-                                        <div class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' data-target='#collapse".$i."'>                                            
+                                        <div class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' data-target='#collapse".$k."'>                                            
                                             
                                             <table class = 'table_course'><tr>
                                             <td width = '20%'>
@@ -167,7 +167,8 @@
                                             </tr></table>
                                         </div>                                                                               
                                     </div>
-                                    <div id='collapse".$i."' class='accordion-body collapse'>
+                                    
+                                    <div id='collapse".$k."' class='accordion-body collapse'>
                                         <div class='accordion-inner'>
                                             <div class = 'description_course'> 
                                              ".$row['description']."
@@ -176,7 +177,7 @@
                                     </div>
                                 </div>
                                 ");
-                        $i=$i+1;
+                        $k=$k+1;
 
                         }
                     } else 
@@ -193,7 +194,7 @@
                              </div>
                              <div id='collapse2' class='accordion-body collapse'>
                                  <div class='accordion-inner'> 
-                                      хуй вам
+                                      
                                  </div>
                              </div>
                         ");

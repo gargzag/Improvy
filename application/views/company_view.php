@@ -19,7 +19,20 @@
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     <?php
                     $ij=1;
+
                     
+                    $routes = explode('/', $_SERVER['REQUEST_URI']);
+                    $name_company = $routes[1];
+                    
+                    $id = mysql_query("select `id_company`from `companies` where compname_eng ='$name_company'");
+                    while($row = mysql_fetch_array($id))
+                    {
+                        $id_com =$row['id_company'];
+                    }
+                    
+                    
+                    
+
                     while($row = mysql_fetch_array($data['map_query']))
                     {
                         echo 'map.geoObjects.add(new ymaps.Placemark(['.$row["coordinate"].'], {balloonContent: "'.$row["venuename_rus"].'", iconContent: "'.$ij.'"}, {preset: "twirl#redIcon"}));';
@@ -33,7 +46,11 @@
                     </script>
             <script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_1"></script>
             <!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
-        </div>       
+
+
+
+
+        </div>
         
 
 
@@ -56,7 +73,7 @@
         
         <!-- Модальное окно для добавления адреса -->
         <?php
-        if (isset($_SESSION['id']))
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo '
          <a href="#modal_new_venue" role="button" class="btn btn-primary" data-toggle="modal">Добавить адрес</a>
@@ -120,9 +137,9 @@
                     </div>
               </div>
               <div class="modal-footer">
-                   <!--<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                   <input  type="submit" class="btn btn-primary" value="PHP" />-->
-                   <button class="btn btn-primary">Отмена</button>
+                   <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+                   <!--<<input  type="submit" class="btn btn-primary" value="PHP" />
+                   <button class="btn btn-primary">Отмена</button>-->
                    <input  class="btn btn-primary" value="Добавить курс" id="button_add_venue"/>
               </div>
           </form> 
@@ -173,15 +190,15 @@
                         //Флаг для сохранения
                         echo '<input type="hidden" name="action_save" value=1>';
                         //Вывод из базы данных  
-                        echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                           
+                        echo '<textarea class="textarea" placeholder="Введите описание вашей компании." style="width: 662px; height: 200px" name="test">'.$text_description.'</textarea>';                          
                         
                         echo '</form>';     
                     }
                 }
                 else{
                     echo '<form name="frm" method="POST">';
-                    if (isset($_SESSION['id']))
-                    {                        
+                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                    {    
                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" >';
                     }
                     //Вывод из базы данных 
@@ -241,6 +258,13 @@
                                             </div>
                                             </td>
                                             <td>");
+                                            if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                                            { 
+                                                echo '  <div style = "position:relative; top: -25px; left: 0;">
+                                                            <i class="icon-remove icon-remove_button"   id="'.$row["id_course"].'" onclick="f_course(this)">
+                                                            </i>
+                                                        </div>';
+                                            }
                                             if ($row['minprice']!='0')
                                             echo "
                                             <div class='price_course'>
@@ -262,14 +286,41 @@
                                 ");
                         $i=$i+1;
                         }
-                    } else echo("<div class='alert alert-info'>
+
+                    } else
+                        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
+                        {
+                            echo("<div class='alert alert-info'>
                                     Нажимите на + и следуйте указаниям ниже, чтобы добавить Ваш первый курс.
                                     <button class='close' data-dismiss = 'alert'>&times;</button>
                                 </div> ");
+                        }
+
                 ?>
+
+                <script>            
+               function f_course(el) {
+                    id_remove_course = el.id;
+                    alert(id_remove_course);
+                    
+                    
+                        $.ajax({
+                        type: "POST",
+                        url: '/php/remove_course.php',
+                        data: {
+                            "id_remove_course": id_remove_course
+                        },
+                        success: function(data) {
+                                alert(data);
+                                location.reload();
+                                window.location = location.href;                                
+                        }
+                    })
+                }
+            </script>
              
         <?php                
-        if (isset($_SESSION['id']))
+        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_com))
         {
             echo('
         <div class="accordion-group">

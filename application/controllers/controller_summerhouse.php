@@ -25,4 +25,5 @@ function action_vv(){
                 $data = $this->model->get_data_course();
                 $this->view->generate("course_view.php","template_view.php",$data);
             }
+
         }

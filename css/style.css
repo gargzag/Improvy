@@ -282,6 +282,7 @@ border-width: 1px;
 }
 
 
+
 .hero-unit2 h1 {
   text-align: center;  
   margin-bottom: 0;
@@ -293,11 +294,18 @@ border-width: 1px;
   margin-right: auto;
 }
 
+
 .hero-unit2 p {
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   color: inherit;
+}
+
+
+.cocial_img{
+    margin: 20px;
+     float:right;
 }
 
 .navig {
@@ -307,3 +315,15 @@ border-width: 1px;
 .iss {
     display: none;
 }
+
+.mb{
+    margin-bottom: 0px;
+}
+.vm /* Vertical margin*/
+{
+    line-height: 80px;
+    }
+.main{
+    margin-top: 40px;
+}
+

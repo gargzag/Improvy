@@ -43,12 +43,12 @@ $(function() {
 $(function() {
 	$("#sub").click(function() {
 		$(".err").remove();
-		var Cname = $("#Inputname").val();
+		var cname = $("#Inputname").val();
 		var name = $("#fio").val();
 		var email = $("#inputEmail").val();
-		var Address = $("#Address").val();
-		var Site = $("#Site").val();
-		var Phone = $("#Phone").val();
+		var address = $("#Address").val();
+		var site = $("#Site").val();
+		var phone = $("#Phone").val();
 		var logo = $("#logo").val();
 
 
@@ -60,21 +60,22 @@ $(function() {
 			return false;
 		}
 
-		if (Cname == '' || name == '' || Address == '' || Phone == '') {
+
+		if(cname == '' || name == '' || address == '' || phone == '') {
 			$("#1").append("<p class='err' style='color:red'>Заполните все обязательные поля</p>");
 			return false;
 		}
 		////////
-		/*$.ajax({
+		$.ajax({
 			type: "POST",
 			url: '/php/registration.php',
 			data: {
-				"Cname": Cname,
-				"fio": name,
+				"cname": cname,
+				"name": name,
 				"email": email,
-				"address": Address,
-				"site": Site,
-				"phone": Phone
+				"address": address,
+				"site": site,
+				"phone": phone
 			},
 			success: function(data) {
 				if(data == 1) {
@@ -89,19 +90,15 @@ $(function() {
 					//alert(data);
 				};
 			}
-		}) */
+		}) 
 
 	})
 	$("#ent").click(function() {
 		$(".er").remove();
 		var email = $("#entEmail").val();
 		var pas = $("#entPassword").val();
-
-		if (email = '') {
-			$("#ent").after("<div class='er'>Введите Email</div>");
-			return false;
-		} else {
-
+		alert(email)
+		if (email != '') {
 			$.ajax({
 				type: "POST",
 				url: '/php/enter.php',
@@ -126,6 +123,10 @@ $(function() {
 					}
 				}
 			})
+			
+		} else {
+			$("#ent").after("<div class='er'>Введите Email</div>");
+			return false;
 		}
 	})
 })

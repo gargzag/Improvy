@@ -1,6 +1,6 @@
 <?php
 					include "application/models/model_company.php";
-	            	class Controller_alyie extends Controller{
+	            	class Controller_ extends Controller{
 			            function __construct(){
 				            $this->model = new Model_Company();
 				            $this->view = new View();

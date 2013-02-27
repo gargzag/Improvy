@@ -1,6 +1,6 @@
 <?php
 					include "application/models/model_company.php";
-	            	class Controller_next_media extends Controller{
+	            	class Controller_fds extends Controller{
 			            function __construct(){
 				            $this->model = new Model_Company();
 				            $this->view = new View();

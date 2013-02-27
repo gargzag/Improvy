@@ -1,12 +1,12 @@
 
 <div class="container pad">
-<ul>
+
 <?php
   if (isset($_SESSION["crumb"])) {
          echo "<div class='navig'><i class='icon-arrow-left'></i><a href='".$_SESSION["crumb"]."'>Назад к поиску</a></div>"; 
          }  
   ?>
-</ul>
+
     <div class="row">
         <div class="span12">
             <h4 style="margin-top: 0 !important;">
@@ -18,6 +18,7 @@
                     $name_course_eng = $routes[2];
                     while($row = mysql_fetch_array($data['info_company_query']))
                     { 
+                        $id_company = $row["id_company"];
                         $name_companies_rus = $row["compname_rus"];
                         $telephone = $row["telephone"];
                     }
@@ -90,7 +91,7 @@
                     echo $name_course_rus.""; 
                     //Флаг для смены окна
                     echo '<input type="hidden" name="action_course_rus" value=2>';
-                    if (isset($_SESSION['id']))
+                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_company))
                     {                        
                         echo '<input type="submit" value="Изменить название" class="btn"></input>';
                     }
@@ -177,8 +178,8 @@
                                 }
                                 else{
                                     echo '<form name="frm1" method="POST">';
-                                    if (isset($_SESSION['id']))
-                                    {                        
+                                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_company))
+                                    {                    
                                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" style = "top: -5px;left:10px;">';
                                     }
                                     //Вывод из базы данных 
@@ -244,7 +245,7 @@
                                 }
                                 else{
                                     echo '<form name="frm2" method="POST">';
-                                    if (isset($_SESSION['id']))
+                                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_company))
                                     {                        
                                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" style = "top: -5px;left:10px;">';
                                     }
@@ -310,7 +311,7 @@
                                 }
                                 else{
                                     echo '<form name="frm3" method="POST">';
-                                    if (isset($_SESSION['id']))
+                                    if (isset($_SESSION['id'])&&($_SESSION['id']==$id_company))
                                     {                        
                                         echo '<input type="submit" value="Редактировать!" class="button_edit_textarea" style = "top: -5px;left:10px;">';
                                     }
@@ -392,7 +393,7 @@
                     while($row = mysql_fetch_array($data['info_address_query']))
                     {
                         $venuename_rus = $row['venuename_rus'];
-                        if (isset($_SESSION['id']))
+                        if (isset($_SESSION['id'])&&($_SESSION['id']==$id_company))
                         { 
                             echo '<i class="icon-remove icon-remove_button" id="'.$row["id_venue"].'" onclick="f(this)" >
                         

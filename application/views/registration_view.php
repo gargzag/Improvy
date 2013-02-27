@@ -27,7 +27,7 @@
                 <input type="text" id="Address" class="span6" placeholder="Адрес компании" name="Address">        
                 <input type="url" id="Site" class="span6" placeholder="Сайт, если есть" name="Site">           
                 <input type="text" id="Phone" class="span6" placeholder="Номер телефона" name="Phone"> 
-                <input type="file" id="logo" class="span4" placeholder="Ваш логотип" name="uploadfile">
+                
                 <div class="control-group">
                     <div class="controls">
                         <div id="1" style="height: 20px;"> </div>                     
@@ -35,7 +35,7 @@
                 </div>
                 <button class="btn btn-info btn-block" type="button" id="sub">Регистрация</button>       
         </form> 
-        <iframe name="iframe" hieght="0" width="0" frameborder="0"></iframe>         
+          
    </div>
 </div>
 </div>

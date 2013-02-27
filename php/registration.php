@@ -2,18 +2,18 @@
 	
 	session_start();
 	include 'db.php';
-    $Cname = $_POST['name'];
-	$fio = $_POST['fio'];
+    $Cname = $_POST['cname'];
+	$fio = $_POST['name'];
 	//echo $name;
 	//$pass = md5($_POST['pass']);
-	$email = $_POST['Email'];
-	$address = $_POST['Address'];
-	$site = $_POST['Site'];
-	$phone = $_POST['Phone'];
+	$email = $_POST['email'];
+	$address = $_POST['address'];
+	$site = $_POST['site'];
+	$phone = $_POST['phone'];
 	$Cname_eng = translit($Cname);
 	$password = generateCode();
 	$uploaddir = './files/';
-	$uploadfile = $uploaddir.$Cname_eng.'.jpeg';
+	/*$uploadfile = $uploaddir.$Cname_eng.'.jpeg';*/
 
 	// Копируем файл из каталога для временного хранения файлов:
 	
@@ -44,7 +44,7 @@
 	}
 	else
 	{		
-		if($_FILES['uploadfile']['size'] != 0)
+		/*if($_FILES['uploadfile']['size'] != 0)
 			{
 				if ($_FILES['uploadfile']['size']<=1024000)
 				{
@@ -69,7 +69,7 @@
 					  	alert('Размер не должен превышать 10Мб!')
 			 				
 					 	</script>");
-			}
+			}*/
 		if (mysql_query("INSERT INTO companies (compname_rus, compname_eng, fio, address, email, password, telephone, site, activation, photo) VALUES ('" .$Cname. "','" .$Cname_eng. "','" .$fio. "', '" .$address. "','" .$email. "','" .$password. "', '" .$phone. "','" .$site. "', '0','".$uploadfile."')")) //пишем данные в БД и авторизовываем пользователя
 		{
 				echo ("");
