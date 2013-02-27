@@ -194,7 +194,7 @@
                              </div>
                              <div id='collapse2' class='accordion-body collapse'>
                                  <div class='accordion-inner'> 
-                                      хуй вам
+                                      
                                  </div>
                              </div>
                         ");
