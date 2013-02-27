@@ -135,9 +135,9 @@
                     </div>
               </div>
               <div class="modal-footer">
-                   <!--<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                   <input  type="submit" class="btn btn-primary" value="PHP" />-->
-                   <button class="btn btn-primary">Отмена</button>
+                   <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+                   <!--<<input  type="submit" class="btn btn-primary" value="PHP" />
+                   <button class="btn btn-primary">Отмена</button>-->
                    <input  class="btn btn-primary" value="Добавить курс" id="button_add_venue"/>
               </div>
           </form> 
