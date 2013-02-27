@@ -7,6 +7,13 @@ class Model_Company extends Model{
             
             $routes = explode('/', $_SERVER['REQUEST_URI']);
             $name_company = $routes[1];
+
+            $photo_query = mysql_query("
+
+                    SELECT  `companies`.`id_company`
+                    FROM  `companies` 
+                    WHERE  `companies`.`compname_eng` =  '$name_company' ");
+
             $map_query = mysql_query("
 
                     SELECT  `venues`.`coordinate`, `venues`.`venuename_rus`, `companies`.`id_company`
@@ -53,6 +60,7 @@ class Model_Company extends Model{
                                 where companies.name_eng = '$routes[1]' and venues.address = '$location'");
             }*/
 
+            $data['photo_query'] = $photo_query;
             $data['map_query'] = $map_query;
             $data['map_venue_query'] = $map_venue_query;
             $data['about_query'] = $about_query;

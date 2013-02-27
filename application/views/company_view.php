@@ -150,7 +150,12 @@
     <!-- Информация о компании -->
     <div class="span9">
         <div class="thumbnail">
-            <img src="/images/comp.jpg" />
+            <?php
+            while($row = mysql_fetch_array($data['photo_query']))
+            {
+                echo  " <img src='/images/".$row['id_company'].".jpg' />" ;
+            }
+            ?>
         </div>
         <br />
         <div class="well well-small" id="about">
