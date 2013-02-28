@@ -1,9 +1,9 @@
-﻿<?php
+<?php
     
     $localhost  = 'localhost'; // хост
     $dbuser     = 'root';      // имя пользователя
     $dbpassword = 'root';          // пароль
-    $database   = 'improvy';      // база данных
+    $database   = 'improvy_db';      // база данных
     
     /*
      * Подключение к БД

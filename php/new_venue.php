@@ -17,7 +17,8 @@ function translit($str)
         "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
         "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
         "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
-        "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
+        "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya",
+        " "=>"_", "-"=> "_"
     );
     return strtr($str,$translit);
 }
@@ -53,7 +54,7 @@ echo "Запрос к геокодеру по адресу:".  $link_geocoder." 
 echo "<br>".$name_new_venue."<br>".$name_eng_new_venue."<br>".$phone_new_venue."<br>".$metro_new_venue."<br>".$found_adress_new_venue."<br>".$company_new_course."<br>";
 
 $result_new_course = mysql_query("
-              INSERT INTO  `improvy`.`venues` (
+              INSERT INTO  `improvy_db`.`venues` (
                 `id_venue` ,
                 `id_company` ,
                 `venuename_eng` ,

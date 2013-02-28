@@ -16,14 +16,15 @@ function translit($str)
         "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
         "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
         "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"y",
-        "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
+        "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya",
+        " "=>"_", "-"=> "_"
     );
     return strtr($str,$translit);
 }
  
 $company_new_course = $_SESSION['id'];
 $name_new_course = $_POST['name_new_course'];
-$name_eng = translit($name_new_course);
+$name_eng = strtolower(translit($name_new_course));
 $description = $_POST['description_new_course'];
 $venues_checked = $_POST['venues_checked'];
 $price_new_course = $_POST['price_new_course'];
@@ -34,7 +35,7 @@ $subtype_new_course = $_POST['subtype_new_course'];
 $image_link = $_POST['image_new_course_link'];
 $image_local = $_POST['image_new_course_local'];
 
-function createAction($name, $name_new_course){
+function createAction($name, $course_name){
 
     $filename = '../application/controllers/controller_'.$name.'.php';
     $k=0;
@@ -44,7 +45,7 @@ function createAction($name, $name_new_course){
             $k = $i;
         }      
     }
-    $mytext = 'function action_'.$name_new_course.'(){
+    $mytext = 'function action_'.strtolower($course_name).'(){
                 $data = $this->model->get_data_course();
                 $this->view->generate("course_view.php","template_view.php",$data);
             }
@@ -56,7 +57,7 @@ function createAction($name, $name_new_course){
 }
 
 $result = mysql_query ("
-                        INSERT INTO  `improvy`.`courses` (
+                        INSERT INTO  `improvy_db`.`courses` (
                         `id_course` ,
                         `coursename_rus` ,
                         `coursename_eng` ,
@@ -91,10 +92,10 @@ if($result){
                     FROM companies
                     WHERE companies.id_company = '$company_new_course' ") ;
     while ($row = mysql_fetch_array($query)) {
-                $company_name = $row['compname_eng'];
+                $company_name = strtolower($row['compname_eng']);
     }        
     echo $company_name;
-    createAction($company_name, $name_new_course);
+    createAction($company_name, $name_eng);
 
 }
 else{echo "хз че такое";}
@@ -107,7 +108,7 @@ while($row = mysql_fetch_array($last_id))
 foreach ($venues_checked as $key => $value) 
 {
     /*echo $value.'<br />';*/
-    mysql_query(" INSERT INTO `improvy`.`cv` (`id_venue`, `id_course`) 
+    mysql_query(" INSERT INTO `improvy_db`.`cv` (`id_venue`, `id_course`) 
                                     VALUES ('$value', '$last_id_course');   
 ");
 }

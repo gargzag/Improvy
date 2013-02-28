@@ -26,4 +26,8 @@ function action_vv(){
                 $this->view->generate("course_view.php","template_view.php",$data);
             }
 
+        function action_fsd(){
+                $data = $this->model->get_data_course();
+                $this->view->generate("course_view.php","template_view.php",$data);
+            }
         }
