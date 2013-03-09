@@ -7,28 +7,35 @@
   ?>
 <div class="row">
     <div class = "span12">
-        <div class = "page-header text-center">
-                <h2>
-                    <?php
+        
+                <?php
                     $ij=1;
 
                         
                         $routes = explode('/', $_SERVER['REQUEST_URI']);
                         $name_company = $routes[1];
                         
-                        $id = mysql_query("select `id_company`, `compname_rus`
+                        $id = mysql_query("select `id_company`, `compname_rus`, `telephone`, `site`
                                             from `companies` where compname_eng ='$name_company'");
                         while($row = mysql_fetch_array($id))
                         {
                             $id_com =$row['id_company'];
                             $name_rus = $row['compname_rus'];
+                            $telephone = $row['telephone'];
+                            $site = $row['site'];
                         }
-                    echo '<strong>'.$name_rus.'</strong>';
-                    ?>
-                </h2>
-            </div>
+                        echo "
+                            <div class = 'page-header text-center'>
+                                <h2><strong>".$name_rus."</strong></h2>
+                            </div>
+                            <ul class='inline text-center' style ='position: relative ; bottom:20px'>
+                                <li style = 'margin-right: 30px;'>".$telephone."</li>
+                                <li>".$site."</li>
+                            </ul>";
+                ?>
     </div>
 </div>
+
 <div class="row">
     <div class="span3">
         <div class="thumbnail" style="padding:5px;">
