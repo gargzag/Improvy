@@ -1,4 +1,3 @@
-
 <div class="container pad">
 
 <?php
@@ -59,7 +58,7 @@
                             $compid = $_SESSION['id'];
                             $name_eng = translit($name_course_rus_edit);
                             
-                            mysql_query("UPDATE  `improvy`.`courses` 
+                            mysql_query("UPDATE  `improvy_db`.`courses` 
                                          SET  `coursename_rus` = '$name_course_rus_edit',
                                               `coursename_eng` = 'hiphop'
                                          WHERE  `courses`.`id_course` = '$id_course' ");
@@ -70,7 +69,7 @@
                         //Флаг для смены окна
                         echo '   <input type="submit" value="Редактировать!" class="btn" >
                                 <input type="hidden" name="action_course_rus" value=2>
-                              </form>';                            				
+                              </form>';                                         
                     }
                     else {   
                         echo '<form name="frm" method="POST" class = "margino">';
@@ -112,7 +111,7 @@
         <div class="span8">
             <div class="thumbnail">
                 <?php
-                echo "<img src='../images/courselogo/".$id_company."".$id_course.".jpg' />";
+                echo "<img src='../images/courselogo/".$id_course.".jpg' />";
                 ?>
             </div>
             <br />
@@ -152,7 +151,7 @@
                                             //Запись в базу данных
                                             $description_course = $_POST["test"];
                                             $compid = $_SESSION['id'];
-                                            mysql_query("UPDATE  `improvy`.`courses` 
+                                            mysql_query("UPDATE  `improvy_db`.`courses` 
                                                         SET  `description` = '$description_course' 
                                                         WHERE  `courses`.`id_course` ='$id_course'
                                            ");
@@ -163,7 +162,7 @@
                                         echo $description_course."<br/>"; 
                                         //Флаг для смены окна
                                         echo '<input type="hidden" name="action_description_course" value=2>
-                                              </form>';                            				
+                                              </form>';                                         
                                     }
                                     else {   
                                         echo '<form name="frm1" method="POST">';
@@ -191,7 +190,7 @@
                                     echo '</form>';   
                                 }                               
                            
-                				        
+                                        
                         
                         
                         
@@ -199,11 +198,11 @@
                         //Хип-хоп (англ. Hip-hop) — музыкальный жанр или музыкальная форма, являющийся сочетанием ритмичной музыки и наложенным на неё речитативом, иногда — с наличием мелодичного куплета.[1] Хип-хоп музыка является сочетанием двух музыкальных элементов субкультуры хип-хопа— диджеинга и эмсиинга.
                         //$_description_course
                     echo '          <script>
-                							$(".textarea_description").wysihtml5();
-                						</script>
-                						<script type="text/javascript" charset="utf-8">
-                							$(prettyPrint);
-                						</script>
+                                            $(".textarea_description").wysihtml5();
+                                        </script>
+                                        <script type="text/javascript" charset="utf-8">
+                                            $(prettyPrint);
+                                        </script>
                         
                         </div>
                     </div>
@@ -219,7 +218,7 @@
                                             //Запись в базу данных
                                             $price_course = $_POST["test"];
                                             $compid = $_SESSION['id'];
-                                            mysql_query("UPDATE  `improvy`.`courses` 
+                                            mysql_query("UPDATE  `improvy_db`.`courses` 
                                                         SET  `price` = '$price_course' 
                                                         WHERE  `courses`.`id_course` ='$id_course'
                                            ");
@@ -230,7 +229,7 @@
                                         echo $price_course."<br/>"; 
                                         //Флаг для смены окна
                                         echo '<input type="hidden" name="action_price_course" value=2>
-                                              </form>';                            				
+                                              </form>';                                         
                                     }
                                     else {   
                                         echo '<form name="frm2" method="POST">';
@@ -267,8 +266,8 @@
                              
                              
                              echo '          <script>
-                							$(".textarea_price").wysihtml5();
-                						</script>
+                                            $(".textarea_price").wysihtml5();
+                                        </script>
                              
                              
                              </p>
@@ -285,7 +284,7 @@
                                             //Запись в базу данных
                                             $timetable_course = $_POST["test"];
                                             $compid = $_SESSION['id'];
-                                            mysql_query("UPDATE  `improvy`.`courses` 
+                                            mysql_query("UPDATE  `improvy_db`.`courses` 
                                                         SET  `timetable` = '$timetable_course' 
                                                         WHERE  `courses`.`id_course` ='$id_course'
                                            ");
@@ -296,7 +295,7 @@
                                         echo $timetable_course."<br/>"; 
                                         //Флаг для смены окна
                                         echo '<input type="hidden" name="action_timetable_course" value=2>
-                                              </form>';                            				
+                                              </form>';                                         
                                     }
                                     else {   
                                         echo '<form name="frm3" method="POST">';
@@ -333,8 +332,8 @@
                              
                              
                              echo '     <script>
-                							$(".textarea_timetable").wysihtml5();
-                						</script>
+                                            $(".textarea_timetable").wysihtml5();
+                                        </script>
                             
                             
                             
@@ -432,21 +431,21 @@
                     
                     
                         $.ajax({
-            			type: "POST",
-            			url: '/php/remove_venues.php',
-            			data: {
-            				"id_remove_venue": id_remove_venue,
+                        type: "POST",
+                        url: '/php/remove_venues.php',
+                        data: {
+                            "id_remove_venue": id_remove_venue,
                             "id_remove_course": id_remove_course,
                             "name_course_rus": name_course_rus,
                             "venuename_rus":venuename_rus
-            			},
-            			success: function(data) {
-            				    alert(data);
-            				    location.reload();
-            				    window.location = location.href;
-            					//$('#myModal').modal('show');
-            			}
-            		})
+                        },
+                        success: function(data) {
+                                alert(data);
+                                location.reload();
+                                window.location = location.href;
+                                //$('#myModal').modal('show');
+                        }
+                    })
                 }
                 
             </script>

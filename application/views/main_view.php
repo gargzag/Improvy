@@ -1,6 +1,3 @@
-
-
-
 <div class="container pad">
     <section id="carousel">
     <div class="row">
@@ -28,28 +25,38 @@
     </section>
 
     <div class="row">
-        <div class="span4">
-            <div class="item">
-                <a href="">
-                    <div class="item_header">Бизнес-тренинги</div>
-                    <div class="img"><img src="images/bisiness.jpg"/></div>
-                </a>
-            </div>
-        </div>
-        <div class="span4">
+
+        <div class="span3">
             <div class="item">
                 <a href="courses/computer">
-                    <div class="item_header">Компьютерные курсы</div>
+                    <div class="item_header">Интернет/технологии</div>
                     <div class="img"><img src="images/computer.jpg"/></div>
                 </a>
             </div>
         </div>
+        <div class="span3">
+            <div class="item">
+                <a href="courses/business">
+                    <div class="item_header">Бизнес</div>
+                    <div class="img"><img src="images/bisiness.jpg"/></div>
+                </a>
+            </div>
+        </div>
         
-        <div class="span4">
+        
+        <div class="span3">
             <div class="item">
                 <a href="courses/languages">
                     <div class="item_header">Инностранные языки</div>
                     <div class="img"><img src="images/language.jpg"/></div>
+                </a>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="item">
+                <a href="courses/art">
+                    <div class="item_header">Искусство/дизайн</div>
+                    <div class="img"><img src="images/art.jpg"/></div>
                 </a>
             </div>
         </div>
@@ -61,7 +68,7 @@
     <br />
     <div class="row"> 
         
-        <div class="span4">
+        <div class="span3">
             <div class="item">
                 <a href="courses/dances">
                     <div class="item_header">Танцы</div>
@@ -69,7 +76,7 @@
                 </a>
             </div>
         </div>
-        <div class="span4">
+        <div class="span3">
             <div class="item">
                 <a href="courses/sport">
                     <div class="item_header">Спорт и фитнес</div>
@@ -77,7 +84,7 @@
                 </a>
             </div>
         </div>
-        <div class="span4">
+        <div class="span3">
             <div class="item">
                 <a href="courses/martial">
                     <div class="item_header">Боевые единоборства</div>
@@ -85,7 +92,16 @@
                 </a>
             </div>
         </div>
-</div>
+        <div class="span3">
+            <div class="item">
+                <a href="courses/martial">
+                    <div class="item_header">Боевые единоборства</div>
+                    <div class="img"><img src="images/martial.jpg"/></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
 <br />
 
 <div class="row">
@@ -94,13 +110,15 @@
             
             <img src="images/icon_search.png"/>
             <span class="text-info text_icon">Курсы на любой вкус</span>
-            <p> Вам больше не придется тратить много времени на поиск интересующих вас курсов или спортивных секций, бороздя просторы интернета.
+            <p> Все образовательные мероприятия вашего города в одном месте.
                 
         </div>
         <div class="span6">
             <img src="images/icon_video.png"/>
             <span class="text-info text_icon">Что это за сервис?</span>
-            <p>Bounce uses free open-source fonts from Fontspring as well as the iconic Font Awesome.
+            <p> Мы стараемся сделать поиск образовательных вашего города как можно удобнее.
+                На ImprovY вы сможете найти различные курсы, трениги, мастер классы, занятия в танцевальных школах и т.д.
+                Совершенствуйтесь вместе с ImprovY =)
         </div>
         
 </div>

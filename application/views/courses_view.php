@@ -56,8 +56,18 @@
                                 <li><a href="childdance">Детские танцы</a></li>
                                 <li><a href="bellydance">Танец живота</a></li>
                                 <li><a href="tango">Танго</a></li>
-              </ul>
-
+                                <li><a href="balet">Балет</a></li>
+                                <li><a href="vals">Вальс</a></li>
+                                <li><a href="samba">Самба</a></li>
+                                <li><a href="breakdance">Брейк</a></li>
+                                <li><a href="latina">Латина</a></li>
+                                <li><a href="r_and_b">R&B</a></li>
+                                <li><a href="irlandskie">Ирландские</a></li>
+                                <li><a href="chechetka">Чечетка</a></li>
+                                <li><a href="kapoera">Капоэйра</a></li>
+                                <li><a href="narodnie">Народные</a></li>
+                                <li><a href="other_dance">Другие</a></li>           
+                </ul>
             </div>
         </div>
 
@@ -83,7 +93,7 @@
                                             <td width = '20%'>
                                             <div class = 'picture_course'>
                                                 <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">
-                                                    <img src='../images/courselogo/".$row['id_company']."".$row['id_course'].".jpg'/>
+                                                    <img src='../images/courselogo/".$row['id_course'].".jpg'/>
                                                 </a>
                                             </div>
                                             </td>
@@ -203,12 +213,11 @@
                 </div>
             </div>
             <div class="pagination">
-  <ul id="nav_num">
-  </ul>
-</div>
-<div class = "hfooter"></div>
+              <ul id="nav_num">
+              </ul>
+            </div>
         </div>
     </div>
 </div>
-
+<div class = "hfooter"></div>
 </div>

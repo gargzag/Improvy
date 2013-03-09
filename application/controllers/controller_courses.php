@@ -14,31 +14,44 @@ class Controller_Courses extends Controller{
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
     //Обрабатывают главные категории
-    function action_sport(){
-        
-        $data = $this->model->get_sport();
-        $this->view->generate('courses_view.php','template_view.php',$data);
-    }
-    function action_martial(){
-        $course = "martial";
-        $data = $this->model->get_martial();
-        $this->view->generate('courses_view.php','template_view.php',$data);
-    }
+
     function action_computer(){
         $course = "computer";
         $data = $this->model->get_computer();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
+
+    function action_business(){
+     
+        $data = $this->model->get_dances();
+        $this->view->generate('courses_view.php','template_view.php',$data);
+    }
+
     function action_languages(){
         $course = "languages";
         $data = $this->model->get_languages();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
-     function action_dances(){
+    
+    function action_sport(){
+        
+        $data = $this->model->get_sport();
+        $this->view->generate('courses_view.php','template_view.php',$data);
+    }
+
+    function action_martial(){
+        $course = "martial";
+        $data = $this->model->get_martial();
+        $this->view->generate('courses_view.php','template_view.php',$data);
+    }
+    
+    
+    function action_dances(){
 	 
         $data = $this->model->get_dances();
         $this->view->generate('courses_view.php','template_view.php',$data);
     }
+    
     
     //Обрабатывают подкатегории
     

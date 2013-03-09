@@ -121,7 +121,7 @@
                         <ul class="inline">
                           <li><small>Copyright © ImprovY 2013</small></li>
                           <li><a href="/main"><small>Главная</small></a></li>
-                          <li><a href="/about"><small>О нас</small></a></i>
+                          <li><a href="/contacts"><small>О нас</small></a></i>
                           <li><a href="/registration"><small>Организаторам</small></a></li>
                         </ul>
                         

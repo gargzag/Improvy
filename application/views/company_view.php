@@ -5,7 +5,30 @@
          echo "<div class='navig'><i class='icon-arrow-left'></i><a href='".$_SESSION["crumb"]."'>Назад к поиску</a></div>";   
      }
   ?>
+<div class="row">
+    <div class = "span12">
+        <div class = "page-header text-center">
+                <h2>
+                    <?php
+                    $ij=1;
 
+                        
+                        $routes = explode('/', $_SERVER['REQUEST_URI']);
+                        $name_company = $routes[1];
+                        
+                        $id = mysql_query("select `id_company`, `compname_rus`
+                                            from `companies` where compname_eng ='$name_company'");
+                        while($row = mysql_fetch_array($id))
+                        {
+                            $id_com =$row['id_company'];
+                            $name_rus = $row['compname_rus'];
+                        }
+                    echo '<strong>'.$name_rus.'</strong>';
+                    ?>
+                </h2>
+            </div>
+    </div>
+</div>
 <div class="row">
     <div class="span3">
         <div class="thumbnail" style="padding:5px;">
@@ -18,17 +41,7 @@
 
                     map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
                     <?php
-                    $ij=1;
-
                     
-                    $routes = explode('/', $_SERVER['REQUEST_URI']);
-                    $name_company = $routes[1];
-                    
-                    $id = mysql_query("select `id_company`from `companies` where compname_eng ='$name_company'");
-                    while($row = mysql_fetch_array($id))
-                    {
-                        $id_com =$row['id_company'];
-                    }
                     
                     
                     
@@ -151,11 +164,14 @@
     </div>
     <!-- Информация о компании -->
     <div class="span9">
+        
+
+
         <div class="thumbnail">
             <?php
             while($row = mysql_fetch_array($data['photo_query']))
             {
-                echo  " <img src='/images/complogo".$row['id_company'].".jpg' />" ;
+                echo  " <img width = '100%' src='/images/complogo/".$row['id_company'].".jpg' />" ;
             }
             ?>
         </div>
@@ -163,7 +179,7 @@
         <div class="well well-small" id="about">
             <h6>О компании</h6>
 
-			<?php 
+            <?php 
                 
                 while($row = mysql_fetch_array($data['about_query'])) 
                 {
@@ -175,7 +191,7 @@
                             //Запись в базу данных
                             $text_description = $_POST["test"];
                             $compid = $_SESSION['id'];
-                            mysql_query("UPDATE  `improvy`.`companies` 
+                            mysql_query("UPDATE  `improvy_db`.`companies` 
                                          SET  `about` = '$text_description' 
                                          WHERE  `companies`.`id_company` = $compid ");
                         }                               
@@ -185,7 +201,7 @@
                         echo $text_description."<br/>"; 
                         //Флаг для смены окна
                         echo '<input type="hidden" name="action" value=2>
-                              </form>';                            				
+                              </form>';                                         
                     }
                     else {   
                         echo '<form name="frm" method="POST">';
@@ -213,12 +229,12 @@
                     echo '</form>';   
                 }                               
             ?>
-				        <script>
-							$('.textarea').wysihtml5();
-						</script>
-						<script type="text/javascript" charset="utf-8">
-							$(prettyPrint);
-						</script>
+                        <script>
+                            $('.textarea').wysihtml5();
+                        </script>
+                        <script type="text/javascript" charset="utf-8">
+                            $(prettyPrint);
+                        </script>
         </div>
 
 
@@ -236,6 +252,7 @@
                         //echo $i."name_eng=".$row['name_eng'];
                         //echo "<br>".$i."eng=".$row['eng'];
                         //echo "<br>".$i."name_rus=".$row['name_rus'];
+                        //$name_rus=$row['name_rus'];
                         //echo "<br>".$i."price=".$row['price'];
                         //echo "<br>".$i."description=".$row['description'];
                         echo (" <div class='accordion-group'>                        
@@ -246,7 +263,7 @@
                                             <td width = '150px'>
                                             <div class = 'picture_course'>
                                                 <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">
-                                                    <img src='../images/courselogo/".$row['id_company']."".$row['id_course'].".jpg'/>
+                                                    <img src='../images/courselogo/".$row['id_course'].".jpg'/>
                                                 </a>
                                             </div>
                                             </td>
@@ -382,7 +399,7 @@
                                 <textarea class="textarea1" id="description_new_course" placeholder="Введите описание курса" name="description_new_course" style="width: 460px; height: 170px"></textarea>                             
                             </div>
                             <script>
-		                         $(".textarea1").wysihtml5();
+                                 $(".textarea1").wysihtml5();
                             </script>
                         </div> 
                         
@@ -392,7 +409,7 @@
                                 <textarea class="textarea2" id="price_new_course" placeholder="Информация о цене" name="price_new_course" style="width: 460px; height: 170px"></textarea>
                             </div>
                             <script>
-		                         $(".textarea2").wysihtml5();
+                                 $(".textarea2").wysihtml5();
                             </script>
                         </div>
                         
@@ -408,7 +425,7 @@
                             <div class="controls">
                                 <textarea class="textarea3" id="timetable_new_course" placeholder="Расписание" name="timetable_new_course" style="width: 460px; height: 170px"></textarea>
                                  <script>
-    		                         $(".textarea3").wysihtml5();
+                                     $(".textarea3").wysihtml5();
                                 </script>
                             </div>                           
                         </div>
@@ -484,5 +501,6 @@
     </div>
 </div>
 </div>
-</div>
 <div class = "hfooter"></div>
+</div>
+

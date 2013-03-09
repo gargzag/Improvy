@@ -47,13 +47,13 @@
 			  </div>
 			</form> -->
 			<fieldset>
-				<form>
+				<form method = "post" action = "<?php echo $_SERVER['REQUEST_URI']; ?>" >
 				<legend>Форма обратной связи</legend>
 				
-					<input type="text" class = "span6" placeholder = "Имя">
-					<input type="text" class = "span6" placeholder = "Email">
-					<textarea class="span6" placeholder = "Сообщение" rows = "5"></textarea>
-					<input type="button" class="btn btn-info pull-right" value =" Отправить">
+					<input type="text" class = "span6" placeholder = "Имя" name = "name" required>
+					<input type="text" class = "span6" placeholder = "Email" name = "email" required>
+					<textarea class="span6" placeholder = "Сообщение" rows = "5" name = "message" required></textarea>
+					<input type="submit" class="btn btn-info pull-right" value = "Отправить" name = "submit">
 				</form>	
 			</fieldset>
 		</div>
