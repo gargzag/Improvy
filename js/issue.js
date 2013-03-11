@@ -4,11 +4,15 @@ $(function() {
 		arr[i] = $(this);
 	})
 
+
 	var len = arr.length;
-	var It_on_page = 5;
+	var It_on_page = 10;
 	var pages = Math.round(len / It_on_page) + 1;
-	for (var i = 1; i < pages; i++) {
-		$("#nav_num").append("<li class='disable nums'><a href='#'>" + i + "</a></li>")
+	console.log(len);
+	if (len > 10){
+		for (var i = 1; i <= pages; i++) {
+			$("#nav_num").append("<li class='disable nums'><a href='#page"+i+"'>" + i + "</a></li>")
+		}
 	}
 	var temp;
 	var start = 0;

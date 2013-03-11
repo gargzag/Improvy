@@ -1,11 +1,12 @@
 <div class="container pad">
 
+<!--Сквозная кавигация -->
 <?php
-  if (isset($_SESSION["crumb"])) {
+    if (isset($_SESSION["crumb"])) {
          echo "<div class='navig'><i class='icon-arrow-left'></i><a href='".$_SESSION["crumb"]."'>Назад к поиску</a></div>"; 
-         }  
-  ?>
-
+    }  
+?>
+<!-- Название курса -->
     <div class="row">
         <div class="span12">
             <h4 style="margin-top: 0 !important;">
@@ -110,6 +111,7 @@
     <div class="row">
         <div class="span8">
             <div class="thumbnail">
+                <!-- Фотография курса -->
                 <?php
                 echo "<img src='../images/courselogo/".$id_course.".jpg' />";
                 ?>

@@ -25,12 +25,12 @@
                             $site = $row['site'];
                         }
                         echo "
-                            <div class = 'page-header text-center'>
+                            <div class = 'page-header text-center' style='padding-bottom:0px'>
                                 <h2><strong>".$name_rus."</strong></h2>
                             </div>
                             <ul class='inline text-center' style ='position: relative ; bottom:20px'>
-                                <li style = 'margin-right: 30px;'>".$telephone."</li>
-                                <li>".$site."</li>
+                                <li style = 'margin-right: 30px;'> <i class='icon-bell' style = 'margin-right:5px;'></i>".$telephone."</li>
+                                <li><a href='http://".$site."' ><i class='icon-globe'style = 'margin-right:5px;' ></i>".$site."</a></li>
                             </ul>";
                 ?>
     </div>
@@ -160,7 +160,7 @@
                    <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
                    <!--<<input  type="submit" class="btn btn-primary" value="PHP" />
                    <button class="btn btn-primary">Отмена</button>-->
-                   <input class="btn btn-primary" value="Добавить курс" id="button_add_venue" type="button">
+                   <input class="btn btn-primary" value="Добавить адрес" id="button_add_venue" type="button">
               </div>
           </form> 
         </div>

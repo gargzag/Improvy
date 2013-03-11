@@ -8,7 +8,7 @@
     <div class="row">
         <div class="span3">
 
-            <div id="side" >
+            <div id="side">
 
               <h3><li><a href="sport">Спорт/Фитнес</a></li></h3>
               <ul class="nav nav-list">
@@ -71,32 +71,36 @@
             </div>
         </div>
 
-        <div class="span9">                  
+        <div class="span7"> 
+
+                       
             <div id="courses">
                 <div class="accordion" id="accordion2">
                     <?php                                      
-                    if(mysql_num_rows($data) > 0) {
+                    if(mysql_num_rows($data[1]) > 0) {
                         $k=1;
-                        while($row = mysql_fetch_array($data)) {
+                        $i = 0;
+                        while($row = mysql_fetch_array($data[1])) {
                         //echo $i."name_eng=".$row['name_eng'];
                         //echo "<br>".$i."eng=".$row['eng'];
                         //echo "<br>".$i."name_rus=".$row['name_rus'];
                         //echo "<br>".$i."price=".$row['price'];
                         //echo "<br>".$i."description=".$row['description'];
+                        
                         $name_course_eng = $row['coursename_eng'];
                         $name_companies_eng =  $row['compname_eng'];
                         echo (" <div class='accordion-group iss'>                        
                                     <div class='accordion-heading' >
                                         <div class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' data-target='#collapse".$k."'>                                            
-                                            
                                             <table class = 'table_course'><tr>
                                             <td width = '20%'>
-                                            <div class = 'picture_course'>
-                                                <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">
-                                                    <img src='../images/courselogo/".$row['id_course'].".jpg'/>
-                                                </a>
-                                            </div>
+                                                <div class = 'picture_course'>
+                                                    <a href=/".strtolower($row['compname_eng'])."/".strtolower($row['coursename_eng']).">
+                                                        <img src='../images/courselogo/".$row['id_course'].".jpg'/>
+                                                    </a>
+                                                </div>
                                             </td>
+                                            
                                             <td width = '40%'>
                                                 <div class='name_course'>
                                                     <span class='page-header'> 
@@ -114,48 +118,48 @@
                                                 <div class='location_courses'>
                                                     <span class='page-header'> 
                                                         <ul class='unstyled'>");
-                                                                                                     $info_address_course = mysql_query(" 
-                                                                                                        SELECT  `venues`.`venuename_rus`, 
-                                                                                                                `venues`.`phone`, 
-                                                                                                                `venues`.`metro`, 
-                                                                                                                `venues`.`country`, 
-                                                                                                                `venues`.`street`, 
-                                                                                                                `venues`.`home`, 
-                                                                                                                `venues`.`corpus`, 
-                                                                                                                `venues`.`how_found`, 
-                                                                                                                `venues`.`coordinate`
-                                                                                                        FROM `courses` 
-                                                                                                           join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                                                                                                           join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                                                                                                           join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                                                                                                        where   `courses`.`coursename_eng` = '$name_course_eng' and 
-                                                                                                                `companies`.`compname_eng` =  '$name_companies_eng'
-                                                                                                        ");
-                                                                                                        $info_address_course_count = mysql_query(" 
-                                                                                                            SELECT  count(*) as p
-                                                                                                            FROM `courses` 
-                                                                                                               join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                                                                                                               join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                                                                                                               join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                                                                                                            where   `courses`.`coursename_eng` = '$name_course_eng' and 
-                                                                                                                    `companies`.`compname_eng` =  '$name_companies_eng'
-                                                                                                            ");
-                                                                                                        while($row1 = mysql_fetch_array($info_address_course_count))
-                                                                                                        {
-                                                                                                            $count = $row1['p'] - 3;
-                                                                                                        }
-                                                                                                        $i = 0;
-                                                                                                        while($row2 = mysql_fetch_array($info_address_course))
-                                                                                                        {
-                                                                                                            $i = $i+1;
-                                                                                                            if (($i>3)&&($count!=1))
-                                                                                                            {
-                                                                                                                echo "<li>и еще ".$count." других мест</li>";
-                                                                                                                break;
-                                                                                                            }
-                                                                                                            echo "<li>".$row2['venuename_rus']."</li>";
-                                                                                                            
-                                                                                                        }
+                                                            $info_address_course = mysql_query(" 
+                                                                SELECT  `venues`.`venuename_rus`, 
+                                                                `venues`.`phone`, 
+                                                                `venues`.`metro`, 
+                                                                `venues`.`country`, 
+                                                                `venues`.`street`, 
+                                                                `venues`.`home`, 
+                                                                `venues`.`corpus`, 
+                                                                `venues`.`how_found`, 
+                                                                `venues`.`coordinate`
+                                                                FROM `courses` 
+                                                                   join `cv` on `courses`.`id_course` = `cv`.`id_course` 
+                                                                   join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
+                                                                   join `companies` on `companies`.`id_company`=`venues`.`id_company`
+                                                                where   `courses`.`coursename_eng` = '$name_course_eng' and 
+                                                                        `companies`.`compname_eng` =  '$name_companies_eng'
+                                                                ");
+                                                            $info_address_course_count = mysql_query(" 
+                                                                SELECT  count(*) as p
+                                                                FROM `courses` 
+                                                                   join `cv` on `courses`.`id_course` = `cv`.`id_course` 
+                                                                   join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
+                                                                   join `companies` on `companies`.`id_company`=`venues`.`id_company`
+                                                                where   `courses`.`coursename_eng` = '$name_course_eng' and 
+                                                                        `companies`.`compname_eng` =  '$name_companies_eng'
+                                                                ");
+                                                            while($row1 = mysql_fetch_array($info_address_course_count))
+                                                            {
+                                                                $count = $row1['p'] - 3;
+                                                            }
+                                                            $i = 0;
+                                                            while($row2 = mysql_fetch_array($info_address_course))
+                                                            {
+                                                                $i = $i+1;
+                                                                if (($i>3)&&($count!=1))
+                                                                {
+                                                                    echo "<li>и еще ".$count." других мест</li>";
+                                                                   break;
+                                                                }
+                                                                echo "<li>".$row2['venuename_rus']."</li>";
+                                                                
+                                                            }
                                                             echo ("
                                                         </ul>
                                                     </span>                                    
@@ -188,6 +192,7 @@
                                 </div>
                                 ");
                         $k=$k+1;
+                        $i = $i+1;
 
                         }
                     } else 
@@ -212,12 +217,54 @@
                  ?>
                 </div>
             </div>
-            <div class="pagination">
+            <div class="pagination pagination-small text-center">
               <ul id="nav_num">
               </ul>
             </div>
         </div>
+        
+        <div class = "span2">
+            <div class = "filtr">
+                <form>
+                    <fieldset>
+                        <legend>Фильтр</legend>
+                        
+                        <button type="submit" class="btn">Submit</button>
+                        <div class="accordion" id="accordion2">
+                          <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                    Местоположение
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="accordion-body collapse">
+                              <div class="accordion-inner pd">
+                                <?php
+                                    while ($row = mysql_fetch_array($data[2])) {
+                                        echo "<input type='checkbox'><span class ='fs'>".$row['district']."</span> <br>";
+                                    }
+                                    
+                                ?>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-group">
+                            <div class="accordion-heading">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                Цена
+                              </a>
+                            </div>
+                            <div id="collapseTwo" class="accordion-body collapse">
+                              <div class="accordion-inner">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </fieldset>
+                </form>
+            </div>      
+        </div>
     </div>
-</div>
-<div class = "hfooter"></div>
-</div>
+
+</div   
