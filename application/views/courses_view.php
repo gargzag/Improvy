@@ -6,8 +6,31 @@
   ?>
 </ul>
     <div class="row">
+        <div class="span6">
+            <div id="form-search">
+            <form class="form-search" method="POST" action="/courses">
+                <input type="text" class="input-medium search-query" id="search" autocomplete="off" name="search">
+                <button type="submit" class="btn" id="go_search">Search</button>
+            </form>
+            <div id="result" class="result">Вводите запрос</div>
+        </div>
+        </div>
+    </div>
+        <div class="row">
         <div class="span3">
-
+           <!-- <div id="side">
+                <ul class="nav nav-list">
+                <?php
+                    $data = mysql_query("SELECT `name`
+                                FROM `type`"); 
+                     if(mysql_num_rows($data) > 0) {
+                            while($row = mysql_fetch_array($data)) {
+                                echo ("<li><button class='btn btn-link'>".$row['name']."</button></li>");
+                            }
+                        }
+                ?>
+                </ul>
+            </div>-->
             <div id="side">
 
               <h3><li><a href="sport">Спорт/Фитнес</a></li></h3>
@@ -69,14 +92,15 @@
                                 <li><a href="other_dance">Другие</a></li>           
                 </ul>
             </div>
-        </div>
+        </div> 
 
         <div class="span7"> 
 
                        
             <div id="courses">
                 <div class="accordion" id="accordion2">
-                    <?php                                      
+                    <?php   
+                    echo $data[1];                                   
                     if(mysql_num_rows($data[1]) > 0) {
                         $k=1;
                         $i = 0;

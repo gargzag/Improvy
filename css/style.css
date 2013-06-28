@@ -336,3 +336,18 @@ border-width: 1px;
     margin-top: 40px;
 }
 
+.result{
+     display: none;
+     position:relative;
+     top: -10.5px;
+     
+     width: 140px;
+    margin: 0 auto;
+    padding: 10px;
+     
+     color:#4d4d4d;
+     /*padding:20px;*/
+     border:1px solid #000000;
+     /*padding:25px;*/
+     z-index:101;   /* а его выше фонового блока*/
+}

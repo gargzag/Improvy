@@ -1,10 +1,9 @@
 <?php 
-    session_start();
     header( 'Content-Type: text/html; charset=utf-8' );
     //$search = $_POST['search'];
     //$search = htmlspecialchars($search);
     //mysql_query("UTF8");
-   $search = $_SESSION['p'];
+   $search = $_POST['search'];
    /* if($search == '')
         exit("Начните вводить запрос");
     elseif(!preg_match("/^[а-я0-9]+$/ui", $search))  
@@ -12,24 +11,25 @@
     
     include 'db.php';
     
-    $result = mysql_query("SELECT * FROM `livesearch` WHERE text LIKE('$search%') ");
+    $result = mysql_query("SELECT `name` FROM `subtype` WHERE `name` LIKE('$search%') ");
     
     $output = '['; 
     if(mysql_num_rows($result) > 0) {
       $i = 0;
         while($row = mysql_fetch_array($result)) {
-            $i++;
+           $i++;
            if($i == 1) {
-              $output .= '{ "id": "'.$row['text'].'", "label": "'.$row['id'].'", "value": "'.$row['text'].'"}';
+              $output .= '{"value": "'.$row['name'].'"}';
             } else {
-              $output .= ',{ "id": "'.$row['text'].'", "label": "'.$row['id'].'", "value": "'.$row['text'].'"}';
+              $output .= ',{"value": "'.$row['name'].'"}';
             }
             }
             $output .= ']'; 
-            echo $output;
-           // echo json_encode($row);
+            //echo $output;
+            echo json_encode($row);
           
-        }
+       // }
+      }
     else
 	echo "Ничего не найдено";
     

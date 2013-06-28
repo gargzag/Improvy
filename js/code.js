@@ -135,4 +135,164 @@
 
          //alert(1);
      });
- })
+ });
+ /*
+ function JSONresp() {
+     $.ajax({
+         type: "POST",
+         url: "/php/search.php",
+         //dataType: "json",
+         data: {
+             "search": search
+         },
+         cache: false,
+         success: function(response) {
+             //$("#result").empty();
+             //res = $.parseJSON(response);
+             // l = res.length;
+             res = response;
+             //alert(response);
+         }
+     });
+ }
+ $(function() {
+     var res;
+     $("#search").keyup(function(event) {
+         var search = $("#search").val();
+         $.ajax({
+             type: "POST",
+             url: "/php/search.php",
+             //dataType: "json",
+             data: {
+                 "search": search
+             },
+             cache: false,
+             success: function(response) {
+                 //$("#result").empty();
+                 //res = $.parseJSON(response);
+                 // l = res.length;
+                 res = response;
+                 //alert(response);
+             }
+         });
+    });
+     var resp;
+     $("#search").autocomplete({
+         source: function() {
+             $.ajax({
+                 type: "POST",
+                 url: "/php/search.php",
+                 data: {
+                     "search": search
+                 },
+                 cache: false,
+                 success: function(response) {
+                     alert(1);
+                     return $.parseJSON(response);
+                 }
+             });
+         },
+         minLength: 2
+     });
+ });
+
+ var glob;
+ var req;
+ var l;
+ $(function() {
+     $("#search").keyup(function(event) {
+         var search = $("#search").val();
+         if (search.len > 2) {
+                                alert(1)
+         //if (event.which == 1040 || 1041 || 1042 || 1043 || 1044 || 1045 || 1046 || 1047 || 1048 || 1049 || 1050 || 1051 || 1052 || 1053 || 1054 || 1055 || 1056 || 1057 || 1058 || 1059 || 1060 || 1061 || 1062 || 1063 || 1064 || 1065 || 1066 || 1067 || 1068 || 1069 || 1070 || 1071 || 1025 || 1072 || 1073 || 1074 || 1075 || 1076 || 1077 || 1078 || 1079 || 1080 || 1081 || 1082 || 1083 || 1084 || 1085 || 1086 || 1087 || 1088 || 1089 || 1090 || 1091 || 1092 || 1093 || 1094 || 1095 || 1096 || 1097 || 1098 || 1099 || 1100 || 1101 || 1102 || 1103 || 1105) {
+         if (event.which == 40 || event.which == 38) {
+             //console.log('');
+         } else {
+             $.ajax({
+                 type: "POST",
+                 url: "/php/search.php",
+                 //dataType: "json",
+                 data: {
+                     "search": search
+                 },
+                 cache: false,
+                 success: function(response) {
+                     $("#result").empty();
+                     var res = $.parseJSON(response);
+                     l = res.length;
+                     glob = res;
+                     for (var i = 0; i < l; i++) {
+                         $("#result").append('<p>' + res[i].name + '</p>');
+                     }
+                 }
+             });
+             return false;
+         }
+     }
+     });
+ search ="";
+ });
+ $(function() {
+     $("#search").keyup(function() {
+         if ($("#search").val().length !== 0) {
+             $('#result').show();
+         } else $('#result').hide();
+     });
+ });
+ $(function() {
+     var i = -1;
+
+     $("#search").keydown(function(event) {
+         if (event.which == 40) {
+             if (i < l - 1 && i >= -1) {
+                 i++;
+                 $("#search").val(glob[i].id);
+                 console.log(i);
+             }
+         }
+         if (event.which == 38) {
+             if (i <= l - 1 && i > 0) {
+                 i--;
+                 console.log(i);
+                 $("#search").val(glob[i].id);
+             }
+         }
+         if (event.which == 13) {
+             $('#result').hide();
+             alert(glob[i].label);
+
+         }
+         if (event.which == 13 || event.which == 8 || event.which == 46) {
+             i = -1;
+         }
+
+
+     });
+
+
+ });
+ /*$(function() {
+                $(document).ready(function() {
+                    $("#search").focus(function() {
+                        $('#result').show();
+                    });
+                    });
+                });*/
+
+ $(function() {
+     $("#go_search").click(function() {
+         var search = $("#search").val();
+         $.ajax({
+             type: "POST",
+             url: '/php/search_course.php',
+             data: {
+                 "search": search
+             },
+             success: function(response) {
+                 alert(1);
+                 var res = $.parseJSON(response);
+                 alert(res[1].value);
+             }
+         });
+     });
+ });

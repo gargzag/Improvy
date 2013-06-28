@@ -52,19 +52,14 @@ class Model_Courses extends Model
 
 	public function get_dances()
 	{	
-        $data[1] = mysql_query("SELECT  distinct `courses`.`id_course`, `courses`.`coursename_rus`, `courses`.`coursename_eng`, `courses`.`price`,`courses`.`description`, `courses`.`minprice`, `companies`.`id_company`,`companies`.`compname_rus`,`companies`.`compname_eng`
+        $data[1] = mysql_query("SELECT  *
 
                             FROM `courses` 
-                               join `cv` on `courses`.`id_course` = `cv`.`id_course` 
-                               join `venues` on `cv`.`id_venue` = `venues`.`id_venue`                       
-                               join `companies` on `companies`.`id_company`=`venues`.`id_company`
-                            where courses.type = '5' ");
+                                ");
         
-        $data[2] = mysql_query("SELECT distinct `venues`.`district`
-                              FROM `venues`
-                              join `cv` on `cv`.`id_venue` = `venues`.`id_venue`
-                              join `courses` on `courses`.`id_course` = `cv`.`id_course`
-                              where courses.type = '5'
+        $data[2] = mysql_query("SELECT  *
+
+                            FROM `courses` 
                               ");              
 
         return $data;
